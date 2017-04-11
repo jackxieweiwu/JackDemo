@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="80dip"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+        <ImageView
+            android:alpha="0"
+            android:id="@+id/iv_logo"
+            android:layout_width="100dip"
+            android:layout_height="98dip"
+            android:layout_gravity="center"
+            android:background="@mipmap/logo"/>
+
+        <TextView
+            android:alpha="0"
+            android:id="@+id/iv_slogo1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="45sp"
+            android:text="中"/>
+
+        <TextView
+            android:alpha="0"
+            android:id="@+id/iv_slogo2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="45sp"
+            android:text="科"/>
+
+        <TextView
+            android:alpha="0"
+            android:id="@+id/iv_slogo3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="45sp"
+            android:text="瑞"/>
+
+        <TextView
+            android:alpha="0"
+            android:id="@+id/iv_slogo4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="45sp"
+            android:text="泰"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/ftb_start"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_marginBottom="80dip"
+        android:layout_gravity="bottom|center"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:text="进入"
+        android:background="@drawable/round_btn"/>
+
+    <Button
+        android:id="@+id/ftb_frequency"
+        android:visibility="gone"
+        android:layout_marginBottom="80dip"
+        android:text="对频"
+        android:textColor="#ffffff"
+        android:layout_width="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:background="@drawable/round_btn"
+        android:layout_height="wrap_content"/>
+</FrameLayout>
