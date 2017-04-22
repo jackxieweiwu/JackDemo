@@ -1,5 +1,44 @@
 <resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="fab_margin">16dp</dimen>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="gen_corner_radius">4.0dip</dimen>
+    <dimen name="activity_magin_0">0dip</dimen>
+    <dimen name="activity_magin_1">1dip</dimen>
+    <dimen name="activity_magin_2">2dip</dimen>
+    <dimen name="activity_magin_3">3dip</dimen>
+    <dimen name="activity_magin_5">5dip</dimen>
+    <dimen name="activity_magin_8">8dip</dimen>
+    <dimen name="activity_magin_10">10dip</dimen>
+    <dimen name="activity_magin_12">12dip</dimen>
+    <dimen name="activity_magin_13">13dip</dimen>
+    <dimen name="activity_magin_15">15dip</dimen>
+    <dimen name="activity_magin_17">17dip</dimen>
+    <dimen name="activity_magin_20">20dip</dimen>
+    <dimen name="activity_magin_24">24dip</dimen>
+    <dimen name="activity_magin_25">25dip</dimen>
+    <dimen name="activity_magin_45">45dip</dimen>
+    <dimen name="activity_magin_50">50dip</dimen>
+    <dimen name="activity_magin_55">55dip</dimen>
+    <dimen name="editor_button_width">48dp</dimen>
+    <dimen name="editor_button_height">48dp</dimen>
+    <dimen name="editor_button_margin">1dp</dimen>
+
+    <dimen name="txt_size_10">10sp</dimen>
+    <dimen name="txt_size_12">12sp</dimen>
+    <dimen name="txt_size_14">14sp</dimen>
+    <dimen name="txt_size_16">16sp</dimen>
+    <dimen name="txt_size_18">18sp</dimen>
+    <dimen name="txt_size_20">20sp</dimen>
+    <dimen name="editor_mission_fragment_height">60dp</dimen>
+    <!-- UI Text Size -->
+    <dimen name="textsize_connection">20dp</dimen>
+
+    <!-- List View Relative -->
+    <dimen name="item_arrow_width">26dp</dimen>
+    <dimen name="item_arrow_height">44dp</dimen>
+    <dimen name="item_min_height">44dp</dimen>
+    <dimen name="item_value_size">18sp</dimen>
+    <dimen name="item_title_size">18sp</dimen>
 </resources>

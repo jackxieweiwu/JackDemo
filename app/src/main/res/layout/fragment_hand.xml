@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="DroneMode"
+            type="String"/>
+        <variable
+            name="GPSSignal"
+            type="String"/>
+        <variable
+            name="RemoteSignal"
+            type="String"/>
+        <variable
+            name="VideoSignal"
+            type="String"/>
+        <variable
+            name="BatteryStr"
+            type="String"/>
+        <variable
+            name="Dronestate"
+            type="String"/>
+        <variable
+            name="DroneTime"
+            type="String"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:paddingLeft="5dip"
+        android:paddingRight="5dip"
+        android:weightSum="1"
+        android:background="@color/load_blue"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dip"
+            android:layout_weight="0.1"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@mipmap/recordplayer_mode"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="@dimen/activity_magin_5"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:text="@{DroneMode}"/>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="0dip"
+            android:layout_weight="0.1"
+            android:layout_marginLeft="@dimen/activity_magin_10"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/img_sate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@mipmap/osd_gps_icon_normal"/>
+
+            <ImageView
+                android:layout_toRightOf="@id/img_sate"
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dip"
+                android:id="@+id/img_gps_status"
+                android:background="@mipmap/osd_singal_level0"/>
+
+            <TextView
+                android:id="@+id/txt_satelite_num"
+                android:layout_toRightOf="@id/img_sate"
+                android:layout_marginLeft="@dimen/activity_magin_3"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="8sp"
+                android:text="@{GPSSignal}"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dip"
+            android:layout_marginLeft="@dimen/activity_magin_10"
+            android:layout_weight="0.1"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img_signal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@mipmap/osd_rcsignal_btn_normal"/>
+
+            <ImageView
+                android:layout_toRightOf="@id/img_signal"
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dip"
+                android:id="@+id/img_yao_status"
+                android:background="@mipmap/osd_singal_level0"/>
+
+            <TextView
+                android:id="@+id/txt_signal_name"
+                android:layout_toRightOf="@id/img_signal"
+                android:layout_marginLeft="@dimen/activity_magin_3"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:text="@{RemoteSignal}"
+                android:textColor="@android:color/white"
+                android:textSize="8sp"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dip"
+            android:layout_weight="0.1"
+            android:layout_marginLeft="@dimen/activity_magin_10"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/img_signal_hdmi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@mipmap/osd_radiosignal_btn_normal"/>
+
+            <ImageView
+                android:layout_toRightOf="@id/img_signal_hdmi"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="@dimen/activity_magin_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/img_hd_status"
+                android:background="@mipmap/osd_singal_level0"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="@dimen/activity_magin_3"
+                android:layout_toRightOf="@id/img_signal_hdmi"
+                android:gravity="center"
+                android:text="@{VideoSignal}"
+                android:layout_height="wrap_content"
+                android:textSize="8sp"
+                android:textColor="@android:color/white"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="@dimen/activity_magin_0"
+            android:gravity="center"
+            android:layout_weight="0.1"
+            android:layout_marginLeft="@dimen/activity_magin_10"
+            android:orientation="horizontal"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/activity_magin_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/osd_electric_btn_normal"/>
+
+            <TextView
+                android:layout_marginLeft="@dimen/activity_magin_3"
+                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_height="match_parent"
+                android:text="@{BatteryStr}"
+                android:textColor="@android:color/white"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="@dimen/activity_magin_0"
+            android:layout_weight="0.35"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:id="@+id/txt_state_drone"
+            android:layout_gravity="center"
+            android:text="@{Dronestate}"
+            android:singleLine="true"
+            android:textSize="@dimen/txt_size_18"
+            android:textColor="@android:color/white"/>
+
+        <TextView
+            android:layout_width="@dimen/activity_magin_0"
+            android:layout_weight="0.15"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_height="match_parent"
+            android:text="@{DroneTime}"
+            android:textColor="@android:color/white"/>
+
+        <ImageView
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:padding="@dimen/activity_magin_10"
+            android:layout_height="wrap_content"
+            android:onClick="startSetting"
+            android:layout_marginLeft="@dimen/activity_magin_5"
+            android:background="@mipmap/gs_top_bar_setting_icon"/>
+    </LinearLayout>
+</layout>

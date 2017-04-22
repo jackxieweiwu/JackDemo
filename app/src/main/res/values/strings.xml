@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">中科瑞泰</string>
+    <string name="activity_component_list">主界面</string>
 </resources>

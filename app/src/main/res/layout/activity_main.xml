@@ -2,15 +2,12 @@
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <RelativeLayout
+    <FrameLayout
         android:id="@+id/activity_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="zkrtdrone.zkrt.com.MainActivity">
 
-        <zkrtdrone.zkrt.com.widght.LauncherView
-            android:id="@+id/load_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-    </RelativeLayout>
+        <include layout="@layout/content_main"/>
+    </FrameLayout>
 </layout>

@@ -6,14 +6,12 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Context;
-import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-
 import zkrtdrone.zkrt.com.JackApplication;
 import zkrtdrone.zkrt.com.R;
 
@@ -21,7 +19,7 @@ public class LauncherView extends RelativeLayout {
     private int mHeight;
     private int mWidth;
     private int dp80 = Utils.dp2px(getContext(), 80);
-    private boolean mHasStart;
+    private View view,logo,slogo1,slogo2,slogo3,slogo4;
 
     public LauncherView(Context context) {
         super(context);
@@ -38,7 +36,6 @@ public class LauncherView extends RelativeLayout {
     ImageView red, purple, yellow, blue;
 
     private void init() {
-
         LayoutParams lp = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         lp.addRule(CENTER_HORIZONTAL, TRUE);//这里的TRUE 要注意 不是true
         lp.addRule(CENTER_VERTICAL, TRUE);
@@ -68,7 +65,6 @@ public class LauncherView extends RelativeLayout {
         setAnimation(purple, purplePath1);
         setAnimation(yellow, yellowPath1);
         setAnimation(blue, bluePath1);
-
     }
 
     ViewPath redPath1, purplePath1, yellowPath1, bluePath1;
@@ -119,11 +115,9 @@ public class LauncherView extends RelativeLayout {
     }
 
     private void setAnimation(final ImageView target, ViewPath path1) {
-        //路径
         ObjectAnimator anim1 = ObjectAnimator.ofObject(new ViewObj(target), "fabLoc", new ViewPathEvaluator(), path1.getPoints().toArray());
         anim1.setInterpolator(new AccelerateDecelerateInterpolator());
         anim1.setDuration(2600);
-        //组合添加缩放透明效果
         addAnimation(anim1, target);
     }
 
@@ -169,7 +163,6 @@ public class LauncherView extends RelativeLayout {
 
     }
 
-
     private float getScale(ImageView target) {
         if (target == red)
             return 3.0f;
@@ -183,12 +176,13 @@ public class LauncherView extends RelativeLayout {
     }
 
     private void showLogo() {
-        View view = View.inflate(getContext(), R.layout.main_view, this);
-        View logo = view.findViewById(R.id.iv_logo);
-        final View slogo1 = view.findViewById(R.id.iv_slogo1);
-        final View slogo2 = view.findViewById(R.id.iv_slogo2);
-        final View slogo3 = view.findViewById(R.id.iv_slogo3);
-        final View slogo4 = view.findViewById(R.id.iv_slogo4);
+        view = View.inflate(getContext(), R.layout.main_view, this);
+        logo = view.findViewById(R.id.iv_logo);
+        slogo1 = view.findViewById(R.id.iv_slogo1);
+        slogo2 = view.findViewById(R.id.iv_slogo2);
+        slogo3 = view.findViewById(R.id.iv_slogo3);
+        slogo4 = view.findViewById(R.id.iv_slogo4);
+
         ObjectAnimator alpha = ObjectAnimator.ofFloat(logo, View.ALPHA, 0f, 1f);
         alpha.setDuration(800);
 
@@ -229,7 +223,6 @@ public class LauncherView extends RelativeLayout {
             }
         }, 1050);
     }
-
     private class AnimEndListener extends AnimatorListenerAdapter {
         private View target;
 

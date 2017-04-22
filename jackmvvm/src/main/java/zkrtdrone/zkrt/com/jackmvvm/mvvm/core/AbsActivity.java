@@ -8,17 +8,13 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-import java.util.Arrays;
-
 import butterknife.ButterKnife;
-import dji.sdk.sdkmanager.DJISDKManager;
 import zkrtdrone.zkrt.com.jackmvvm.base.BaseApplication;
 import zkrtdrone.zkrt.com.jackmvvm.mvvm.module.AbsModule;
 import zkrtdrone.zkrt.com.jackmvvm.mvvm.module.IOCProxy;
@@ -89,12 +85,13 @@ public abstract class AbsActivity <VB extends ViewDataBinding> extends AppCompat
                     Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.SYSTEM_ALERT_WINDOW,
                     Manifest.permission.READ_PHONE_STATE,Manifest.permission.RECORD_AUDIO,
                     Manifest.permission.ACCESS_LOCATION_EXTRA_COMMANDS,Manifest.permission.READ_CONTACTS,
-                    Manifest.permission.CHANGE_NETWORK_STATE,Manifest.permission.WRITE_SETTINGS
+                    Manifest.permission.CHANGE_NETWORK_STATE,Manifest.permission.WRITE_SETTINGS,
+                    Manifest.permission.RECEIVE_BOOT_COMPLETED
             });
         }
         BaseApplication.fragmentManager = getSupportFragmentManager();
         BaseApplication.getEventBus().register(this);
-
+        BaseApplication.mActivity = this;
         initialization();
         init(savedInstanceState);
     }
@@ -193,9 +190,9 @@ public abstract class AbsActivity <VB extends ViewDataBinding> extends AppCompat
         BaseApplication.getEventBus().unregister(this);
         super.onDestroy();
         settingBool = false;
-        if(DJISDKManager.getInstance().hasSDKRegistered()){
+        /*if(DJISDKManager.getInstance().hasSDKRegistered()){
             DJISDKManager.getInstance().destroy();
-        }
+        }*/
     }
 
     protected void init(Bundle savedInstanceState) {

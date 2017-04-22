@@ -23,6 +23,7 @@ import com.squareup.leakcanary.RefWatcher;
 
 import java.lang.reflect.Field;
 import butterknife.ButterKnife;
+import dji.sdk.flightcontroller.FlightController;
 import zkrtdrone.zkrt.com.jackmvvm.base.BaseApplication;
 import zkrtdrone.zkrt.com.jackmvvm.mvvm.module.AbsModule;
 import zkrtdrone.zkrt.com.jackmvvm.mvvm.module.IOCProxy;
@@ -32,6 +33,7 @@ import zkrtdrone.zkrt.com.jackmvvm.mvvm.temp.TempView;
 import zkrtdrone.zkrt.com.jackmvvm.mvvm.util.ReflectionUtil;
 import zkrtdrone.zkrt.com.jackmvvm.mvvm.util.StringUtil;
 import zkrtdrone.zkrt.com.jackmvvm.mvvm.util.show.L;
+import zkrtdrone.zkrt.com.jackmvvm.util.ModuleVerificationUtil;
 
 /**
  * Created by jack_xie on 17-4-9.

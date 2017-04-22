@@ -50,6 +50,33 @@ public class CalendarUtils {
         return transformStringToCalendar(string, DATE_TIME_FORMAT);
     }
 
+    public static String cal(int second){
+        int h = 0;
+        int d = 0;
+        int s = 0;
+        int temp = second%3600;
+        if(second>3600){
+            h= second/3600;
+            if(temp!=0){
+                if(temp>60){
+                    d = temp/60;
+                    if(temp%60!=0){
+                        s = temp%60;
+                    }
+                }else{
+                    s = temp;
+                }
+            }
+        }else{
+            d = second/60;
+            if(second%60!=0){
+                s = second%60;
+            }
+        }
+
+        return h+":"+d+":"+s;
+    }
+
     /**
      * 通过SimpleDataFormat格式把string转换成Calendar
      *
