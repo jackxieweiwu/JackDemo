@@ -9,6 +9,11 @@
             android:layout_height="match_parent"
             android:layout_centerHorizontal="true"/>
 
+        <include
+            layout="@layout/common_editor_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
         <FrameLayout
             android:id="@+id/fragment_hand"
             android:layout_width="match_parent"

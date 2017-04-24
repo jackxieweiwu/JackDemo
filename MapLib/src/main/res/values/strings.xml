@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">MapLib</string>
+    <!-- Map providers -->
+    <string name="pref_title_google_map">Google地图偏好设定</string>
+    <string name="pref_map_type_default">卫星</string>
+    <string name="pref_map_type_summary">使用哪种类型的地图</string>
+    <string name="pref_map_type">地图样式</string>
+    <string name="pref_advanced_use_offline_maps">使用离线地图</string>
+    <string name="pref_advanced_use_offline_maps_summary">使用本地储存的地图块，用于离线地图浏览</string>
+
+    <string name="menu_map_type">地图样式</string>
+    <string name="menu_map_type_satellite">卫星</string>
+    <string name="menu_map_type_hybrid">混合</string>
+    <string name="menu_map_type_normal">一般</string>
+    <string name="menu_map_type_terrain">地形</string>
+    <string name="drone_no_location">没有无人机位置资料</string>
 </resources>

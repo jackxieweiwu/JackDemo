@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--<fragment
+            android:id="@+id/editor_map_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="false"
+            class="zkrtdrone.zkrt.com.maplib.info.EditorMapFragment" />-->
+        <FrameLayout
+            android:id="@+id/editor_map_fragment"
+            android:layout_width="match_parent"
+            android:layout_centerInParent="false"
+            android:layout_height="match_parent"/>
+
+        <android.gesture.GestureOverlayView
+            android:id="@+id/overlay1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:eventsInterceptionEnabled="false"
+            android:fadeEnabled="false"
+            android:gestureColor="@android:color/white"
+            android:gestureStrokeLengthThreshold="0.1"
+            android:gestureStrokeType="single">
+        </android.gesture.GestureOverlayView>
+    </RelativeLayout>
+</layout>

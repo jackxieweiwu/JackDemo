@@ -3,6 +3,15 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
+
+    packagingOptions{
+        exclude 'META-INF/LICENSE'
+    }
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
     defaultConfig {
         applicationId "zkrtdrone.zkrt.com"
         minSdkVersion 19
