@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 import zkrtdrone.zkrt.com.maplib.info.location.Location;
+import zkrtdrone.zkrt.com.maplib.info.mission.bean.FootPrint;
 import zkrtdrone.zkrt.com.maplib.info.mission.coordinate.LatLong;
 import zkrtdrone.zkrt.com.maplib.info.providers.DPMapProvider;
 
@@ -327,6 +328,8 @@ public interface DPmap {
      *            source to use to draw the mission path
      */
     public void updateMissionPath(PathSource pathSource);
+
+    public void updateRealTimeFootprint(FootPrint footprint);
 
     /**
      * Updates the polygons on the map.

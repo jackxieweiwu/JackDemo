@@ -13,7 +13,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-
 import butterknife.ButterKnife;
 import zkrtdrone.zkrt.com.jackmvvm.base.BaseApplication;
 import zkrtdrone.zkrt.com.jackmvvm.mvvm.module.AbsModule;
@@ -34,9 +33,8 @@ import static zkrtdrone.zkrt.com.jackmvvm.base.BaseApplication.settingBool;
  * 所有的 Activity都应该继承这个类
  */
 
-public abstract class AbsActivity <VB extends ViewDataBinding> extends AppCompatActivity
-        implements OnTempBtClickListener {
-
+public abstract class AbsActivity <VB extends ViewDataBinding>
+        extends AppCompatActivity implements OnTempBtClickListener {
     protected String TAG = "";
     protected AbsFrame mAm;
     protected View mRootView;
@@ -60,11 +58,9 @@ public abstract class AbsActivity <VB extends ViewDataBinding> extends AppCompat
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         int flag= WindowManager.LayoutParams.FLAG_FULLSCREEN;
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        Window window=this.getWindow();
-        window.setFlags(flag, flag);
-        ViewUtil.hideVirtualKey(this);
+        getWindow().setFlags(flag, flag);
+        //ViewUtil.hideVirtualKey(this);
         super.onCreate(savedInstanceState);
-
         int permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE);
         if (permissionCheck != 0 && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             PermissionManager.getInstance().requestPermission(this, new OnPermissionCallback() {
@@ -182,22 +178,15 @@ public abstract class AbsActivity <VB extends ViewDataBinding> extends AppCompat
         }, delay);
     }
 
-    @Override public void onBtTempClick(View view, int type) {
-
-    }
+    @Override public void onBtTempClick(View view, int type) {}
 
     @Override protected void onDestroy() {
         BaseApplication.getEventBus().unregister(this);
         super.onDestroy();
         settingBool = false;
-        /*if(DJISDKManager.getInstance().hasSDKRegistered()){
-            DJISDKManager.getInstance().destroy();
-        }*/
     }
 
-    protected void init(Bundle savedInstanceState) {
-
-    }
+    protected void init(Bundle savedInstanceState) {}
 
     @Override public void finish() {
         super.finish();
@@ -222,7 +211,6 @@ public abstract class AbsActivity <VB extends ViewDataBinding> extends AppCompat
 
     /**
      * 获取Module
-     *
      * @param clazz {@link AbsModule}
      */
     protected <M extends AbsModule> M getModule(@NonNull Class<M> clazz) {
@@ -234,7 +222,6 @@ public abstract class AbsActivity <VB extends ViewDataBinding> extends AppCompat
 
     /**
      * 获取Module
-     *
      * @param clazz Module class0
      * @param callback Module回调函数
      * @param <M> {@link AbsModule}

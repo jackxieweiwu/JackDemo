@@ -5,8 +5,14 @@ import android.support.v4.app.FragmentTransaction;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.TranslateAnimation;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.SlidingDrawer;
 
 import java.util.List;
 
@@ -19,16 +25,23 @@ import zkrtdrone.zkrt.com.maplib.info.GestureMapFragment;
 import zkrtdrone.zkrt.com.maplib.info.OnEditorInteraction;
 import zkrtdrone.zkrt.com.maplib.info.mission.coordinate.LatLong;
 import zkrtdrone.zkrt.com.view.fragment.HandStateFragment;
+import zkrtdrone.zkrt.com.view.fragment.TelemetryFragment;
 
 import static zkrtdrone.zkrt.com.jackmvvm.base.BaseApplication.fragmentManager;
+import static zkrtdrone.zkrt.com.jackmvvm.base.BaseApplication.handler;
+import static zkrtdrone.zkrt.com.jackmvvm.base.BaseApplication.mActivity;
 
 /**
  * Created by jack_xie on 17-4-20.
  */
 
 public class MainStart extends RelativeLayout implements GestureMapFragment.OnPathFinishedListener,
-        OnEditorInteraction {
-
+        OnEditorInteraction,View.OnClickListener {
+    private ImageView img_common_exchange,img_common_location,
+            img_common_conceal,img_common_clear_pryline,img_common_conceal2;
+    private FrameLayout start_common_map_video;
+    //private SlidingDrawer slidingDrawer;
+    private TelemetryFragment telemetryFragment;
     private GestureMapFragment gestureMapFragment;
     private HandStateFragment handStateFragment;
     public MainStart(Context context) {
@@ -48,13 +61,103 @@ public class MainStart extends RelativeLayout implements GestureMapFragment.OnPa
         gestureMapFragment = new GestureMapFragment();
         final LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.main_start, this);
-
+        //slidingDrawer = (SlidingDrawer) view.findViewById(R.id.slidingDrawerRight);
+        start_common_map_video = (FrameLayout) view.findViewById(R.id.start_common_map_video);
+        img_common_exchange = (ImageView) view.findViewById(R.id.img_common_exchange);
+        img_common_location = (ImageView) view.findViewById(R.id.img_common_location);
+        img_common_conceal = (ImageView) view.findViewById(R.id.img_common_conceal);
+        img_common_conceal2 = (ImageView) view.findViewById(R.id.img_common_conceal2);
+        img_common_clear_pryline = (ImageView) view.findViewById(R.id.img_common_clear_pryline);
+        img_common_exchange.setOnClickListener(this);
+        img_common_location.setOnClickListener(this);
+        img_common_conceal.setOnClickListener(this);
+        img_common_conceal2.setOnClickListener(this);
+        img_common_clear_pryline.setOnClickListener(this);
         fragmentManager.beginTransaction().add(R.id.fragment_hand, handStateFragment).commit();
         fragmentManager.beginTransaction().add(R.id.gestureMapFragment,gestureMapFragment).commit();
+        telemetryFragment = (TelemetryFragment) fragmentManager.findFragmentById(R.id.telemetryFragment);
+        if (telemetryFragment == null) {
+            telemetryFragment = new TelemetryFragment();
+            fragmentManager.beginTransaction()
+                    .add(R.id.telemetryFragment, telemetryFragment)
+                    .commit();
+        }
 
-        /*gestureMapFragment = ((GestureMapFragment) fragmentManager
-                .findFragmentById(R.id.gestureMapFragment));
-        gestureMapFragment.setOnPathFinishedListener(this);*/
+        /*if(slidingDrawer != null) {
+            slidingDrawer.setOnDrawerCloseListener(new SlidingDrawer.OnDrawerCloseListener() {
+                @Override
+                public void onDrawerClosed() {
+                    final int slidingDrawerWidth = slidingDrawer.getContent().getWidth();
+                    final boolean isSlidingDrawerOpened = slidingDrawer.isOpened();
+                    //updateLocationButtonsMargin(isSlidingDrawerOpened, slidingDrawerWidth);
+                }
+            });
+
+            slidingDrawer.setOnDrawerOpenListener(new SlidingDrawer.OnDrawerOpenListener() {
+                @Override
+                public void onDrawerOpened() {
+                    final int slidingDrawerWidth = slidingDrawer.getContent().getWidth();
+                    final boolean isSlidingDrawerOpened = slidingDrawer.isOpened();
+                    //updateLocationButtonsMargin(isSlidingDrawerOpened, slidingDrawerWidth);
+                }
+            });
+        }*/
+    }
+
+    /*private void updateLocationButtonsMargin(boolean isOpened, int drawerWidth) {
+        final ViewGroup.MarginLayoutParams marginLp = (ViewGroup.MarginLayoutParams) start_common_map_video
+                .getLayoutParams();
+        final int rightMargin = isOpened ? marginLp.leftMargin + drawerWidth : marginLp.leftMargin;
+        marginLp.setMargins(marginLp.leftMargin, marginLp.topMargin,rightMargin,marginLp.bottomMargin);
+        start_common_map_video.requestLayout();
+    }*/
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.img_common_exchange:  //切换窗口
+                break;
+            case R.id.img_common_location:  //定位用户位置
+                gestureMapFragment.getMapFragment().goToMyLocation();
+                break;
+            case R.id.img_common_conceal:  //隐藏
+                start_common_map_video.startAnimation(startAnimViewGone());
+                start_common_map_video.setVisibility(GONE);
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        img_common_conceal2.setVisibility(VISIBLE);
+                    }
+                },500);
+                break;
+            case R.id.img_common_conceal2:
+                start_common_map_video.startAnimation(startAnimViewShow());
+                start_common_map_video.setVisibility(VISIBLE);
+                img_common_conceal2.setVisibility(GONE);
+                break;
+            case R.id.img_common_clear_pryline:  //清除航线
+                break;
+        }
+    }
+
+    //显示动画
+    private TranslateAnimation startAnimViewShow(){
+        TranslateAnimation mHiddenAction = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 1.0f,
+                Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF,
+                1.0f, Animation.RELATIVE_TO_SELF, 0.0f);
+        mHiddenAction.setDuration(500);
+        return mHiddenAction;
+
+    }
+
+    //隐藏动画
+    private TranslateAnimation startAnimViewGone(){
+        TranslateAnimation mHiddenAction = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0.0f,
+                Animation.RELATIVE_TO_SELF, 1.0f, Animation.RELATIVE_TO_SELF,
+                0.0f, Animation.RELATIVE_TO_SELF, 1.0f);
+        mHiddenAction.setDuration(500);
+        return mHiddenAction;
+
     }
 
     @Override

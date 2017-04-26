@@ -6,8 +6,9 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.MotionEvent;
 import java.util.ArrayList;
 import java.util.List;
+
+import zkrtdrone.zkrt.com.jackmvvm.mvvm.core.AbsFragment;
 import zkrtdrone.zkrt.com.maplib.R;
-import zkrtdrone.zkrt.com.jackmvvm.base.BaseMvpFragment;
 import zkrtdrone.zkrt.com.maplib.databinding.FragmentGestureMapBinding;
 import zkrtdrone.zkrt.com.maplib.info.mission.coordinate.LatLong;
 import zkrtdrone.zkrt.com.maplib.info.units.MathUtils;
@@ -18,7 +19,7 @@ import static zkrtdrone.zkrt.com.jackmvvm.base.BaseApplication.fragmentManager;
  * Created by jack_xie on 17-4-24.  fragment_gesture_map
  */
 
-public class GestureMapFragment extends BaseMvpFragment<FragmentGestureMapBinding> implements GestureOverlayView.OnGestureListener {
+public class GestureMapFragment extends AbsFragment<FragmentGestureMapBinding> implements GestureOverlayView.OnGestureListener {
     EditorMapFragment mapFragment;
     GestureOverlayView overlay;
 
@@ -31,7 +32,7 @@ public class GestureMapFragment extends BaseMvpFragment<FragmentGestureMapBindin
     private OnPathFinishedListener listener;
 
     @Override
-    protected void initView(Bundle savedInstanceState) {
+    protected void init(Bundle savedInstanceState) {
         /*mapFragment = ((EditorMapFragment) getChildFragmentManager()
                 .findFragmentById(R.id.editor_map_fragment));*/
         mapFragment = new EditorMapFragment();
@@ -78,7 +79,6 @@ public class GestureMapFragment extends BaseMvpFragment<FragmentGestureMapBindin
         this.listener = listener;
     }
 
-
     private void extractPathFromGesture(List<LatLong> path) {
         float[] points = overlay.getGesture().getStrokes().get(0).points;
         for (int i = 0; i < points.length; i += 2) {
@@ -95,8 +95,18 @@ public class GestureMapFragment extends BaseMvpFragment<FragmentGestureMapBindin
     }
 
     @Override
+    protected void onDelayLoad() {
+
+    }
+
+    @Override
     protected int setLayoutId() {
         return R.layout.fragment_gesture_map;
+    }
+
+    @Override
+    protected void dataCallback(int result, Object obj) {
+
     }
 
     @Override

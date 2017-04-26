@@ -1,4 +1,15 @@
 <resources>
     <string name="app_name">中科瑞泰</string>
     <string name="activity_component_list">主界面</string>
+    <string name="telemetry_default_value">0.0</string>
+    <string name="climb_rate_label">爬升速率</string>
+    <string name="altitude_label">高度</string>
+    <string name="meter_unit">m</string>
+    <string name="speed_unit">m/s</string>
+    <string name="speed_label">速度</string>
+    <string name="length_label">长度</string>
+    <string name="channel_label">通道</string>
+    <string name="ground_speed_label">地速</string>
+    <string name="air_speed_label">空速</string>
+    <string name="default_angle_value">--°</string>
 </resources>

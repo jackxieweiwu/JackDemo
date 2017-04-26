@@ -18,9 +18,7 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-
 import com.squareup.leakcanary.RefWatcher;
-
 import java.lang.reflect.Field;
 import butterknife.ButterKnife;
 import zkrtdrone.zkrt.com.jackmvvm.base.BaseApplication;
@@ -50,6 +48,7 @@ public abstract class AbsFragment<VB extends ViewDataBinding> extends Fragment
     protected AbsTempView mTempView;
     protected boolean useTempView = true;
     private ViewGroup mParent;
+    public int batteryWaring1,batteryLow2;
 
     @Nullable
     @Override public View onCreateView(LayoutInflater inflater, ViewGroup container,

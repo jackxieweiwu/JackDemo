@@ -191,7 +191,7 @@ public class TextUtil {
     /**
      * 返回小数位数的匹配
      */
-    private static String getScalePattern(int scale) {
+    public static String getScalePattern(int scale) {
         StringBuffer sb = new StringBuffer("#0.");
         if (scale <= 0) {
             sb = new StringBuffer("#");

@@ -2,7 +2,6 @@ package zkrtdrone.zkrt.com.jackmvvm.mvvm.core;
 
 import android.content.Context;
 import android.os.Bundle;
-
 import zkrtdrone.zkrt.com.jackmvvm.mvvm.module.AbsModule;
 
 /**
@@ -10,7 +9,7 @@ import zkrtdrone.zkrt.com.jackmvvm.mvvm.module.AbsModule;
  * 框架提供的默认的对话框的Module
  */
 
-public class DialogSimpleModule extends AbsModule {
+public class DialogSimpleModule extends AbsModule  {
     public DialogSimpleModule(Context context) {
         super(context);
     }

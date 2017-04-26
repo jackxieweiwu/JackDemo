@@ -39,9 +39,9 @@ public abstract class DroneMap extends Fragment {
     }*/
 
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        context = context.getApplicationContext();
+    public void onAttach(Context contexts) {
+        super.onAttach(contexts);
+        context = contexts.getApplicationContext();
     }
 
     /*@Override
@@ -56,7 +56,6 @@ public abstract class DroneMap extends Fragment {
         if (mMapFragment == null || mMapFragment.getProvider() != mapProvider) {
             final Bundle mapArgs = new Bundle();
             mapArgs.putInt(DPmap.EXTRA_MAX_FLIGHT_PATH_SIZE, getMaxFlightPathSize());
-
             mMapFragment = mapProvider.getMapFragment();
             ((Fragment) mMapFragment).setArguments(mapArgs);
             fm.beginTransaction().replace(R.id.map_fragment_container, (Fragment) mMapFragment)

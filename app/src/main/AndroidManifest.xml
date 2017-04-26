@@ -13,34 +13,35 @@
     <application
         android:name=".JackApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/logo"
-        android:label="@string/app_name"
-        android:supportsRtl="true"
         android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+        android:icon="@mipmap/logo"
         android:keepScreenOn="true"
+        android:label="@string/app_name"
         android:launchMode="singleTop"
         android:screenOrientation="landscape"
+        android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <meta-data
             android:name="com.dji.sdk.API_KEY"
             android:value="db6dccbf376b14362c9352ec" />
 
-        <!--<service android:name="dji.sdk.sdkmanager.DJIGlobalService" />
+        <!--
+        <service android:name="dji.sdk.sdkmanager.DJIGlobalService" />
 
-        <service android:name="dji.internal.geofeature.flyforbid.FlyforbidUpdateService" />-->
+        <service android:name="dji.internal.geofeature.flyforbid.FlyforbidUpdateService" />
+        -->
 
         <!-- Required for receiving GEO system pushing. -->
-        <!--<service android:name="dji.sdk.sdkmanager.GeoSyncFileService"/>-->
+        <!-- <service android:name="dji.sdk.sdkmanager.GeoSyncFileService"/> -->
 
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
             android:keepScreenOn="true"
             android:launchMode="singleTop"
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

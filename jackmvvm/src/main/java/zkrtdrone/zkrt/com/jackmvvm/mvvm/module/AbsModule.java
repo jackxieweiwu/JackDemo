@@ -22,9 +22,8 @@ public class AbsModule {
     private Object mHost;
 
     public interface OnCallback {
-        public void onSuccess(int result, Object success);
-
-        public void onError(int result, Object error);
+        void onSuccess(int result, Object success);
+        void onError(int result, Object error);
     }
 
     public AbsModule(Context context) {

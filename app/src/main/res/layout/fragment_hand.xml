@@ -114,7 +114,6 @@
                 android:background="@mipmap/osd_singal_level0"/>
 
             <TextView
-                android:id="@+id/txt_signal_name"
                 android:layout_toRightOf="@id/img_signal"
                 android:layout_marginLeft="@dimen/activity_magin_3"
                 android:layout_width="wrap_content"
@@ -167,6 +166,7 @@
             android:layout_height="match_parent">
 
             <ImageView
+                android:id="@+id/hand_battery"
                 android:layout_gravity="center"
                 android:layout_marginLeft="@dimen/activity_magin_3"
                 android:layout_width="wrap_content"
@@ -209,6 +209,7 @@
             android:gravity="center"
             android:layout_width="wrap_content"
             android:padding="@dimen/activity_magin_10"
+            android:layout_marginRight="@dimen/activity_magin_3"
             android:layout_height="wrap_content"
             android:onClick="startSetting"
             android:layout_marginLeft="@dimen/activity_magin_5"

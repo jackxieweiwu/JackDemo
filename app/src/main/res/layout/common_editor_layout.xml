@@ -7,12 +7,32 @@
         android:id="@+id/gestureMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout="@layout/fragment_gesture_map">
-        <!--<fragment
-            android:id="@+id/gestureMapFragment"
-            android:name="zkrtdrone.zkrt.com.maplib.info.GestureMapFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:layout="@layout/fragment_gesture_map"/>-->
-    </FrameLayout>
+        tools:layout="@layout/fragment_gesture_map"/>
+
+    <ImageView
+        android:id="@+id/img_common_exchange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/gs_map_widget_hide_in"/>
+
+    <ImageView
+        android:id="@+id/img_common_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|top"
+        android:background="@mipmap/gs_map_widget_hide_in_litchi"/>
+
+    <ImageView
+        android:id="@+id/img_common_conceal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|bottom"
+        android:background="@mipmap/gs_map_widget_show_out"/>
+
+    <ImageView
+        android:id="@+id/img_common_clear_pryline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left|bottom"
+        android:background="@mipmap/gs_map_widget_earaser_big"/>
 </merge>

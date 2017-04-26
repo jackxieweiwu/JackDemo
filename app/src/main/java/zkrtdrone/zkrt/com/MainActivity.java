@@ -12,17 +12,16 @@ import com.squareup.otto.Subscribe;
 import java.util.Stack;
 import butterknife.Bind;
 import dji.common.error.DJIError;
-import dji.log.DJILog;
 import dji.sdk.base.BaseProduct;
 import dji.sdk.sdkmanager.DJISDKManager;
 import zkrtdrone.zkrt.com.databinding.ActivityMainBinding;
-import zkrtdrone.zkrt.com.jackmvvm.base.BaseMvpActivity;
+import zkrtdrone.zkrt.com.jackmvvm.mvvm.core.AbsActivity;
 import zkrtdrone.zkrt.com.jackmvvm.rxbean.IOTask;
 import zkrtdrone.zkrt.com.jackmvvm.util.ViewWrapper;
 import zkrtdrone.zkrt.com.jackmvvm.util.rxutil.RxjavaUtil;
 import zkrtdrone.zkrt.com.widght.LauncherView;
 
-public class MainActivity extends BaseMvpActivity<ActivityMainBinding> {
+public class MainActivity extends AbsActivity<ActivityMainBinding> {
     @Bind(R.id.load_view ) LauncherView launcherView;
     private FrameLayout contentFrameLayout;
     private Stack<ViewWrapper> stack;
@@ -30,11 +29,11 @@ public class MainActivity extends BaseMvpActivity<ActivityMainBinding> {
     private ObjectAnimator pushOutAnimator;
     private ObjectAnimator popInAnimator;
     private LayoutTransition popOutTransition;
-
     @Override
     protected void init(Bundle savedInstanceState) {
         super.init(savedInstanceState);
         contentFrameLayout = (FrameLayout) findViewById(R.id.activity_main);
+        initParams();
         RxjavaUtil.doInIOThread(new IOTask<Object>() {
             @Override
             public void doInIOThread() throws Exception {
@@ -46,7 +45,6 @@ public class MainActivity extends BaseMvpActivity<ActivityMainBinding> {
                 },500);
             }
         });
-        initParams();
     }
 
     private void initParams() {
@@ -62,7 +60,6 @@ public class MainActivity extends BaseMvpActivity<ActivityMainBinding> {
         popInAnimator = (ObjectAnimator) AnimatorInflater.loadAnimator(this, R.animator.fade_in);
         ObjectAnimator popOutAnimator =
                 (ObjectAnimator) AnimatorInflater.loadAnimator(this, R.animator.slide_out_right);
-
         pushOutAnimator.setStartDelay(100);
         popOutTransition = new LayoutTransition();
         popOutTransition.setAnimator(LayoutTransition.DISAPPEARING, popOutAnimator);
@@ -106,11 +103,9 @@ public class MainActivity extends BaseMvpActivity<ActivityMainBinding> {
         }
     }
 
-    public static class RequestStartFullScreenEvent {
-    }
+    public static class RequestStartFullScreenEvent {}
 
-    public static class RequestEndFullScreenEvent {
-    }
+    public static class RequestEndFullScreenEvent {}
 
     @Subscribe
     public void onReceiveStartFullScreenRequest(RequestStartFullScreenEvent event) {
@@ -143,7 +138,6 @@ public class MainActivity extends BaseMvpActivity<ActivityMainBinding> {
             public void onRegister(DJIError djiError) {
                 //DJILog.e("App registration", djiError == null ? "null" : djiError.getDescription());
             }
-
             @Override
             public void onProductChange(BaseProduct baseProduct, BaseProduct baseProduct1) {
                 // DO nothing.

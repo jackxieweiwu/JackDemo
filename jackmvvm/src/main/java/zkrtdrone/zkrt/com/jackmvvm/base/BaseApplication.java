@@ -43,6 +43,7 @@ public abstract class BaseApplication extends Application {
     public static Handler handler;
     private RefWatcher refWatcher;
     private int screenWidth,screenHeigh;
+    public static boolean bool,boolRemote;  //是否断开连接   true  断开
 
     public static RefWatcher getRefWatcher(Context context) {
         BaseApplication application = (BaseApplication) context.getApplicationContext();
