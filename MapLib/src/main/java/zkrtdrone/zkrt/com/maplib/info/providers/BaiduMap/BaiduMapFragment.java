@@ -16,8 +16,10 @@ import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.baidu.location.Poi;
+import com.baidu.mapapi.map.BitmapDescriptor;
 import com.baidu.mapapi.map.MapStatus;
 import com.baidu.mapapi.map.MyLocationConfiguration;
+import com.baidu.mapapi.map.OverlayOptions;
 import com.baidu.mapapi.map.Stroke;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -43,7 +45,6 @@ import com.baidu.mapapi.map.Projection;
 import com.baidu.mapapi.map.MapPoi;
 import com.baidu.mapapi.map.MyLocationData;
 import zkrtdrone.zkrt.com.jackmvvm.base.BaseApplication;
-import zkrtdrone.zkrt.com.jackmvvm.mvvm.util.show.T;
 import zkrtdrone.zkrt.com.maplib.R;
 import zkrtdrone.zkrt.com.maplib.info.DPmap;
 import zkrtdrone.zkrt.com.maplib.info.MarkerInfo;
@@ -58,20 +59,12 @@ import zkrtdrone.zkrt.com.maplib.info.units.collection.HashBiMap;
 import zkrtdrone.zkrt.com.maplib.info.until.DroidPlannerPrefs;
 
 import static android.content.Context.SENSOR_SERVICE;
+import static zkrtdrone.zkrt.com.jackmvvm.base.BaseApplication.droneloLat;
+import static zkrtdrone.zkrt.com.jackmvvm.base.BaseApplication.droneloLng;
 
 public class BaiduMapFragment extends SupportMapFragment implements DPmap,SensorEventListener {
     private static final String TAG = BaiduMapFragment.class.getSimpleName();
-    public static final String PREF_MAP_TYPE = "pref_map_type";
-    public static final String MAP_TYPE_SATELLITE = "Satellite";
-    public static final String MAP_TYPE_HYBRID = "Hybrid";
-    public static final String MAP_TYPE_NORMAL = "Normal";
-    public static final String MAP_TYPE_TERRAIN = "Terrain";
     boolean isFirstLoc = true; // 是否首次定位
-    // TODO: update the interval based on the user's current activity.
-    private static final long USER_LOCATION_UPDATE_INTERVAL = 30000; // ms
-    private static final long USER_LOCATION_UPDATE_FASTEST_INTERVAL = 10000; // ms
-    private static final float USER_LOCATION_UPDATE_MIN_DISPLACEMENT = 15; // m
-
     private static final float GO_TO_MY_LOCATION_ZOOM = 19f;
     private SensorManager mSensorManager;
     private final HashBiMap<MarkerInfo, Marker> mBiMarkersMap = new HashBiMap<MarkerInfo, Marker>();
@@ -198,7 +191,7 @@ public class BaiduMapFragment extends SupportMapFragment implements DPmap,Sensor
         }
         updateCamera(new LatLong(30.3250427246094,120.063011169434), GO_TO_MY_LOCATION_ZOOM);
         mMapView = getMapView();
-        getBaiduMap().setMapType(BaiduMap.MAP_TYPE_NORMAL);
+        mapType(BaiduMap.MAP_TYPE_NORMAL);
         getBaiduMap().setMyLocationEnabled(true);
         mMapView.removeViewAt(1);
         mMapView.showZoomControls(false);
@@ -322,6 +315,16 @@ public class BaiduMapFragment extends SupportMapFragment implements DPmap,Sensor
             }
             flightPath.setPoints(mdFlightPathList);
         }
+    }
+
+    @Override
+    public void setDroneMap(Bitmap droneBitmap) {
+        LatLng point = new LatLng(droneloLat, droneloLng);
+        BitmapDescriptor bitmap = BitmapDescriptorFactory.fromBitmap(droneBitmap);
+        OverlayOptions option = new MarkerOptions()
+                .position(point)
+                .icon(bitmap);
+        getBaiduMap().addOverlay(option);
     }
 
     @Override
@@ -630,9 +633,12 @@ public class BaiduMapFragment extends SupportMapFragment implements DPmap,Sensor
     }
 
     @Override
+    public void mapType(int i) {
+        getBaiduMap().setMapType(i);
+    }
+
+    @Override
     public void goToMyLocation() {
-       // if (!mGApiClientMgr.addTask(mGoToMyLocationTask)) {
-        //    Log.e(TAG, "Unable to add google api client task.");
         MyLocationData locationData = getBaiduMap().getLocationData();
         if(locationData != null)
             updateCamera(DroneHelper.BDLocationToCoord(locationData), GO_TO_MY_LOCATION_ZOOM);
@@ -640,20 +646,9 @@ public class BaiduMapFragment extends SupportMapFragment implements DPmap,Sensor
 
     @Override
     public void goToDroneLocation() {
-        /*Drone dpApi = getDroneApi();
-        if (!dpApi.isConnected())
-            return;
-        Gps gps = dpApi.getGps();
-        if (!gps.isValid()) {
-            Toast.makeText(getActivity().getApplicationContext(), R.string.drone_no_location, Toast.LENGTH_SHORT).show();
-            return;
-        }
-
         final float currentZoomLevel = getBaiduMap().getMapStatus().zoom;
-        final LatLng droneLocation = gps.getPosition();
-        updateCamera(droneLocation, (int) currentZoomLevel);*/
+        updateCamera(new LatLong(droneloLat,droneloLng), (int) currentZoomLevel);
     }
-
 
     private LatLngBounds getBounds(List<LatLng> pointsList) {
         LatLngBounds.Builder builder = new LatLngBounds.Builder();
@@ -662,7 +657,6 @@ public class BaiduMapFragment extends SupportMapFragment implements DPmap,Sensor
         }
         return builder.build();
     }
-
 
     @Override
     public void skipMarkerClickEvents(boolean skip) {
@@ -711,10 +705,8 @@ public class BaiduMapFragment extends SupportMapFragment implements DPmap,Sensor
     }
 
     public class MyLocationListenner implements BDLocationListener {
-
         @Override
         public void onReceiveLocation(BDLocation location) {
-            // map view 销毁后不在处理新接收的位置
             if (location == null || mMapView == null)
                 return;
             BaseApplication.peploLat = location.getLatitude();
@@ -747,6 +739,10 @@ public class BaiduMapFragment extends SupportMapFragment implements DPmap,Sensor
         }
         public void onReceivePoi(BDLocation poiLocation) {
         }
+    }
+
+    public void setDronemapImage(Bitmap bitmap){
+
     }
 
     /*private void setPeleGps(GPSData gpsData){

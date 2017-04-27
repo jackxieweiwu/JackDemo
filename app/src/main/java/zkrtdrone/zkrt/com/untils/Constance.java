@@ -11,4 +11,5 @@ public class Constance {
         public static final int IP_DIALOG = 0x0a3;
         public static final int POP = 0x0a4;
     }
+
 }

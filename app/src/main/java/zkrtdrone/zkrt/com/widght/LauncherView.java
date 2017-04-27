@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import zkrtdrone.zkrt.com.JackApplication;
 import zkrtdrone.zkrt.com.R;
+import zkrtdrone.zkrt.com.untils.Utils;
 
 public class LauncherView extends RelativeLayout {
     private int mHeight;

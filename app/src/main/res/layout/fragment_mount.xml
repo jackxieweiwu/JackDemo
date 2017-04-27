@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="strTempOne"
+            type="String"/>
+        <variable
+            name="strTempTwo"
+            type="String"/>
+        <variable
+            name="strCo"
+            type="String"/> <!--CO-->
+        <variable
+            name="strCo_One"
+            type="String"/>
+        <variable
+            name="strHTwoS"
+            type="String"/>  <!--H2S-->
+        <variable
+            name="strHTwoS_One"
+            type="String"/>
+        <variable
+            name="strNHThree"
+            type="String"/>  <!--NH3-->
+        <variable
+            name="strNHThree_One"
+            type="String"/>
+        <variable
+            name="strCOTwo"
+            type="String"/>  <!--CO2-->
+        <variable
+            name="strCOTwo_One"
+            type="String"/>
+    </data>
+
+    <FrameLayout
+        android:id="@+id/frame_mount"
+        android:layout_width="300dip"
+        android:layout_height="200dip">
+
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:background="@drawable/ground_speed_bg"
+            android:layout_height="match_parent">
+
+            <com.github.mikephil.charting.charts.HorizontalBarChart
+                android:id="@+id/horiz_mount"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:clickable="false"
+                android:layout_weight="0.9"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:background="#ffffff"
+                android:layout_height="1dip"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dip"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_below="@+id/horiz_error"
+                    android:layout_width="0dip"
+                    android:layout_weight="0.2"
+                    android:layout_height="match_parent"
+                    android:baselineAligned="true">
+
+                    <TextView
+                        android:id="@+id/targetAltitudeValue"
+                        style="@style/largeTelemetryText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="@color/altitude_target"
+                        android:text="@{strTempOne}"/>
+
+                    <TextView
+                        android:id="@+id/targetAltitudeUnits"
+                        style="@style/unitText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/targetAltitudeValue"
+                        android:layout_alignBaseline="@+id/targetAltitudeValue"
+                        android:text="@string/meter_unit2"
+                        android:textColor="@color/altitude_target"/>
+
+                    <TextView
+                        android:id="@+id/altitudeValue"
+                        style="@style/largeTelemetryText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/targetAltitudeValue"
+                        android:layout_alignLeft="@+id/targetAltitudeValue"
+                        android:text="@{strTempTwo}"/>
+
+                    <TextView
+                        android:id="@+id/altitudeUnits"
+                        style="@style/unitText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/altitudeValue"
+                        android:layout_alignBaseline="@+id/altitudeValue"
+                        android:text="@string/meter_unit2"/>
+
+                    <!--<TextView
+                        android:id="@+id/AltitudeLabel"
+                        style="@style/textLabels"
+                        android:layout_marginLeft="@dimen/activity_magin_10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:text="@string/altitude_label"
+                        android:textColor="@color/altitude_label"/>-->
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="1dip"
+                    android:background="#ffffff"
+                    android:layout_height="match_parent"/>
+
+                <LinearLayout
+                    android:layout_width="@dimen/activity_magin_0"
+                    android:layout_weight="0.8"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_height="match_parent">
+
+                    <!--<TextView
+                        android:text="气体"
+                        android:textSize="@dimen/txt_size_12"
+                        android:layout_width="wrap_content"
+                        style="@style/textLabels"
+                        android:layout_marginLeft="@dimen/activity_magin_5"
+                        android:gravity="left|bottom"
+                        android:padding="@dimen/activity_magin_10"
+                        android:textColor="@color/altitude_label"
+                        android:layout_height="match_parent" />-->
+                    <LinearLayout
+                        android:layout_width="0dip"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.25"
+                        android:orientation="vertical">
+                        <TextView
+                            android:text="@{strCo}"
+                            android:textSize="@dimen/txt_size_12"
+                            android:layout_width="match_parent"
+                            style="@style/largeTelemetryText"
+                            android:gravity="center"
+                            android:layout_height="0dip"
+                            android:layout_weight="0.5"/>
+
+                        <TextView
+                            android:text="@{strCo_One}"
+                            android:textSize="@dimen/txt_size_12"
+                            android:layout_width="match_parent"
+                            style="@style/largeTelemetryText"
+                            android:gravity="center"
+                            android:layout_height="0dip"
+                            android:layout_weight="0.5" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dip"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="0.25">
+
+                        <TextView
+                            android:text="@{strHTwoS}"
+                            style="@style/largeTelemetryText"
+                            android:textSize="@dimen/txt_size_12"
+                            android:layout_width="match_parent"
+                            android:gravity="center"
+                            android:layout_height="0dip"
+                            android:layout_weight="0.5"/>
+
+                        <TextView
+                            android:text="@{strHTwoS_One}"
+                            style="@style/largeTelemetryText"
+                            android:textSize="@dimen/txt_size_12"
+                            android:layout_width="match_parent"
+                            android:gravity="center"
+                            android:layout_height="0dip"
+                            android:layout_weight="0.5"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dip"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="0.25">
+                        <TextView
+                            android:text="@{strNHThree}"
+                            style="@style/largeTelemetryText"
+                            android:textSize="@dimen/txt_size_12"
+                            android:layout_width="match_parent"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:layout_height="0dip" />
+
+                        <TextView
+                            android:text="@{strNHThree_One}"
+                            style="@style/largeTelemetryText"
+                            android:textSize="@dimen/txt_size_12"
+                            android:layout_width="match_parent"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:layout_height="0dip" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dip"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="0.25">
+                        <TextView
+                            android:text="@{strCOTwo}"
+                            style="@style/largeTelemetryText"
+                            android:textSize="@dimen/txt_size_12"
+                            android:layout_width="match_parent"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:layout_height="0dip" />
+                        <TextView
+                            android:text="@{strCOTwo_One}"
+                            style="@style/largeTelemetryText"
+                            android:textSize="@dimen/txt_size_12"
+                            android:layout_width="match_parent"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:layout_height="0dip" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/mount_clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:background="@mipmap/camera_roi_expand_icon2"/>
+    </FrameLayout>
+</layout>

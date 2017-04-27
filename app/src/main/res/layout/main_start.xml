@@ -77,5 +77,49 @@
                 android:fitsSystemWindows="true"
                 tools:layout="@layout/fragment_telemetry"/>
         </SlidingDrawer>
+
+
+        <!--赌气模块值与温度值-->
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="50dip"
+            android:layout_alignParentTop="true">
+
+            <ImageView
+                android:id="@+id/mount_open"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:background="@mipmap/camera_roi_expand_icon"/>
+
+            <zkrtdrone.zkrt.com.widght.FitsSystemWindowsFrameLayout
+                android:id="@+id/module_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fitsSystemWindows="true"
+                tools:layout="@layout/fragment_mount"/>
+        </FrameLayout>
+
+        <!--控制地图的基本操作-->
+        <zkrtdrone.zkrt.com.widght.FitsSystemWindowsFrameLayout
+            android:id="@+id/fragment_map"
+            android:layout_width="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="100dip"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            tools:layout="@layout/fragment_map"/>
+
+        <!--控制飞行器起飞降落航点-->
+        <zkrtdrone.zkrt.com.widght.FitsSystemWindowsFrameLayout
+            android:layout_width="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_height="80dip"
+            android:fitsSystemWindows="true"
+            tools:layout="@layout/fragment_mount"/>
     </RelativeLayout>
 </layout>

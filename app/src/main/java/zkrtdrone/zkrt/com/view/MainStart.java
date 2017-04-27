@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.RotateAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -16,6 +17,7 @@ import android.widget.SlidingDrawer;
 
 import java.util.List;
 
+import butterknife.Bind;
 import dji.sdk.flightcontroller.FlightController;
 import zkrtdrone.zkrt.com.JackApplication;
 import zkrtdrone.zkrt.com.R;
@@ -25,6 +27,8 @@ import zkrtdrone.zkrt.com.maplib.info.GestureMapFragment;
 import zkrtdrone.zkrt.com.maplib.info.OnEditorInteraction;
 import zkrtdrone.zkrt.com.maplib.info.mission.coordinate.LatLong;
 import zkrtdrone.zkrt.com.view.fragment.HandStateFragment;
+import zkrtdrone.zkrt.com.view.fragment.MapMountFragment;
+import zkrtdrone.zkrt.com.view.fragment.MountFragment;
 import zkrtdrone.zkrt.com.view.fragment.TelemetryFragment;
 
 import static zkrtdrone.zkrt.com.jackmvvm.base.BaseApplication.fragmentManager;
@@ -42,8 +46,11 @@ public class MainStart extends RelativeLayout implements GestureMapFragment.OnPa
     private FrameLayout start_common_map_video;
     //private SlidingDrawer slidingDrawer;
     private TelemetryFragment telemetryFragment;
+    private MountFragment mountFragment;
     private GestureMapFragment gestureMapFragment;
     private HandStateFragment handStateFragment;
+    private MapMountFragment mapMountFragment;
+    private ImageView mount_open;
     public MainStart(Context context) {
         super(context);
         initView(context);
@@ -57,8 +64,6 @@ public class MainStart extends RelativeLayout implements GestureMapFragment.OnPa
     }
 
     private void initView(Context context) {
-        handStateFragment = new HandStateFragment();
-        gestureMapFragment = new GestureMapFragment();
         final LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.main_start, this);
         //slidingDrawer = (SlidingDrawer) view.findViewById(R.id.slidingDrawerRight);
@@ -68,21 +73,46 @@ public class MainStart extends RelativeLayout implements GestureMapFragment.OnPa
         img_common_conceal = (ImageView) view.findViewById(R.id.img_common_conceal);
         img_common_conceal2 = (ImageView) view.findViewById(R.id.img_common_conceal2);
         img_common_clear_pryline = (ImageView) view.findViewById(R.id.img_common_clear_pryline);
+        mount_open = (ImageView) view.findViewById(R.id.mount_open);
         img_common_exchange.setOnClickListener(this);
         img_common_location.setOnClickListener(this);
         img_common_conceal.setOnClickListener(this);
         img_common_conceal2.setOnClickListener(this);
         img_common_clear_pryline.setOnClickListener(this);
-        fragmentManager.beginTransaction().add(R.id.fragment_hand, handStateFragment).commit();
-        fragmentManager.beginTransaction().add(R.id.gestureMapFragment,gestureMapFragment).commit();
-        telemetryFragment = (TelemetryFragment) fragmentManager.findFragmentById(R.id.telemetryFragment);
+        mount_open.setOnClickListener(this);
+        if (handStateFragment == null) {
+            handStateFragment = new HandStateFragment();
+            fragmentManager.beginTransaction()
+                    .add(R.id.fragment_hand, handStateFragment)
+                    .commit();
+        }
+        if (gestureMapFragment == null) {
+            gestureMapFragment = new GestureMapFragment();
+            fragmentManager.beginTransaction()
+                    .add(R.id.gestureMapFragment, gestureMapFragment)
+                    .commit();
+        }
         if (telemetryFragment == null) {
             telemetryFragment = new TelemetryFragment();
             fragmentManager.beginTransaction()
                     .add(R.id.telemetryFragment, telemetryFragment)
                     .commit();
         }
-
+        if (mountFragment == null) {
+            mountFragment = new MountFragment();
+            fragmentManager.beginTransaction()
+                    .add(R.id.module_value, mountFragment)
+                    .commit();
+        }
+        if (mapMountFragment == null) {
+            mapMountFragment = new MapMountFragment();
+            fragmentManager.beginTransaction()
+                    .add(R.id.fragment_map, mapMountFragment)
+                    .commit();
+        }
+        mountFragment.setImgOpen(mount_open);
+        mapMountFragment.GestureMapFragment(gestureMapFragment);
+        telemetryFragment.setGestureMapFragment(gestureMapFragment);
         /*if(slidingDrawer != null) {
             slidingDrawer.setOnDrawerCloseListener(new SlidingDrawer.OnDrawerCloseListener() {
                 @Override
@@ -116,6 +146,7 @@ public class MainStart extends RelativeLayout implements GestureMapFragment.OnPa
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.img_common_exchange:  //切换窗口
+
                 break;
             case R.id.img_common_location:  //定位用户位置
                 gestureMapFragment.getMapFragment().goToMyLocation();
@@ -137,8 +168,23 @@ public class MainStart extends RelativeLayout implements GestureMapFragment.OnPa
                 break;
             case R.id.img_common_clear_pryline:  //清除航线
                 break;
+            case R.id.mount_open:  //显示与隐藏毒气值
+                if(mountFragment.frame_mount.getVisibility() == GONE) {
+                    mountFragment.frame_mount.setVisibility(View.VISIBLE);
+                    mount_open.setVisibility(View.GONE);
+                    mountFragment.mount_clear.startAnimation(mountFragment.animation1);
+                    mountFragment.frame_mount.startAnimation(mountFragment.startAnimViewShow());
+                }else{
+                    mountFragment.frame_mount.setVisibility(View.GONE);
+                    mount_open.setVisibility(View.VISIBLE);
+                    mountFragment.mount_clear.startAnimation(mountFragment.animation);
+                    mountFragment.frame_mount.startAnimation(mountFragment.startAnimViewGone());
+                }
+                break;
         }
     }
+
+
 
     //显示动画
     private TranslateAnimation startAnimViewShow(){
@@ -147,7 +193,6 @@ public class MainStart extends RelativeLayout implements GestureMapFragment.OnPa
                 1.0f, Animation.RELATIVE_TO_SELF, 0.0f);
         mHiddenAction.setDuration(500);
         return mHiddenAction;
-
     }
 
     //隐藏动画
@@ -157,7 +202,6 @@ public class MainStart extends RelativeLayout implements GestureMapFragment.OnPa
                 0.0f, Animation.RELATIVE_TO_SELF, 1.0f);
         mHiddenAction.setDuration(500);
         return mHiddenAction;
-
     }
 
     @Override

@@ -284,4 +284,6 @@ public abstract class AbsFragment<VB extends ViewDataBinding> extends Fragment
         RefWatcher refWatcher = BaseApplication.getRefWatcher(getActivity());
         refWatcher.watch(this);
     }
+
+
 }

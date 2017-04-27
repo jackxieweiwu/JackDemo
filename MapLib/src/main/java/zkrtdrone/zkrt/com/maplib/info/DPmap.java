@@ -1,5 +1,6 @@
 package zkrtdrone.zkrt.com.maplib.info;
 
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import java.util.Collection;
 import java.util.List;
@@ -49,6 +50,8 @@ public interface DPmap {
 
     public static final String PREF_ZOOM = "pref_map_zoom";
     public static final int DEFAULT_ZOOM_LEVEL = 5;
+
+    void setDroneMap(Bitmap droneBitmap);
 
     interface PathSource {
         public List<LatLong> getPathPoints();
@@ -350,6 +353,8 @@ public interface DPmap {
      * @param coords
      */
     public void zoomToFitMyLocation(List<LatLong> coords);
+
+    public void mapType(int i);
 
     /**
      * Ignore marker clicks on the map and instead report the event as a mapClick

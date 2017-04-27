@@ -1,6 +1,7 @@
 package zkrtdrone.zkrt.com.maplib.info;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -78,6 +79,10 @@ public abstract class DroneMap extends Fragment {
         mMapFragment.goToMyLocation();
     }
 
+    public void goTomapType(int i) {
+        mMapFragment.mapType(i);
+    }
+
     /**
      * Move the map to the drone location.
      */
@@ -114,5 +119,6 @@ public abstract class DroneMap extends Fragment {
         super.onStart();
         updateMapFragment();
     }
+
 
 }

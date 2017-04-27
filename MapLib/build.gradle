@@ -36,4 +36,5 @@ dependencies {
     compile files('libs/baidumapapi_map_v4_3_0.jar')
     compile files('libs/locSDK_6.13.jar')
     compile files('libs/baidumapapi_base_v4_3_0.jar')
+    compile files('libs/baidumapapi_util_v4_3_0.jar')
 }

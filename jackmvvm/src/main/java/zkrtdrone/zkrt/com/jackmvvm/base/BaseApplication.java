@@ -3,6 +3,7 @@ package zkrtdrone.zkrt.com.jackmvvm.base;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
@@ -36,6 +37,8 @@ public abstract class BaseApplication extends Application {
     public static  boolean settingBool = false;
     public static double peploLat=0;
     public static double peploLng=0;
+    public static double droneloLat=0;
+    public static double droneloLng=0;
     public static  boolean rightMenu = true;
     private static Bus bus = new Bus(ThreadEnforcer.ANY);
     private static BaseApplication instance;

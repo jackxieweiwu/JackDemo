@@ -1,6 +1,7 @@
 package zkrtdrone.zkrt.com.maplib.info;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -95,5 +96,9 @@ public class EditorMapFragment extends DroneMap implements DPmap.OnMapLongClickL
             PolygonMarkerInfo marker = (PolygonMarkerInfo) markerInfo;
             missionProxy.movePolygonPoint(marker.getSurvey(), marker.getIndex(), markerInfo.getPosition());
         }*/
+    }
+
+    public void setDroneBitmap(Bitmap droneBitmap) {
+        mMapFragment.setDroneMap(droneBitmap);
     }
 }

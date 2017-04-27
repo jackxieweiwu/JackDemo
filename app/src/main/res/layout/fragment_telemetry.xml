@@ -298,8 +298,7 @@
                     android:layout_alignParentLeft="true"
                     android:layout_below="@+id/altitudeValue"
                     android:text="@string/altitude_label"
-                    android:textColor="@color/altitude_label"
-                    />
+                    android:textColor="@color/altitude_label"/>
             </RelativeLayout>
         </RelativeLayout>
     </ScrollView>

@@ -5,6 +5,7 @@
     <string name="climb_rate_label">爬升速率</string>
     <string name="altitude_label">高度</string>
     <string name="meter_unit">m</string>
+    <string name="meter_unit2">℃</string>
     <string name="speed_unit">m/s</string>
     <string name="speed_label">速度</string>
     <string name="length_label">长度</string>

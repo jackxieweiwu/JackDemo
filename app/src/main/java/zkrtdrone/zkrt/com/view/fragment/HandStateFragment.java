@@ -75,7 +75,9 @@ public class HandStateFragment extends AbsFragment<FragmentHandBinding> {
                 @Override
                 public void onUpdate(BatteryState batteryState) {
                     int mv = batteryState.getVoltage();
-                    getBinding().setBatteryStr(new DecimalFormat("##0.0").format(mv/1000)+"V");  //+batteryState.getCellVoltageLevel()
+
+                    //getBinding().setBatteryStr(new DecimalFormat("##0.0").format(mv/1000)+"V");  //+batteryState.getCellVoltageLevel()
+                    getBinding().setBatteryStr(String.format("%3.1f", (mv/1000))+"V");
 
                     //T.show(mActivity,batteryLow2+"***--"+batteryWaring1+"**--**"+mv);
 
