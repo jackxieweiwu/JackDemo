@@ -16,9 +16,10 @@
         <RadioGroup
             android:id="@+id/map_type_radiogroup"
             android:visibility="gone"
+            android:layout_alignTop="@+id/img_maptype"
+            android:layout_alignBottom="@+id/img_maptype"
             android:layout_toRightOf="@+id/img_maptype"
             android:layout_width="wrap_content"
-            android:layout_margin="@dimen/activity_magin_3"
             android:background="@drawable/ground_speed_bg"
             android:padding="@dimen/activity_magin_10"
             android:orientation="horizontal"
@@ -54,11 +55,11 @@
 
         <RadioGroup
             android:id="@+id/location_map_radiogroup"
+            android:layout_alignTop="@+id/img_location"
             android:visibility="gone"
-            android:layout_below="@+id/map_type_radiogroup"
+            android:layout_alignBottom="@+id/img_location"
             android:layout_toRightOf="@+id/img_location"
             android:layout_width="wrap_content"
-            android:layout_margin="@dimen/activity_magin_3"
             android:background="@drawable/ground_speed_bg"
             android:padding="@dimen/activity_magin_10"
             android:orientation="horizontal"

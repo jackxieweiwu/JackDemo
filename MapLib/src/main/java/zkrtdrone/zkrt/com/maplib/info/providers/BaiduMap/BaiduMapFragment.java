@@ -263,6 +263,11 @@ public class BaiduMapFragment extends SupportMapFragment implements DPmap,Sensor
     }
 
     @Override
+    public void setZoomStates(MapStatusUpdate mapStatusUpdate) {
+        getBaiduMap().setMapStatus(mapStatusUpdate);
+    }
+
+    @Override
     public LatLong getMapCenter() {
         return DroneHelper.BaiduLatLngToCoord(getBaiduMap().getMapStatus().target);
        // return new LatLng(getBaiduMap().getMapStatus().target.latitude,getBaiduMap().getMapStatus().target.longitude);
@@ -282,7 +287,6 @@ public class BaiduMapFragment extends SupportMapFragment implements DPmap,Sensor
     public float getMinZoomLevel() {
         return getBaiduMap().getMinZoomLevel();
     }
-
 
     @Override
     public DPMapProvider getProvider() {
@@ -739,10 +743,6 @@ public class BaiduMapFragment extends SupportMapFragment implements DPmap,Sensor
         }
         public void onReceivePoi(BDLocation poiLocation) {
         }
-    }
-
-    public void setDronemapImage(Bitmap bitmap){
-
     }
 
     /*private void setPeleGps(GPSData gpsData){

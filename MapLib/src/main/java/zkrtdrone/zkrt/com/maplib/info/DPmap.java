@@ -2,6 +2,10 @@ package zkrtdrone.zkrt.com.maplib.info;
 
 import android.graphics.Bitmap;
 import android.graphics.Color;
+
+import com.baidu.mapapi.map.MapStatusUpdate;
+import com.baidu.mapapi.map.MapStatusUpdateFactory;
+
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
@@ -167,6 +171,8 @@ public interface DPmap {
      * @return the map minimum zoom level.
      */
     public float getMinZoomLevel();
+
+    public void setZoomStates(MapStatusUpdate mapStatusUpdate);
 
     /**
      * @return this map's provider.

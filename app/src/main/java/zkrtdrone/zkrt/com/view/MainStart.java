@@ -51,6 +51,7 @@ public class MainStart extends RelativeLayout implements GestureMapFragment.OnPa
     private HandStateFragment handStateFragment;
     private MapMountFragment mapMountFragment;
     private ImageView mount_open;
+
     public MainStart(Context context) {
         super(context);
         initView(context);

@@ -7,12 +7,14 @@ import android.view.animation.TranslateAnimation;
 import android.widget.ImageButton;
 import android.widget.RadioGroup;
 import com.baidu.mapapi.map.BaiduMap;
+import com.baidu.mapapi.map.MapStatusUpdateFactory;
+
 import butterknife.Bind;
-import butterknife.OnCheckedChanged;
 import butterknife.OnClick;
 import zkrtdrone.zkrt.com.R;
 import zkrtdrone.zkrt.com.databinding.FragmentMapBinding;
 import zkrtdrone.zkrt.com.jackmvvm.mvvm.core.AbsFragment;
+import zkrtdrone.zkrt.com.jackmvvm.util.GeneralUtils;
 import zkrtdrone.zkrt.com.maplib.info.GestureMapFragment;
 
 import static zkrtdrone.zkrt.com.jackmvvm.base.BaseApplication.handler;
@@ -44,6 +46,7 @@ public class MapMountFragment extends AbsFragment<FragmentMapBinding> implements
 
     @OnClick(R.id.img_maptype)
     public void maptype(View v){
+        if (GeneralUtils.isFastDoubleClick()) return;
         if(map_type_radiogroup.getVisibility() == View.VISIBLE){
             map_type_radiogroup.startAnimation(startAnimViewGone());
             handler.postDelayed(new Runnable() {
@@ -63,11 +66,54 @@ public class MapMountFragment extends AbsFragment<FragmentMapBinding> implements
         }
     }
 
+    @OnClick(R.id.img_location)
+    public void mapLocation(View v){
+        if (GeneralUtils.isFastDoubleClick()) return;
+        if(location_map_radiogroup.getVisibility() == View.VISIBLE){
+            location_map_radiogroup.startAnimation(startAnimViewGone());
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    location_map_radiogroup.setVisibility(View.GONE);
+                }
+            },500);
+        }else{
+            location_map_radiogroup.startAnimation(startAnimViewShow());
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    location_map_radiogroup.setVisibility(View.VISIBLE);
+                }
+            },500);
+        }
+    }
+
+    @OnClick(R.id.img_mapzomm_min)
+    public void mapZoomMin(View v){
+        if (GeneralUtils.isFastDoubleClick()) return;
+        gestureMapFragment.getMapFragment().setmapZoom(MapStatusUpdateFactory.zoomOut());
+    }
+
+    @OnClick(R.id.img_mapzomm_max)
+    public void mapZoomMax(View v){
+        if (GeneralUtils.isFastDoubleClick()) return;
+        gestureMapFragment.getMapFragment().setmapZoom(MapStatusUpdateFactory.zoomIn());
+    }
+
+    @OnClick(R.id.img_mappoy_clear)
+    public void mapMarkerClear(View v){
+        if (GeneralUtils.isFastDoubleClick()) return;
+        gestureMapFragment.getMapFragment().clearMapMarker();
+    }
+
     //显示动画
     private TranslateAnimation startAnimViewShow(){
-        TranslateAnimation mHiddenAction = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 1.0f,
+        int[] location = new int[2];
+        map_type_radiogroup.getLocationOnScreen(location);
+        //TranslateAnimation mHiddenAction = new TranslateAnimation(location[0], 0.0f,location[1], 0.0f);
+        TranslateAnimation mHiddenAction = new TranslateAnimation(Animation.RELATIVE_TO_SELF, -1.0f,
                 Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF,
-                1.0f, Animation.RELATIVE_TO_SELF, 0.0f);
+                0.0f, Animation.RELATIVE_TO_SELF, 0.0f);
         mHiddenAction.setDuration(500);
         return mHiddenAction;
     }
@@ -75,8 +121,8 @@ public class MapMountFragment extends AbsFragment<FragmentMapBinding> implements
     //隐藏动画
     private TranslateAnimation startAnimViewGone(){
         TranslateAnimation mHiddenAction = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0.0f,
-                Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF,
-                -1.0f, Animation.RELATIVE_TO_SELF, 0.0f);
+                Animation.RELATIVE_TO_SELF, -1.0f, Animation.RELATIVE_TO_SELF,
+                0.0f, Animation.RELATIVE_TO_SELF, 0.0f);
         mHiddenAction.setDuration(500);
         return mHiddenAction;
     }

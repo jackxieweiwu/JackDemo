@@ -1,27 +1,17 @@
 package zkrtdrone.zkrt.com.maplib.info;
 
 import android.gesture.GestureOverlayView;
-import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.view.MotionEvent;
-
-import com.baidu.mapapi.map.Circle;
-import com.baidu.mapapi.map.CircleOptions;
-import com.baidu.mapapi.model.LatLng;
-
 import java.util.ArrayList;
 import java.util.List;
-
-import zkrtdrone.zkrt.com.jackmvvm.base.BaseApplication;
 import zkrtdrone.zkrt.com.jackmvvm.mvvm.core.AbsFragment;
 import zkrtdrone.zkrt.com.maplib.R;
 import zkrtdrone.zkrt.com.maplib.databinding.FragmentGestureMapBinding;
 import zkrtdrone.zkrt.com.maplib.info.mission.coordinate.LatLong;
 import zkrtdrone.zkrt.com.maplib.info.units.MathUtils;
 
-import static android.R.id.progress;
 import static zkrtdrone.zkrt.com.jackmvvm.base.BaseApplication.fragmentManager;
 
 /**
@@ -35,7 +25,6 @@ public class GestureMapFragment extends AbsFragment<FragmentGestureMapBinding> i
     private static final int TOLERANCE = 15;
     private static final int STROKE_WIDTH = 3;
     private double toleranceInPixels;
-    private Circle circle;
 
     public interface OnPathFinishedListener {
         void onPathFinished(List<LatLong> path);

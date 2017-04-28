@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.baidu.mapapi.map.MapStatusUpdate;
+
 import java.util.List;
 import zkrtdrone.zkrt.com.maplib.R;
 import zkrtdrone.zkrt.com.maplib.info.mission.coordinate.LatLong;
@@ -88,6 +90,16 @@ public abstract class DroneMap extends Fragment {
      */
     public void goToDroneLocation() {
         mMapFragment.goToDroneLocation();
+    }
+
+    public void setmapZoom(MapStatusUpdate mapStatusUpdate){
+        mMapFragment.setZoomStates(mapStatusUpdate);
+    }
+
+    //清除地图表面marker
+    public void clearMapMarker(){
+        mMapFragment.clearMarkers();
+        mMapFragment.clearFlightPath();
     }
 
     /**
