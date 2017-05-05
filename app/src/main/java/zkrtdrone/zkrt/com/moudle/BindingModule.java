@@ -62,13 +62,13 @@ public class BindingModule extends BaseModule{
                 public void onResult(DJIError djiError) {
                    if(djiError!=null){
                        numberCallBack = 400;
-                       getBinding(DialogPairingBinding.class).setStr("启用对频失败!");
+                       getBinding(DialogPairingBinding.class).setStrMessage("启用对频失败!");
                    }else{
                        CountDownTimer cdt = new CountDownTimer(60000, 1000) {
                            @Override
                            public void onTick(long millisUntilFinished) {
                                int i = (int) millisUntilFinished/1000;
-                               getBinding(DialogPairingBinding.class).setStr("遥控器处于对频状态，时间为"+i+".在对频率状态下不要关闭飞控与遥控器电源");
+                               getBinding(DialogPairingBinding.class).setStrMessage("遥控器处于对频状态，时间为"+i+".在对频率状态下不要关闭飞控与遥控器电源");
                            }
                            @Override
                            public void onFinish() {
@@ -81,7 +81,7 @@ public class BindingModule extends BaseModule{
             });
         }else{
             numberCallBack = 401;
-            getBinding(DialogPairingBinding.class).setStr("请检查遥控器与地面战的连接线路!");
+            getBinding(DialogPairingBinding.class).setStrMessage("请检查遥控器与地面战的连接线路!");
         }
     }
 
@@ -110,7 +110,7 @@ public class BindingModule extends BaseModule{
                     if(djiError == null){
                         dialogPairimg.setAddDismiss();
                     }else{
-                        getBinding(DialogPairingBinding.class).setStr("取消对频失败,请检查遥控器与地面战的连接线路!");
+                        getBinding(DialogPairingBinding.class).setStrMessage("取消对频失败,请检查遥控器与地面战的连接线路!");
                     }
                 }
             });

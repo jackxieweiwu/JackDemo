@@ -5,6 +5,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+
 import com.squareup.otto.Subscribe;
 import dji.sdk.base.BaseProduct;
 import zkrtdrone.zkrt.com.jackmvvm.base.BaseApplication;
@@ -25,6 +27,7 @@ public class MainContent extends RelativeLayout {
     }
     private BaseProduct mProduct;
     private Button ftb_start,ftb_frequency;
+    private TextView txt_log_remote;
 
     @Override
     protected void onFinishInflate() {
@@ -35,13 +38,13 @@ public class MainContent extends RelativeLayout {
 
     private void initUI() {
         ftb_start = (Button) findViewById(R.id.ftb_start);
+        txt_log_remote = (TextView) findViewById(R.id.txt_log_remote);
         ftb_frequency = (Button) findViewById(R.id.ftb_frequency);
         ftb_start.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (GeneralUtils.isFastDoubleClick()) return;
-                JackApplication.getEventBus().post(new ViewWrapper(new MainStart(JackApplication.mActivity),
-                                                          R.string.activity_component_list));
+                JackApplication.getEventBus().post(new ViewWrapper(new MainStart(JackApplication.mActivity),R.string.activity_component_list));
             }
         });
 
@@ -80,6 +83,9 @@ public class MainContent extends RelativeLayout {
             if(!boolRemote){
                 ftb_start.setVisibility(GONE);
                 ftb_frequency.setVisibility(GONE);
+                txt_log_remote.setVisibility(VISIBLE);
+            }else{
+                txt_log_remote.setVisibility(GONE);
             }
         }
 

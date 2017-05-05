@@ -3,14 +3,19 @@ package zkrtdrone.zkrt.com.view.fragment;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import java.text.DecimalFormat;
+
+import com.arialyy.absadapter.viewpager.SimpleViewPagerAdapter;
+
 import butterknife.Bind;
+import butterknife.OnClick;
 import dji.common.airlink.SignalQualityCallback;
 import dji.common.battery.BatteryState;
-import dji.common.battery.LowVoltageBehavior;
-import dji.common.battery.WarningRecord;
 import dji.common.error.DJIError;
 import dji.common.flightcontroller.FlightControllerState;
 import dji.common.flightcontroller.GPSSignalLevel;
@@ -18,12 +23,17 @@ import dji.common.util.CommonCallbacks;
 import zkrtdrone.zkrt.com.JackApplication;
 import zkrtdrone.zkrt.com.R;
 import zkrtdrone.zkrt.com.databinding.FragmentHandBinding;
-import zkrtdrone.zkrt.com.jackmvvm.base.BaseApplication;
 import zkrtdrone.zkrt.com.jackmvvm.mvvm.core.AbsFragment;
 import zkrtdrone.zkrt.com.jackmvvm.mvvm.util.CalendarUtils;
 import zkrtdrone.zkrt.com.jackmvvm.mvvm.util.ScreenUtil;
-import zkrtdrone.zkrt.com.jackmvvm.mvvm.util.show.T;
 import zkrtdrone.zkrt.com.jackmvvm.util.ModuleVerificationUtil;
+import zkrtdrone.zkrt.com.view.fragment.DroneSetting.BasisSettingFragment;
+import zkrtdrone.zkrt.com.view.fragment.DroneSetting.BatterySettingFragment;
+import zkrtdrone.zkrt.com.view.fragment.DroneSetting.DroneSettingFragment;
+import zkrtdrone.zkrt.com.view.fragment.DroneSetting.HolderSettingFragment;
+import zkrtdrone.zkrt.com.view.fragment.DroneSetting.MapSettingFragment;
+import zkrtdrone.zkrt.com.view.fragment.DroneSetting.RecordSettingFragment;
+import zkrtdrone.zkrt.com.widght.XCSlideView;
 
 /**
  * Created by jack_xie on 17-4-20.
@@ -35,9 +45,44 @@ public class HandStateFragment extends AbsFragment<FragmentHandBinding> {
     @Bind(R.id.img_hd_status) ImageView img_hd_status;
     @Bind(R.id.txt_state_drone) TextView txt_state_drone;
     @Bind(R.id.hand_battery) ImageView hand_battery;
+    @Bind(R.id.hand_setting) ImageView hand_setting;
+
+    private TabLayout drone_tool_bar;
+    private ViewPager drone_setting_pager;
+
+    private XCSlideView mSlideViewRight;
+    @OnClick(R.id.hand_setting)
+    public void droneSetting(View view){
+        if (!mSlideViewRight.isShow())
+            mSlideViewRight.show();
+    }
 
     @Override
     protected void init(Bundle savedInstanceState) {
+        DroneSettingFragment droneSettingFragment = new DroneSettingFragment();
+        BatterySettingFragment batterySettingFragment = new BatterySettingFragment();
+        HolderSettingFragment holderSettingFragment = new HolderSettingFragment();
+        BasisSettingFragment basisSettingFragment = new BasisSettingFragment();
+        MapSettingFragment mapSettingFragment = new MapSettingFragment();
+        RecordSettingFragment recordSettingFragment = new RecordSettingFragment();
+
+        View menuViewLeft = LayoutInflater.from(JackApplication.mActivity).inflate(R.layout.setting_drone,null);
+        drone_tool_bar = (TabLayout) menuViewLeft.findViewById(R.id.drone_tool_bar);
+        drone_setting_pager = (ViewPager) menuViewLeft.findViewById(R.id.drone_setting_pager);
+        mSlideViewRight = XCSlideView.create(JackApplication.mActivity, XCSlideView.Positon.RIGHT);
+        mSlideViewRight.setMenuView(JackApplication.mActivity, menuViewLeft);
+        mSlideViewRight.setMenuWidth(JackApplication.getScreenWidth() * 7 / 15);
+
+        SimpleViewPagerAdapter adapter = new SimpleViewPagerAdapter(JackApplication.fragmentManager);
+        adapter.addFrag(droneSettingFragment, "飞机");
+        adapter.addFrag(batterySettingFragment, "电源");
+        adapter.addFrag(holderSettingFragment, "云台");
+        adapter.addFrag(basisSettingFragment, "基础");
+        adapter.addFrag(mapSettingFragment, "地图");
+        adapter.addFrag(recordSettingFragment, "记录");
+        drone_setting_pager.setAdapter(adapter);
+        drone_tool_bar.setupWithViewPager(drone_setting_pager);
+
         if(ModuleVerificationUtil.isFlightControllerAvailable()){
             //Battery
             JackApplication.getAircraftInstance().getBattery().setNumberOfCells(12, new CommonCallbacks.CompletionCallback() {

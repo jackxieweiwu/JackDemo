@@ -22,12 +22,12 @@
         android:layout_gravity="right|top"
         android:background="@mipmap/gs_map_widget_hide_in_litchi"/>
 
-    <ImageView
+    <!--<ImageView
         android:id="@+id/img_common_conceal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right|bottom"
-        android:background="@mipmap/gs_map_widget_show_out"/>
+        android:background="@mipmap/gs_map_widget_show_out"/>-->
 
     <ImageView
         android:id="@+id/img_common_clear_pryline"

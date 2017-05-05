@@ -10,6 +10,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
+    <TextView
+        android:id="@+id/txt_log_remote"
+        android:layout_width="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone"
+        android:layout_height="45dip"
+        android:layout_marginBottom="100dip"
+        android:textColor="#ffffff"
+        android:text="与遥控器连接异常"/>
+
     <Button
         android:id="@+id/ftb_start"
         android:visibility="gone"

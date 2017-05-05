@@ -1,114 +1,237 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <RelativeLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent">
-
-        <ImageButton
-            android:id="@+id/img_maptype"
-            android:layout_width="50dip"
-            android:layout_height="50dip"
-            android:layout_margin="@dimen/activity_magin_3"
-            android:src="@mipmap/gs_map_type"
-            android:background="@drawable/ground_speed_bg"/>
-
-        <RadioGroup
-            android:id="@+id/map_type_radiogroup"
+        <RelativeLayout
+            android:id="@+id/relayout_map"
+            android:orientation="vertical"
             android:visibility="gone"
-            android:layout_alignTop="@+id/img_maptype"
-            android:layout_alignBottom="@+id/img_maptype"
-            android:layout_toRightOf="@+id/img_maptype"
+            android:layout_gravity="center|left"
+            android:layout_centerVertical="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/img_maptype"
+                android:layout_width="50dip"
+                android:layout_height="50dip"
+                android:layout_margin="@dimen/activity_magin_3"
+                android:src="@mipmap/gs_map_type"
+                android:background="@drawable/ground_speed_bg"/>
+
+            <RadioGroup
+                android:id="@+id/map_type_radiogroup"
+                android:visibility="gone"
+                android:layout_alignTop="@+id/img_maptype"
+                android:layout_alignBottom="@+id/img_maptype"
+                android:layout_toRightOf="@+id/img_maptype"
+                android:layout_width="wrap_content"
+                android:background="@drawable/ground_speed_bg"
+                android:padding="@dimen/activity_magin_10"
+                android:orientation="horizontal"
+                android:layout_height="50dip">
+
+                <RadioButton
+                    android:id="@+id/radio_btn_common"
+                    android:layout_width="wrap_content"
+                    android:gravity="center"
+                    android:textColor="#ffffff"
+                    android:checked="true"
+                    android:layout_height="match_parent"
+                    android:text="普通"/>
+
+                <RadioButton
+                    android:id="@+id/radio_btn_satellite"
+                    android:layout_marginLeft="@dimen/activity_magin_10"
+                    android:layout_width="wrap_content"
+                    android:textColor="#ffffff"
+                    android:gravity="center"
+                    android:layout_height="match_parent"
+                    android:text="卫星"/>
+            </RadioGroup>
+
+            <ImageButton
+                android:id="@+id/img_location"
+                android:layout_below="@+id/img_maptype"
+                android:layout_width="50dip"
+                android:layout_height="50dip"
+                android:layout_margin="@dimen/activity_magin_3"
+                android:src="@mipmap/expanded_gs_locate_trigger_icon"
+                android:background="@drawable/ground_speed_bg"/>
+
+            <RadioGroup
+                android:id="@+id/location_map_radiogroup"
+                android:layout_alignTop="@+id/img_location"
+                android:visibility="gone"
+                android:layout_alignBottom="@+id/img_location"
+                android:layout_toRightOf="@+id/img_location"
+                android:layout_width="wrap_content"
+                android:background="@drawable/ground_speed_bg"
+                android:padding="@dimen/activity_magin_10"
+                android:orientation="horizontal"
+                android:layout_height="50dip">
+
+                <RadioButton
+                    android:id="@+id/radio_btn_mylocation"
+                    android:layout_width="wrap_content"
+                    android:gravity="center"
+                    android:textColor="#ffffff"
+                    android:checked="true"
+                    android:layout_height="match_parent"
+                    android:text="自我"/>
+
+                <RadioButton
+                    android:id="@+id/radio_btn_dronelocation"
+                    android:layout_marginLeft="@dimen/activity_magin_10"
+                    android:layout_width="wrap_content"
+                    android:textColor="#ffffff"
+                    android:gravity="center"
+                    android:layout_height="match_parent"
+                    android:text="飞机"/>
+            </RadioGroup>
+
+            <ImageButton
+                android:id="@+id/img_mapzomm_min"
+                android:layout_below="@+id/img_location"
+                android:layout_width="50dip"
+                android:layout_height="50dip"
+                android:layout_margin="@dimen/activity_magin_3"
+                android:src="@mipmap/fpv_camera_minus"
+                android:background="@drawable/ground_speed_bg"/>
+
+            <ImageButton
+                android:id="@+id/img_mapzomm_max"
+                android:layout_below="@+id/img_mapzomm_min"
+                android:layout_width="50dip"
+                android:layout_height="50dip"
+                android:layout_margin="@dimen/activity_magin_3"
+                android:src="@mipmap/fpv_camera_plus"
+                android:background="@drawable/ground_speed_bg"/>
+
+            <ImageButton
+                android:id="@+id/img_mappoy_clear"
+                android:layout_below="@+id/img_mapzomm_max"
+                android:layout_width="50dip"
+                android:layout_height="50dip"
+                android:layout_margin="@dimen/activity_magin_3"
+                android:src="@mipmap/gs_map_widget_earaser_big1"
+                android:background="@drawable/ground_speed_bg"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/relayout_camera"
             android:layout_width="wrap_content"
-            android:background="@drawable/ground_speed_bg"
-            android:padding="@dimen/activity_magin_10"
-            android:orientation="horizontal"
-            android:layout_height="50dip">
+            android:layout_gravity="center|left"
+            android:layout_centerVertical="true"
+            android:orientation="vertical"
+            android:background="@drawable/rec_take_bg"
+            android:layout_height="300dip">
 
-            <RadioButton
-                android:id="@+id/radio_btn_common"
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/txt_fpv_came_menu"
+                android:layout_width="match_parent"
+                android:layout_height="50dip"
                 android:gravity="center"
-                android:textColor="#ffffff"
-                android:checked="true"
-                android:layout_height="match_parent"
-                android:text="普通"/>
+                android:text="MENU"
+                android:textColor="#ffffff"/>
 
-            <RadioButton
-                android:id="@+id/radio_btn_satellite"
-                android:layout_marginLeft="@dimen/activity_magin_10"
+            <Switch
                 android:layout_width="wrap_content"
-                android:textColor="#ffffff"
-                android:gravity="center"
-                android:layout_height="match_parent"
-                android:text="卫星"/>
-        </RadioGroup>
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/activity_magin_5"
+                android:background="@mipmap/fpv_switch_bg"
+                android:thumb="@mipmap/fpv_switch_ball"
+                android:id="@+id/switch1" />
 
-        <ImageButton
-            android:id="@+id/img_location"
-            android:layout_below="@+id/img_maptype"
-            android:layout_width="50dip"
-            android:layout_height="50dip"
-            android:layout_margin="@dimen/activity_magin_3"
-            android:src="@mipmap/expanded_gs_locate_trigger_icon"
-            android:background="@drawable/ground_speed_bg"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/activity_magin_5"
+                android:layout_height="wrap_content">
 
-        <RadioGroup
-            android:id="@+id/location_map_radiogroup"
-            android:layout_alignTop="@+id/img_location"
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerHorizontal="true"
+                    android:background="@mipmap/camera_photo_highlight"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerHorizontal="true"
+                    android:background="@mipmap/camera_video_highlight"/>
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/img_fpv_camera_rec_take"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/activity_magin_5"
+                android:padding="@dimen/activity_magin_5"
+                android:background="@mipmap/camera_controll_takephoto_icon1"/>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/img_fpv_camera_sdcard2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+                <ImageView
+                    android:id="@+id/img_fpv_camera_sdcard"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dip"
+                    android:layout_margin="@dimen/activity_magin_3"
+                    android:background="@mipmap/camera_controll_playback_icon"/>
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/img_fpv_camera_setting2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <ImageView
+                    android:id="@+id/img_fpv_camera_setting"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dip"
+                    android:background="@mipmap/camera_controll_advanced_icon_non"/>
+                </FrameLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/rela_camera_setting"
             android:visibility="gone"
-            android:layout_alignBottom="@+id/img_location"
-            android:layout_toRightOf="@+id/img_location"
-            android:layout_width="wrap_content"
-            android:background="@drawable/ground_speed_bg"
-            android:padding="@dimen/activity_magin_10"
-            android:orientation="horizontal"
-            android:layout_height="50dip">
+            android:layout_marginLeft="@dimen/activity_magin_3"
+            android:layout_toEndOf="@+id/relayout_camera"
+            android:layout_alignTop="@+id/relayout_camera"
+            android:layout_width="200dip"
+            android:background="@color/back_150"
+            android:layout_height="300dip">
 
-            <RadioButton
-                android:id="@+id/radio_btn_mylocation"
-                android:layout_width="wrap_content"
-                android:gravity="center"
-                android:textColor="#ffffff"
-                android:checked="true"
-                android:layout_height="match_parent"
-                android:text="自我"/>
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tool_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:tabGravity="fill"
+                app:tabIndicatorColor="#0cc6c6"
+                app:tabIndicatorHeight="4dp"
+                app:tabSelectedTextColor="#0cc6c6"
+                app:tabTextColor="#ffffffff"/>
 
-            <RadioButton
-                android:id="@+id/radio_btn_dronelocation"
-                android:layout_marginLeft="@dimen/activity_magin_10"
-                android:layout_width="wrap_content"
-                android:textColor="#ffffff"
-                android:gravity="center"
-                android:layout_height="match_parent"
-                android:text="飞机"/>
-        </RadioGroup>
-
-        <ImageButton
-            android:id="@+id/img_mapzomm_min"
-            android:layout_below="@+id/img_location"
-            android:layout_width="50dip"
-            android:layout_height="50dip"
-            android:layout_margin="@dimen/activity_magin_3"
-            android:src="@mipmap/fpv_camera_minus"
-            android:background="@drawable/ground_speed_bg"/>
-
-        <ImageButton
-            android:id="@+id/img_mapzomm_max"
-            android:layout_below="@+id/img_mapzomm_min"
-            android:layout_width="50dip"
-            android:layout_height="50dip"
-            android:layout_margin="@dimen/activity_magin_3"
-            android:src="@mipmap/fpv_camera_plus"
-            android:background="@drawable/ground_speed_bg"/>
-
-        <ImageButton
-            android:id="@+id/img_mappoy_clear"
-            android:layout_below="@+id/img_mapzomm_max"
-            android:layout_width="50dip"
-            android:layout_height="50dip"
-            android:layout_margin="@dimen/activity_magin_3"
-            android:src="@mipmap/gs_map_widget_earaser_big1"
-            android:background="@drawable/ground_speed_bg"/>
+            <android.support.v4.view.ViewPager
+                android:id="@+id/camera_setting_vp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </RelativeLayout>
     </RelativeLayout>
 </layout>

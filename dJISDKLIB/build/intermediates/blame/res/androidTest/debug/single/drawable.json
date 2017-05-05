@@ -8,12 +8,12 @@
         "source": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/bundles/debug/res/drawable/draw_route.png"
     },
     {
-        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/androidTest/debug/drawable/btn_draw_started.png",
-        "source": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/bundles/debug/res/drawable/btn_draw_started.png"
-    },
-    {
         "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/androidTest/debug/drawable/radio_unchecked.png",
         "source": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/bundles/debug/res/drawable/radio_unchecked.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/androidTest/debug/drawable/btn_draw_started.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/bundles/debug/res/drawable/btn_draw_started.png"
     },
     {
         "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/androidTest/debug/drawable/ic_launcher.png",

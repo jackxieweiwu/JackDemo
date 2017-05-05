@@ -43,6 +43,7 @@ public class LauncherView extends RelativeLayout {
         lp.setMargins(0, 0, 0, dp80);
 
         purple = new ImageView(getContext());
+        purple = new ImageView(getContext());
         purple.setLayoutParams(lp);
         purple.setImageResource(R.drawable.shape_circle_purple);
         addView(purple);

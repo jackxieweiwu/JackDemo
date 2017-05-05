@@ -1,21 +1,33 @@
 package zkrtdrone.zkrt.com.view.fragment;
 
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
+import android.widget.Switch;
+import android.widget.TextView;
+import com.arialyy.absadapter.viewpager.SimpleViewPagerAdapter;
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.MapStatusUpdateFactory;
-
 import butterknife.Bind;
 import butterknife.OnClick;
+import zkrtdrone.zkrt.com.JackApplication;
 import zkrtdrone.zkrt.com.R;
 import zkrtdrone.zkrt.com.databinding.FragmentMapBinding;
 import zkrtdrone.zkrt.com.jackmvvm.mvvm.core.AbsFragment;
 import zkrtdrone.zkrt.com.jackmvvm.util.GeneralUtils;
 import zkrtdrone.zkrt.com.maplib.info.GestureMapFragment;
+import zkrtdrone.zkrt.com.view.fragment.CamSetting.CameraSetting;
+import zkrtdrone.zkrt.com.view.fragment.CamSetting.SetSetting;
+import zkrtdrone.zkrt.com.view.fragment.CamSetting.VideoSetting;
 
 import static zkrtdrone.zkrt.com.jackmvvm.base.BaseApplication.handler;
 
@@ -30,13 +42,35 @@ public class MapMountFragment extends AbsFragment<FragmentMapBinding> implements
     @Bind(R.id.img_mapzomm_min) public ImageButton img_mapzomm_min;
     @Bind(R.id.img_mapzomm_max) public ImageButton img_mapzomm_max;
     @Bind(R.id.img_mappoy_clear) public ImageButton img_mappoy_clear;
+    @Bind(R.id.relayout_map) RelativeLayout relayout_map;
+    @Bind(R.id.relayout_camera) LinearLayout relayout_camera;
     @Bind(R.id.map_type_radiogroup) RadioGroup map_type_radiogroup;
     @Bind(R.id.location_map_radiogroup) RadioGroup location_map_radiogroup;
+
+    //Camera
+    @Bind(R.id.txt_fpv_came_menu) TextView txt_fpv_came_menu;
+    @Bind(R.id.switch1) Switch switch1;
+    @Bind(R.id.img_fpv_camera_rec_take) ImageView img_fpv_camera_rec_take;
+    @Bind(R.id.img_fpv_camera_sdcard2) ImageView img_fpv_camera_sdcard2;
+    @Bind(R.id.img_fpv_camera_setting2) ImageView img_fpv_camera_setting2;
+    private int numCamera = -1;
+
+    //camera setting
+    @Bind(R.id.camera_setting_vp) ViewPager camera_setting_vp;
+    @Bind(R.id.tool_bar) TabLayout mTb;
+    @Bind(R.id.rela_camera_setting) RelativeLayout rela_camera_setting;
 
     @Override
     protected void init(Bundle savedInstanceState) {
         map_type_radiogroup.setOnCheckedChangeListener(this);
         location_map_radiogroup.setOnCheckedChangeListener(this);
+
+        switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                img_fpv_camera_rec_take.setBackgroundResource(isChecked?R.mipmap.camera_controll_video_icon_start:R.mipmap.camera_controll_takephoto_icon1);
+            }
+        });
     }
 
     @Override
@@ -66,6 +100,64 @@ public class MapMountFragment extends AbsFragment<FragmentMapBinding> implements
         }
     }
 
+    //camera is srtat
+    @OnClick(R.id.txt_fpv_came_menu)
+    public void setCameraMenu(View view){
+        if(numCamera == 0){
+            rela_camera_setting.setVisibility(rela_camera_setting.getVisibility() == View.VISIBLE?View.GONE:View.VISIBLE);
+        }else{
+            rela_camera_setting.setVisibility(View.GONE);
+            rela_camera_setting.setVisibility(View.VISIBLE);
+        }
+        txt_fpv_came_menu.setBackgroundResource(rela_camera_setting.getVisibility() == View.VISIBLE?R.color.load_blue:android.R.color.transparent);
+        img_fpv_camera_setting2.setBackgroundResource(android.R.color.transparent);
+        img_fpv_camera_sdcard2.setBackgroundResource(android.R.color.transparent);
+        SimpleViewPagerAdapter adapter = new SimpleViewPagerAdapter(JackApplication.fragmentManager);
+        adapter.addFrag(new CameraSetting(), "相机");
+        adapter.addFrag(new VideoSetting(), "视频");
+        adapter.addFrag(new SetSetting(), "设置");
+        camera_setting_vp.setAdapter(adapter);
+        camera_setting_vp.setOffscreenPageLimit(3);
+        mTb.setupWithViewPager(camera_setting_vp);
+        numCamera = 0;
+    }
+
+    @OnClick(R.id.img_fpv_camera_sdcard)
+    public void setCameraPhtotFile(View view){
+        if(numCamera == 1){
+
+        }else{
+
+        }
+        rela_camera_setting.setVisibility(View.GONE);
+        img_fpv_camera_sdcard2.setBackgroundResource(rela_camera_setting.getVisibility() == View.VISIBLE?R.color.load_blue:android.R.color.transparent);
+        img_fpv_camera_setting2.setBackgroundResource(android.R.color.transparent);
+        txt_fpv_came_menu.setBackgroundResource(android.R.color.transparent);
+        numCamera = 1;
+    }
+
+    @OnClick(R.id.img_fpv_camera_setting)
+    public void setCameraSetting(View v){
+        if(numCamera == 2){
+            rela_camera_setting.setVisibility(rela_camera_setting.getVisibility() == View.VISIBLE?View.GONE:View.VISIBLE);
+        }else{
+            rela_camera_setting.setVisibility(View.GONE);
+            rela_camera_setting.setVisibility(View.VISIBLE);
+        }
+        img_fpv_camera_setting2.setBackgroundResource(rela_camera_setting.getVisibility() == View.VISIBLE?R.color.load_blue:android.R.color.transparent);
+        img_fpv_camera_sdcard2.setBackgroundResource(android.R.color.transparent);
+        txt_fpv_came_menu.setBackgroundResource(android.R.color.transparent);
+        SimpleViewPagerAdapter adapter = new SimpleViewPagerAdapter(JackApplication.fragmentManager);
+        adapter.addFrag(new CameraSetting(), "A");
+        adapter.addFrag(new VideoSetting(), "S");
+        adapter.addFrag(new SetSetting(), "M");
+        camera_setting_vp.setAdapter(adapter);
+        camera_setting_vp.setOffscreenPageLimit(4);
+        mTb.setupWithViewPager(camera_setting_vp);
+        numCamera = 2;
+    }
+    //start is end
+
     @OnClick(R.id.img_location)
     public void mapLocation(View v){
         if (GeneralUtils.isFastDoubleClick()) return;
@@ -85,6 +177,16 @@ public class MapMountFragment extends AbsFragment<FragmentMapBinding> implements
                     location_map_radiogroup.setVisibility(View.VISIBLE);
                 }
             },500);
+        }
+    }
+
+    public void setCheckGoneViesbile(boolean bool){
+        if(bool){
+            relayout_map.setVisibility(View.VISIBLE);
+            relayout_camera.setVisibility(View.GONE);
+        }else{
+            relayout_map.setVisibility(View.GONE);
+            relayout_camera.setVisibility(View.VISIBLE);
         }
     }
 

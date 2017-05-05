@@ -7,6 +7,7 @@ import com.baidu.mapapi.SDKInitializer;
 
 import zkrtdrone.zkrt.com.jackmvvm.base.BaseApplication;
 import zkrtdrone.zkrt.com.maplib.info.until.DroidPlannerPrefs;
+import zkrtdrone.zkrt.com.view.MainStart;
 
 /**
  * Created by jack_xie on 17-4-11.

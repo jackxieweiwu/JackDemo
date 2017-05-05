@@ -3,7 +3,8 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-
+    <color name="sidebar_slide_color">#4c5562</color>
+    <color name="sidebar_bg_color">#263846</color>
     <!--launcherView need-->
     <color name="load_red">#fa007a</color>
     <color name="load_purple">#935fe7</color>
@@ -23,4 +24,6 @@
     <color name="paramAltRow">#fff0f0f0</color>
     <color name="light_title_bg">#e4e4e4</color>
     <color name="Droidblue">#3CB4E5</color>
+    <color name="back_150">#BA000000</color>
+    <color name="mask_color">#66000000</color>
 </resources>

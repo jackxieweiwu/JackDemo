@@ -13,4 +13,6 @@
     <string name="ground_speed_label">地速</string>
     <string name="air_speed_label">空速</string>
     <string name="default_angle_value">--°</string>
+    <string name="drawer_open">open</string>
+    <string name="drawer_close">close</string>
 </resources>

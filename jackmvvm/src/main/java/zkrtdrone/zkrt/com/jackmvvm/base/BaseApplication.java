@@ -45,7 +45,7 @@ public abstract class BaseApplication extends Application {
     public static Activity mActivity;
     public static Handler handler;
     private RefWatcher refWatcher;
-    private int screenWidth,screenHeigh;
+    private static int screenWidth,screenHeigh;
     public static boolean bool,boolRemote;  //是否断开连接   true  断开
 
     public static RefWatcher getRefWatcher(Context context) {
@@ -78,11 +78,11 @@ public abstract class BaseApplication extends Application {
         return (HandHeld) getProductInstance();
     }
 
-    public int getScreenWidth(){
+    public static int getScreenWidth(){
         return screenWidth;
     }
 
-    public int getScreenHeigh(){
+    public static int getScreenHeigh(){
         return screenHeigh;
     }
 
