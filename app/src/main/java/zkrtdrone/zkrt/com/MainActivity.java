@@ -24,7 +24,7 @@ import zkrtdrone.zkrt.com.widght.LauncherView;
 public class MainActivity extends AbsActivity<ActivityMainBinding> {
     @Bind(R.id.load_view ) LauncherView launcherView;
     private FrameLayout contentFrameLayout;
-    private Stack<ViewWrapper> stack;
+    public Stack<ViewWrapper> stack;
     private ObjectAnimator pushInAnimator;
     private ObjectAnimator pushOutAnimator;
     private ObjectAnimator popInAnimator;

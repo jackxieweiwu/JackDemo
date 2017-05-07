@@ -10,6 +10,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:textColor="#ffffff"
         android:text="已下载城市 " />
 
     <TextView
@@ -24,14 +25,14 @@
         android:id="@+id/ratio"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:textColor="#ffffff"
         android:layout_weight="1"
         android:text="" />
 
-    <Button
+    <ImageView
         android:id="@+id/remove"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="删除" />
-
+        android:padding="@dimen/activity_magin_10"
+        android:background="@mipmap/gs_trash" />
 </LinearLayout>
