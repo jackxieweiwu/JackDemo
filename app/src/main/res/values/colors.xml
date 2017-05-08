@@ -10,7 +10,8 @@
     <color name="load_purple">#935fe7</color>
     <color name="load_yellow">#f9b11f</color>
     <color name="load_blue">#009cfa</color>
-
+    <color name="dark_gray">#80000000</color>
+    <color name="transparent">#00000000</color>
     <color name="ground_speed_units">#57eccd</color>
     <color name="ground_speed_label">#0a5242</color>
     <color name="air_speed_units">#7bd8ff</color>

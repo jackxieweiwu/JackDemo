@@ -43,34 +43,35 @@ public class MapMountFragment extends AbsFragment<FragmentMapBinding> implements
     @Bind(R.id.img_mapzomm_max) public ImageButton img_mapzomm_max;
     @Bind(R.id.img_mappoy_clear) public ImageButton img_mappoy_clear;
     @Bind(R.id.relayout_map) RelativeLayout relayout_map;
-    @Bind(R.id.relayout_camera) LinearLayout relayout_camera;
+    //@Bind(R.id.relayout_camera) LinearLayout relayout_camera;
+    @Bind(R.id.relayout_camera) RelativeLayout relayout_camera;
     @Bind(R.id.map_type_radiogroup) RadioGroup map_type_radiogroup;
     @Bind(R.id.location_map_radiogroup) RadioGroup location_map_radiogroup;
 
     //Camera
-    @Bind(R.id.txt_fpv_came_menu) TextView txt_fpv_came_menu;
+    /*@Bind(R.id.txt_fpv_came_menu) TextView txt_fpv_came_menu;
     @Bind(R.id.switch1) Switch switch1;
     @Bind(R.id.img_fpv_camera_rec_take) ImageView img_fpv_camera_rec_take;
     @Bind(R.id.img_fpv_camera_sdcard2) ImageView img_fpv_camera_sdcard2;
-    @Bind(R.id.img_fpv_camera_setting2) ImageView img_fpv_camera_setting2;
-    private int numCamera = -1;
+    @Bind(R.id.img_fpv_camera_setting2) ImageView img_fpv_camera_setting2;*/
+    //private int numCamera = -1;
 
     //camera setting
-    @Bind(R.id.camera_setting_vp) ViewPager camera_setting_vp;
+   /* @Bind(R.id.camera_setting_vp) ViewPager camera_setting_vp;
     @Bind(R.id.tool_bar) TabLayout mTb;
-    @Bind(R.id.rela_camera_setting) RelativeLayout rela_camera_setting;
+    @Bind(R.id.rela_camera_setting) RelativeLayout rela_camera_setting;*/
 
     @Override
     protected void init(Bundle savedInstanceState) {
         map_type_radiogroup.setOnCheckedChangeListener(this);
         location_map_radiogroup.setOnCheckedChangeListener(this);
 
-        switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        /*switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 img_fpv_camera_rec_take.setBackgroundResource(isChecked?R.mipmap.camera_controll_video_icon_start:R.mipmap.camera_controll_takephoto_icon1);
             }
-        });
+        });*/
     }
 
     @Override
@@ -101,7 +102,7 @@ public class MapMountFragment extends AbsFragment<FragmentMapBinding> implements
     }
 
     //camera is srtat
-    @OnClick(R.id.txt_fpv_came_menu)
+    /*@OnClick(R.id.txt_fpv_came_menu)
     public void setCameraMenu(View view){
         if(numCamera == 0){
             rela_camera_setting.setVisibility(rela_camera_setting.getVisibility() == View.VISIBLE?View.GONE:View.VISIBLE);
@@ -155,7 +156,7 @@ public class MapMountFragment extends AbsFragment<FragmentMapBinding> implements
         camera_setting_vp.setOffscreenPageLimit(4);
         mTb.setupWithViewPager(camera_setting_vp);
         numCamera = 2;
-    }
+    }*/
     //start is end
 
     @OnClick(R.id.img_location)

@@ -2,6 +2,7 @@ package zkrtdrone.zkrt.com.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,12 +11,30 @@ import android.view.animation.TranslateAnimation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+
+import com.squareup.otto.Subscribe;
+
 import java.util.List;
+
+import dji.keysdk.CameraKey;
+import dji.keysdk.DJIKey;
+import dji.midware.data.model.P3.DataCameraVirtualKey;
+import dji.sdk.base.BaseProduct;
+import dji.ui.widget.FPVWidget;
+import zkrtdrone.zkrt.com.JackApplication;
 import zkrtdrone.zkrt.com.R;
+import zkrtdrone.zkrt.com.jackmvvm.mvvm.util.KeyBoardUtils;
+import zkrtdrone.zkrt.com.jackmvvm.mvvm.util.ScreenUtil;
+import zkrtdrone.zkrt.com.jackmvvm.mvvm.util.show.T;
+import zkrtdrone.zkrt.com.jackmvvm.rxbean.IOTask;
+import zkrtdrone.zkrt.com.jackmvvm.util.GeneralUtils;
+import zkrtdrone.zkrt.com.jackmvvm.util.ModuleVerificationUtil;
+import zkrtdrone.zkrt.com.jackmvvm.util.rxutil.RxjavaUtil;
 import zkrtdrone.zkrt.com.maplib.info.EditorMapFragment;
 import zkrtdrone.zkrt.com.maplib.info.GestureMapFragment;
 import zkrtdrone.zkrt.com.maplib.info.OnEditorInteraction;
 import zkrtdrone.zkrt.com.maplib.info.mission.coordinate.LatLong;
+import zkrtdrone.zkrt.com.view.fragment.DroneFragment;
 import zkrtdrone.zkrt.com.view.fragment.HandStateFragment;
 import zkrtdrone.zkrt.com.view.fragment.MapMountFragment;
 import zkrtdrone.zkrt.com.view.fragment.MountFragment;
@@ -37,18 +56,20 @@ public class MainStart extends RelativeLayout implements GestureMapFragment.OnPa
     img_common_clear_pryline,img_common_exchange2,img_common_conceal3,img_common_conceal;
     private FrameLayout start_common_map_video;
     //private SlidingDrawer slidingDrawer;
-    private TelemetryFragment telemetryFragment;
+    //private TelemetryFragment telemetryFragment;
     private MountFragment mountFragment;
     private GestureMapFragment gestureMapFragment;
     private HandStateFragment handStateFragment;
     private MapMountFragment mapMountFragment;
-    private ImageView mount_open;
+    private DroneFragment droneFragment;
+    private ImageView mount_open,img_clean_click;
     private int numberMapView = 0; //0为camera / map is min     1为 Map/camera
     //切换窗口
-    private BaseFpvView fpvCamera;
-    private FrameLayout fpvCameraView;
+    //private BaseFpvView fpvCamera;
+    private FPVWidget fpvCamera,fpvCamera2;
+    private FrameLayout fpvCameraView,framefpvcamera;
     private FrameLayout mapMain;
-    private RelativeLayout relayout_id_moudle;
+    private RelativeLayout relayout_id_moudle,PreflightCheckView;
 
     public MainStart(Context context) {
         super(context);
@@ -68,9 +89,11 @@ public class MainStart extends RelativeLayout implements GestureMapFragment.OnPa
         //slidingDrawer = (SlidingDrawer) view.findViewById(R.id.slidingDrawerRight);
         start_common_map_video = (FrameLayout) view.findViewById(R.id.start_common_map_video);
         relayout_id_moudle = (RelativeLayout) view.findViewById(R.id.relayout_id_moudle);
+        PreflightCheckView = (RelativeLayout) view.findViewById(R.id.PreflightCheckView);
         img_common_exchange = (ImageView) view.findViewById(R.id.img_common_exchange);
         img_common_location = (ImageView) view.findViewById(R.id.img_common_location);
         img_common_conceal = (ImageView) view.findViewById(R.id.img_common_conceal);
+        img_clean_click = (ImageView) view.findViewById(R.id.img_clean_click);
         //img_common_conceal2 = (ImageView) view.findViewById(R.id.img_common_conceal2);
         img_common_exchange2 = (ImageView) view.findViewById(R.id.img_common_exchange2);
         img_common_conceal3 = (ImageView) view.findViewById(R.id.img_common_conceal3);
@@ -84,11 +107,14 @@ public class MainStart extends RelativeLayout implements GestureMapFragment.OnPa
         img_common_conceal3.setOnClickListener(this);
         img_common_clear_pryline.setOnClickListener(this);
         mount_open.setOnClickListener(this);
+        img_clean_click.setOnClickListener(this);
 
         //切换窗口
         mapMain = (FrameLayout) view.findViewById(R.id.mapMain);
-        fpvCamera = (BaseFpvView) view.findViewById(R.id.fpvCamera);
+        fpvCamera = (FPVWidget) view.findViewById(R.id.fpvCamera);
+        //fpvCamera2 = (FPVWidget) view.findViewById(R.id.fpvCamera2);
         fpvCameraView = (FrameLayout) view.findViewById(R.id.fpvCameraView);
+        //framefpvcamera = (FrameLayout) view.findViewById(R.id.framefpvcamera);
 
         if (handStateFragment == null) {
             handStateFragment = new HandStateFragment();
@@ -102,12 +128,12 @@ public class MainStart extends RelativeLayout implements GestureMapFragment.OnPa
                     .add(R.id.gestureMapFragment, gestureMapFragment)
                     .commit();
         }
-        if (telemetryFragment == null) {
+        /*if (telemetryFragment == null) {
             telemetryFragment = new TelemetryFragment();
             fragmentManager.beginTransaction()
                     .add(R.id.telemetryFragment, telemetryFragment)
                     .commit();
-        }
+        }*/
         if (mountFragment == null) {
             mountFragment = new MountFragment();
             fragmentManager.beginTransaction()
@@ -120,9 +146,15 @@ public class MainStart extends RelativeLayout implements GestureMapFragment.OnPa
                     .add(R.id.fragment_map, mapMountFragment)
                     .commit();
         }
+        /*if (droneFragment == null) {
+            droneFragment = new DroneFragment();
+            fragmentManager.beginTransaction()
+                    .add(R.id.drone_value, droneFragment)
+                    .commit();
+        }*/
         mountFragment.setImgOpen(mount_open);
         mapMountFragment.GestureMapFragment(gestureMapFragment);
-        telemetryFragment.setGestureMapFragment(gestureMapFragment);
+        //telemetryFragment.setGestureMapFragment(gestureMapFragment);
 
         /*fragmentManager.findFragmentById(R.id.fragment_hand).getView().
                 findViewById(R.id.hand_setting).setOnClickListener(new OnClickListener() {
@@ -162,6 +194,7 @@ public class MainStart extends RelativeLayout implements GestureMapFragment.OnPa
 
     @Override
     public void onClick(View v) {
+        if (GeneralUtils.isFastDoubleClick()) return;
         switch (v.getId()){
             case R.id.img_common_exchange2:
             case R.id.img_common_exchange:  //切换窗口
@@ -175,6 +208,10 @@ public class MainStart extends RelativeLayout implements GestureMapFragment.OnPa
 
                     mapMain.bringToFront();
                     fpvCameraView.bringToFront();
+                    fpvCamera.transformValue(null,null);
+                    /*fpvCameraView.setVisibility(GONE);
+                    framefpvcamera.setVisibility(VISIBLE);*/
+                    //framefpvcamera.bringToFront();
                 }else {
                     img_common_exchange.setVisibility(VISIBLE);
                     numberMapView = 0;
@@ -182,9 +219,13 @@ public class MainStart extends RelativeLayout implements GestureMapFragment.OnPa
                     lay.setMargins(getScreenWidth()-fpvCameraView.getWidth(),getScreenHeigh()-fpvCameraView.getHeight(),0,0);
                     mapMain.setLayoutParams(lay);
                     fpvCameraView.setLayoutParams(new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-
+                    fpvCamera.transformValue(null,null);
+                    /*framefpvcamera.setVisibility(GONE);
+                    fpvCameraView.setVisibility(VISIBLE);*/
                     fpvCameraView.bringToFront();
+
                     mapMain.bringToFront();
+                    Log.d("MainStart","切换窗口");
                 }
                 img_common_exchange2.setVisibility(img_common_exchange.getVisibility() == GONE? VISIBLE:GONE);
                 img_common_conceal3.setVisibility(img_common_exchange.getVisibility() == GONE? VISIBLE:GONE);
@@ -242,6 +283,9 @@ public class MainStart extends RelativeLayout implements GestureMapFragment.OnPa
                     mountFragment.mount_clear.startAnimation(mountFragment.animation);
                     mountFragment.frame_mount.startAnimation(mountFragment.startAnimViewGone());
                 }
+                break;
+            case R.id.img_clean_click:
+                PreflightCheckView.setVisibility(GONE);
                 break;
         }
     }
@@ -319,5 +363,42 @@ public class MainStart extends RelativeLayout implements GestureMapFragment.OnPa
     @Override
     public void onListVisibilityChanged() {
 
+    }
+
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        refreshSDKRelativeUI();
+    }
+
+    private void refreshSDKRelativeUI() {
+        if(ModuleVerificationUtil.isRemoteControllerAvailable()){
+            final BaseProduct mProduct = JackApplication.getProductInstance();
+            final boolean bool = JackApplication.getAircraftInstance().getRemoteController().isConnected();
+            JackApplication.mActivity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    if(bool){
+                        if (null != mProduct && mProduct.isConnected()){}else{
+                            handStateFragment.isRemoteDrone(false,400);
+                            ScreenUtil.getInstance().setGreyScale(getRootView(),false);
+                        }
+                    }else{
+                        handStateFragment.isRemoteDrone(bool,401);
+                        ScreenUtil.getInstance().setGreyScale(getRootView(),bool);
+                    }
+                }
+            });
+        }
+    }
+
+    @Subscribe
+    public void onConnectivityChange(JackApplication.ConnectivityChangeEvent event) {
+        post(new Runnable() {
+            @Override
+            public void run() {
+                refreshSDKRelativeUI();
+            }
+        });
     }
 }

@@ -120,14 +120,49 @@
                 android:background="@drawable/ground_speed_bg"/>
         </RelativeLayout>
 
-        <LinearLayout
+        <RelativeLayout
+            android:id="@+id/relayout_camera"
+            android:layout_width="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="200dip"
+            android:layout_height="wrap_content">
+
+            <dji.ui.widget.controls.CameraControlsWidget
+                android:id="@+id/CameraCapturePanel"
+                android:layout_alignParentRight="true"
+                android:layout_width="62dp"
+                android:layout_height="260dip"/>
+
+            <dji.ui.panel.CameraSettingExposurePanel
+                android:id="@+id/CameraExposureMode"
+                android:layout_width="190dip"
+                android:layout_toLeftOf="@+id/CameraCapturePanel"
+                android:background="@color/transparent"
+                android:gravity="center"
+                android:layout_height="260dip"
+                android:visibility="invisible"/>
+
+            <dji.ui.panel.CameraSettingAdvancedPanel
+                android:id="@+id/CameraAdvancedSetting"
+                android:layout_width="190dip"
+                android:layout_height="260dip"
+                android:layout_toLeftOf="@+id/CameraCapturePanel"
+                android:background="@color/transparent"
+                android:gravity="center"
+                android:visibility="invisible"/>
+
+        </RelativeLayout>
+
+        <!--<LinearLayout
             android:id="@+id/relayout_camera"
             android:layout_width="wrap_content"
             android:layout_gravity="center|left"
             android:layout_centerVertical="true"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:background="@drawable/rec_take_bg"
             android:layout_height="300dip">
+
 
             <TextView
                 android:id="@+id/txt_fpv_came_menu"
@@ -232,6 +267,6 @@
                 android:id="@+id/camera_setting_vp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
-        </RelativeLayout>
+        </RelativeLayout>-->
     </RelativeLayout>
 </layout>

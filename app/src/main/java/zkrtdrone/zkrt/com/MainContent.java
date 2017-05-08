@@ -1,6 +1,7 @@
 package zkrtdrone.zkrt.com;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Button;
@@ -14,8 +15,6 @@ import zkrtdrone.zkrt.com.jackmvvm.util.GeneralUtils;
 import zkrtdrone.zkrt.com.jackmvvm.util.ViewWrapper;
 import zkrtdrone.zkrt.com.view.MainStart;
 import zkrtdrone.zkrt.com.view.dialog.DialogPairimg;
-
-import static zkrtdrone.zkrt.com.jackmvvm.base.BaseApplication.boolRemote;
 
 /**
  * Created by jack_xie on 15/12/18.
@@ -78,30 +77,19 @@ public class MainContent extends RelativeLayout {
     private void refreshSDKRelativeUI() {
         mProduct = JackApplication.getProductInstance();
         //检查与遥控器连接是否正常
-        if(JackApplication.isAircraftConnected()){
-            boolRemote = JackApplication.getAircraftInstance().getRemoteController().isConnected();
-            if(!boolRemote){
-                ftb_start.setVisibility(GONE);
-                ftb_frequency.setVisibility(GONE);
-                txt_log_remote.setVisibility(VISIBLE);
-            }else{
-                txt_log_remote.setVisibility(GONE);
-            }
-        }
-
         if (null != mProduct && mProduct.isConnected()) {
             ftb_start.setVisibility(VISIBLE);
             ftb_frequency.setVisibility(GONE);
             BaseApplication.bool = false;
-            /*if (null != mProduct.getModel()) {
-                mTextProduct.setText("" + mProduct.getModel().getDisplayName());
-            } else {
-                mTextProduct.setText(R.string.product_information);
-            }*/
         } else {
-            ftb_start.setVisibility(VISIBLE);
+            ftb_start.setVisibility(GONE);
             BaseApplication.bool = true; //需要遥控器配对的
             ftb_frequency.setVisibility(GONE);
         }
+
+        Intent intent = new Intent();
+        intent.setAction("com.xiazdong");
+        intent.putExtra("name", "xiazdong");
+        JackApplication.mActivity.sendBroadcast(intent);
     }
 }

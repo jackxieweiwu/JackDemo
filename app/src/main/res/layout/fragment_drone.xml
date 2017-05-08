@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/img_drone_takeoff"
+            android:layout_width="45dip"
+            android:layout_height="45dip"
+            android:src="@mipmap/leftmenu_dlg_takeoff"
+            android:background="@mipmap/gs_circle_button_bg"
+            android:padding="@dimen/activity_magin_10"/>
+
+        <ImageView
+            android:id="@+id/img_drone_land"
+            android:layout_width="45dip"
+            android:layout_height="45dip"
+            android:visibility="gone"
+            android:src="@mipmap/leftmenu_dlg_landing"
+            android:background="@mipmap/gs_circle_button_bg"
+            android:padding="@dimen/activity_magin_10"/>
+
+        <ImageView
+            android:id="@+id/img_drone_gohome"
+            android:layout_width="45dip"
+            android:layout_height="45dip"
+            android:visibility="gone"
+            android:src="@mipmap/leftmenu_dlg_gohome"
+            android:background="@mipmap/gs_circle_button_bg"
+            android:padding="@dimen/activity_magin_10"/>
+
+        <ImageView
+            android:id="@+id/img_drone_hover"
+            android:layout_width="45dip"
+            android:layout_height="45dip"
+            android:visibility="gone"
+            android:src="@mipmap/osd_mode_btn_normal"
+            android:background="@mipmap/gs_circle_button_bg"
+            android:padding="@dimen/activity_magin_10"/>
+
+        <ImageView
+            android:id="@+id/img_drone_waypoint"
+            android:layout_width="45dip"
+            android:layout_height="45dip"
+            android:visibility="gone"
+            android:src="@mipmap/gs_menu_way_point_hight_light_icon"
+            android:background="@mipmap/gs_circle_button_bg"
+            android:padding="@dimen/activity_magin_10"/>
+
+    </LinearLayout>
+</layout>

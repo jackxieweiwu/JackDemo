@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import com.arialyy.absadapter.viewpager.SimpleViewPagerAdapter;
 
+import java.text.DecimalFormat;
+
 import butterknife.Bind;
 import butterknife.OnClick;
 import dji.common.airlink.SignalQualityCallback;
@@ -26,6 +28,7 @@ import zkrtdrone.zkrt.com.databinding.FragmentHandBinding;
 import zkrtdrone.zkrt.com.jackmvvm.mvvm.core.AbsFragment;
 import zkrtdrone.zkrt.com.jackmvvm.mvvm.util.CalendarUtils;
 import zkrtdrone.zkrt.com.jackmvvm.mvvm.util.ScreenUtil;
+import zkrtdrone.zkrt.com.jackmvvm.mvvm.util.show.T;
 import zkrtdrone.zkrt.com.jackmvvm.util.ModuleVerificationUtil;
 import zkrtdrone.zkrt.com.view.fragment.DroneSetting.BasisSettingFragment;
 import zkrtdrone.zkrt.com.view.fragment.DroneSetting.BatterySettingFragment;
@@ -95,7 +98,7 @@ public class HandStateFragment extends AbsFragment<FragmentHandBinding> {
             JackApplication.getAircraftInstance().getBattery().getLevel1CellVoltageThreshold(new CommonCallbacks.CompletionCallbackWith<Integer>() {
                 @Override
                 public void onSuccess(Integer integer) {
-                    batteryWaring1 = integer;
+                    batteryWaring1 = integer*12;
                 }
 
                 @Override
@@ -107,7 +110,7 @@ public class HandStateFragment extends AbsFragment<FragmentHandBinding> {
             JackApplication.getAircraftInstance().getBattery().getLevel2CellVoltageThreshold(new CommonCallbacks.CompletionCallbackWith<Integer>() {
                 @Override
                 public void onSuccess(Integer integer) {
-                    batteryLow2 = integer;
+                    batteryLow2 = integer*12;
                 }
 
                 @Override
@@ -119,27 +122,29 @@ public class HandStateFragment extends AbsFragment<FragmentHandBinding> {
             JackApplication.getAircraftInstance().getBattery().setStateCallback(new BatteryState.Callback() {
                 @Override
                 public void onUpdate(BatteryState batteryState) {
-                    int mv = batteryState.getVoltage();
+                    final int mv = batteryState.getVoltage();
+                    getBinding().setBatteryStr(String.format("%.2f", mv/1000.0f)+"V");
 
-                    //getBinding().setBatteryStr(new DecimalFormat("##0.0").format(mv/1000)+"V");  //+batteryState.getCellVoltageLevel()
-                    getBinding().setBatteryStr(String.format("%3.1f", (mv/1000))+"V");
-
-                    //T.show(mActivity,batteryLow2+"***--"+batteryWaring1+"**--**"+mv);
-
-                    if(mv<=batteryWaring1 && mv>batteryLow2){
-                        setPreateBatteryWaring(R.mipmap.osd_electric_warning);
-                    }else if(mv<=batteryLow2){
-                        setPreateBatteryWaring(R.mipmap.osd_electric_low);
-                    }else{
-                        setPreateBatteryWaring(R.mipmap.osd_electric_btn_normal);
-                    }
-
-                    if(!JackApplication.boolRemote)isRemoteDrone(false);
-                    if(JackApplication.bool)isRemoteDrone(true);
+                    mActivity.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            if(mv<=batteryWaring1 && mv>batteryLow2){
+                                setPreateBatteryWaring(R.mipmap.osd_electric_warning);
+                                setTextState(Color.RED,"电量过低");txt_state_drone.setTextColor(Color.WHITE);
+                            }else if(mv<=batteryLow2){
+                                setPreateBatteryWaring(R.mipmap.osd_electric_low);
+                                setTextState(Color.RED,"电量严重过低");txt_state_drone.setTextColor(Color.WHITE);
+                            }else{
+                                setTextState(Color.GREEN,"null");
+                                setPreateBatteryWaring(R.mipmap.osd_electric_btn_normal);
+                            }
+                        }
+                    });
                 }
             });
 
             //FlightControlle
+
             JackApplication.getAircraftInstance().getFlightController().setStateCallback(new FlightControllerState.Callback() {
                 @Override
                 public void onUpdate(@NonNull FlightControllerState flightControllerState) {
@@ -173,13 +178,13 @@ public class HandStateFragment extends AbsFragment<FragmentHandBinding> {
         }
     }
 
-    private void isRemoteDrone(boolean bool){
-        ScreenUtil.getInstance().setGreyScale(mRootView,true);
+    public void isRemoteDrone(final boolean bool, final int number){
+        //ScreenUtil.getInstance().setGreyScale(mRootView,bool);
         setLinkStates(true,0);
         setLinkStates(false,0);
         getBinding().setVideoSignal(0+"");
         getBinding().setRemoteSignal(0+"");
-        setState(bool?400:401);
+        setState(number);
     }
 
     @Override
@@ -200,7 +205,7 @@ public class HandStateFragment extends AbsFragment<FragmentHandBinding> {
         mActivity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                hand_battery.setImageResource(i);
+                hand_battery.setBackgroundResource(i);
             }
         });
     }
@@ -232,17 +237,24 @@ public class HandStateFragment extends AbsFragment<FragmentHandBinding> {
         mActivity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                if(number == 0) {setTextState(Color.RED,"GPS几乎没有信号");img_gps_status.setImageResource(R.mipmap.osd_singal_level0);}
+                if(number == 0) {setTextState(Color.RED,"GPS几乎没有信号");img_gps_status.setImageResource(R.mipmap.osd_singal_level0);
+                    txt_state_drone.setTextColor(Color.WHITE);}
                 if(number == 1) {setTextState(Color.YELLOW,"GPS信号非常弱");img_gps_status.setImageResource(R.mipmap.osd_singal_level1);
                     txt_state_drone.setTextColor(Color.RED);}
                 if(number == 2) {setTextState(Color.YELLOW,"GPS信号较弱");img_gps_status.setImageResource(R.mipmap.osd_singal_level2);
                     txt_state_drone.setTextColor(Color.RED);}
-                if(number == 3) {setTextState(Color.GREEN,"null");img_gps_status.setImageResource(R.mipmap.osd_singal_level3);}
-                if(number == 4) {setTextState(Color.GREEN,"null");img_gps_status.setImageResource(R.mipmap.osd_singal_level4);}
-                if(number == 5) {setTextState(Color.GREEN,"null");img_gps_status.setImageResource(R.mipmap.osd_singal_level5);}
-                if(number == 255) {setTextState(Color.RED,"没有GPS信号");img_gps_status.setImageResource(R.mipmap.osd_singal_level0);}
-                if(number == 400){setTextState(Color.RED,"与飞行器断开连接");img_gps_status.setImageResource(R.mipmap.osd_singal_level0);}
-                if(number == 401){setTextState(Color.RED,"与遥控断开断开连接");img_gps_status.setImageResource(R.mipmap.osd_singal_level0);}
+                if(number == 3) {setTextState(Color.GREEN,"null");img_gps_status.setImageResource(R.mipmap.osd_singal_level3);
+                    txt_state_drone.setTextColor(Color.WHITE);}
+                if(number == 4) {setTextState(Color.GREEN,"null");img_gps_status.setImageResource(R.mipmap.osd_singal_level4);
+                    txt_state_drone.setTextColor(Color.WHITE);}
+                if(number == 5) {setTextState(Color.GREEN,"null");img_gps_status.setImageResource(R.mipmap.osd_singal_level5);
+                    txt_state_drone.setTextColor(Color.WHITE);}
+                if(number == 255) {setTextState(Color.RED,"没有GPS信号");img_gps_status.setImageResource(R.mipmap.osd_singal_level0);
+                    txt_state_drone.setTextColor(Color.WHITE);}
+                if(number == 400){setTextState(Color.RED,"与飞行器断开连接");img_gps_status.setImageResource(R.mipmap.osd_singal_level0);
+                    txt_state_drone.setTextColor(Color.WHITE);}
+                if(number == 401){setTextState(Color.RED,"与遥控断开断开连接");img_gps_status.setImageResource(R.mipmap.osd_singal_level0);
+                    txt_state_drone.setTextColor(Color.WHITE);}
             }
         });
     }
@@ -250,5 +262,6 @@ public class HandStateFragment extends AbsFragment<FragmentHandBinding> {
     private void setTextState(int number,String name){
         txt_state_drone.setBackgroundColor(number);
         if(!name.equals("null"))getBinding().setDronestate(name);
+        else getBinding().setDronestate("正常");
     }
 }

@@ -2,10 +2,14 @@ package zkrtdrone.zkrt.com.maplib.info;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.icu.util.JapaneseCalendar;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import zkrtdrone.zkrt.com.jackmvvm.base.BaseApplication;
+import zkrtdrone.zkrt.com.jackmvvm.mvvm.util.show.T;
 import zkrtdrone.zkrt.com.maplib.info.mission.coordinate.LatLong;
 
 /**
@@ -99,6 +103,7 @@ public class EditorMapFragment extends DroneMap implements DPmap.OnMapLongClickL
     }
 
     public void setDroneBitmap(Bitmap droneBitmap) {
+        if(droneBitmap !=null || mMapFragment !=null);
         mMapFragment.setDroneMap(droneBitmap);
     }
 }
