@@ -82,14 +82,9 @@ public class MainContent extends RelativeLayout {
             ftb_frequency.setVisibility(GONE);
             BaseApplication.bool = false;
         } else {
-            ftb_start.setVisibility(GONE);
+            ftb_start.setVisibility(VISIBLE);  //GONE
             BaseApplication.bool = true; //需要遥控器配对的
             ftb_frequency.setVisibility(GONE);
         }
-
-        Intent intent = new Intent();
-        intent.setAction("com.xiazdong");
-        intent.putExtra("name", "xiazdong");
-        JackApplication.mActivity.sendBroadcast(intent);
     }
 }

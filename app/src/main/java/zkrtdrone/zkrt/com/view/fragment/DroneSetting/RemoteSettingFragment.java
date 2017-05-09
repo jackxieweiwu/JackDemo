@@ -6,11 +6,11 @@ import zkrtdrone.zkrt.com.R;
 import zkrtdrone.zkrt.com.jackmvvm.mvvm.core.AbsFragment;
 
 /**
- * Created by jack_xie on 17-5-5.
- * HD Camera
+ * Created by jack_xie on 17-5-9.
+ * 遥控器
  */
 
-public class HdSettingFragment extends AbsFragment {
+public class RemoteSettingFragment extends AbsFragment{
     @Override
     protected void init(Bundle savedInstanceState) {
 
@@ -23,7 +23,7 @@ public class HdSettingFragment extends AbsFragment {
 
     @Override
     protected int setLayoutId() {
-        return R.layout.setting_hd_fragment;
+        return R.layout.setting_remote_fragment;
     }
 
     @Override

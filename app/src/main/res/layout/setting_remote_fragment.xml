@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:background="@color/back_150"
+        android:scrollbars="none"
+        android:padding="@dimen/activity_magin_10">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dip"
+                android:layout_marginTop="@dimen/activity_magin_10">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/user_icon_default_white"
+                    android:layout_height="match_parent"
+                    android:text="遥控器固件版本:"/>
+
+                <TextView
+                    android:id="@+id/txt_remote_version"
+                    android:layout_marginLeft="@dimen/activity_magin_10"
+                    android:layout_width="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/user_icon_default_white"
+                    android:layout_height="match_parent"
+                    android:text="遥控器固件版本"/>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dip"
+                android:layout_marginTop="@dimen/activity_magin_10">
+
+                <TextView
+                    android:id="@+id/txt_remote_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="@color/user_icon_default_white"
+                    android:text="遥控器名称:"/>
+
+                <EditText
+                    android:id="@+id/edit_remote_name"
+                    android:textColor="@color/Blue_700"
+                    android:layout_marginLeft="@dimen/activity_magin_10"
+                    android:layout_toRightOf="@+id/txt_remote_name"
+                    android:layout_width="90dip"
+                    android:singleLine="true"
+                    android:enabled="false"
+                    android:gravity="center"
+                    android:layout_centerVertical="true"
+                    android:inputType="text"
+                    android:background="@drawable/exit_bg"
+                    android:layout_height="wrap_content" />
+
+                <EditText
+                    android:id="@+id/edit_remote_pwd"
+                    android:textColor="@color/Blue_700"
+                    android:gravity="center"
+                    android:layout_width="90dip"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:enabled="false"
+                    android:singleLine="true"
+                    android:inputType="text"
+                    android:background="@drawable/exit_bg"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/txt_remote_pwd"
+                    android:layout_marginRight="@dimen/activity_magin_10"
+                    android:layout_toLeftOf="@id/edit_remote_pwd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="@color/user_icon_default_white"
+                    android:text="遥控器密码:"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dip"
+                android:layout_marginTop="@dimen/activity_magin_10">
+
+                <TextView
+                    android:id="@+id/txt_remote"
+                    android:text="云台拨轮控制速度"
+                    android:textColor="@color/user_icon_default_white"
+                    android:layout_alignParentLeft="true"
+                    android:textSize="@dimen/txt_size_18"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:text="(慢-快)"
+                    android:layout_toRightOf="@id/txt_remote"
+                    android:textColor="@color/user_icon_default_white"
+                    android:layout_marginLeft="@dimen/activity_magin_3"
+                    android:textSize="@dimen/txt_size_14"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <SeekBar
+                    android:id="@+id/seekar_remote"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_width="100dip"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/txt_seekbar_remote"
+                    android:text="0"
+                    android:gravity="center"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/seekar_remote"
+                    android:textColor="@color/user_icon_default_white"
+                    android:textSize="@dimen/txt_size_12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dip"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_alignParentLeft="true"
+                    android:textColor="@color/user_icon_default_white"
+                    android:text="左上角驳轮动作:"/>
+
+                <Button
+                    android:id="@+id/btn_bolun_hangx"
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/ground_speed_bg"
+                    android:textColor="@color/user_icon_default_white"
+                    android:layout_height="wrap_content"
+                    android:text="航向"/>
+
+                <Button
+                    android:id="@+id/btn_bolun_roll"
+                    android:layout_toLeftOf="@id/btn_bolun_hangx"
+                    android:layout_marginRight="@dimen/activity_magin_5"
+                    android:background="@drawable/ground_speed_bg"
+                    android:textColor="@color/user_icon_default_white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="横滚"/>
+
+                <Button
+                    android:layout_toLeftOf="@+id/btn_bolun_roll"
+                    android:background="@drawable/ground_speed_bg"
+                    android:layout_marginRight="@dimen/activity_magin_5"
+                    android:textColor="@color/user_icon_default_white"
+                    android:id="@+id/btn_bolun_pitch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="俯仰"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dip"
+                android:layout_marginTop="@dimen/activity_magin_10">
+
+                <TextView
+                    android:id="@+id/txt_rocker_mode"
+                    android:text="摇杆模式"
+                    android:textColor="@color/user_icon_default_white"
+                    android:layout_alignParentLeft="true"
+                    android:textSize="@dimen/txt_size_18"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <Spinner
+                    android:id="@+id/spinner_rocker_mode"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="100dip"
+                    android:layout_height="45dip"/>
+
+
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/img_rocker_mode"
+                android:layout_marginTop="@dimen/activity_magin_5"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:background="@mipmap/setting_ui_rc_slave"
+                android:layout_height="wrap_content" />
+
+            <View
+                android:layout_marginTop="@dimen/activity_magin_8"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/activity_magin_1"
+                android:layout_marginBottom="@dimen/activity_magin_8"
+                android:background="@color/user_icon_default_white"/>
+
+            <TextView
+                android:id="@+id/txt_remote_frequency"
+                android:layout_marginTop="@dimen/activity_magin_5"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="45dip"
+                android:textSize="@dimen/txt_size_16"
+                android:textColor="@color/Blue_700"
+                android:text="遥控器对频"/>
+        </LinearLayout>
+    </ScrollView>
+</layout>

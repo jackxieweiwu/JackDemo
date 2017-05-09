@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:background="@color/back_150"
+        android:scrollbars="none"
+        android:padding="@dimen/activity_magin_10">
+        <LinearLayout
+            android:orientation="vertical" android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dip"
+                android:layout_marginTop="@dimen/activity_magin_10">
+
+                <TextView
+                    android:text="电芯数"
+                    android:textColor="@color/user_icon_default_white"
+                    android:layout_alignParentLeft="true"
+                    android:textSize="@dimen/txt_size_18"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <Spinner
+                    android:id="@+id/spinner_battery_xin"
+                    android:textColor="@color/back_150"
+                    android:layout_alignParentRight="true"
+                    android:textSize="@dimen/txt_size_18"
+                    android:layout_centerVertical="true"
+                    android:layout_width="100dip"
+                    android:layout_height="45dip" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dip"
+                android:layout_marginTop="@dimen/activity_magin_10">
+
+                <TextView
+                    android:id="@+id/txt_lowaa"
+                    android:text="低电压报警"
+                    android:textColor="@color/user_icon_default_white"
+                    android:layout_alignParentLeft="true"
+                    android:textSize="@dimen/txt_size_18"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/txt_battert_low_one"
+                    android:text="22.1V"
+                    android:textColor="@color/Blue_700"
+                    android:layout_alignParentRight="true"
+                    android:textSize="@dimen/txt_size_18"
+                    android:layout_centerVertical="true"
+                    android:layout_width="60dip"
+                    android:singleLine="true"
+                    android:layout_height="wrap_content" />
+
+                <SeekBar
+                    android:id="@+id/battert_seekbar_one"
+                    android:layout_width="200dip"
+                    android:max="100"
+                    android:thumb="@drawable/thumb_image"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/activity_magin_10"
+                    android:layout_toLeftOf="@id/txt_battert_low_one"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dip"
+                android:layout_marginTop="@dimen/activity_magin_10">
+
+                <TextView
+                    android:text="严重低电压报警"
+                    android:textColor="@color/user_icon_default_white"
+                    android:layout_alignParentLeft="true"
+                    android:textSize="@dimen/txt_size_18"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/txt_battert_low_two"
+                    android:text="21.6V"
+                    android:textColor="@color/Blue_700"
+                    android:layout_alignParentRight="true"
+                    android:textSize="@dimen/txt_size_18"
+                    android:singleLine="true"
+                    android:layout_centerVertical="true"
+                    android:layout_width="60dip"
+                    android:layout_height="wrap_content" />
+
+                <SeekBar
+                    android:id="@+id/battert_seekbar_two"
+                    android:layout_width="200dip"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/activity_magin_10"
+                    android:thumb="@drawable/thumb_image"
+                    android:max="100"
+                    android:layout_toLeftOf="@id/txt_battert_low_two"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dip"
+                android:layout_marginTop="@dimen/activity_magin_10">
+
+                <TextView
+                    android:text="低电压动作"
+                    android:textColor="@color/user_icon_default_white"
+                    android:layout_alignParentLeft="true"
+                    android:textSize="@dimen/txt_size_18"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <Spinner
+                    android:id="@+id/low_battery_spinner"
+                    android:textColor="@color/back_150"
+                    android:layout_alignParentRight="true"
+                    android:textSize="@dimen/txt_size_18"
+                    android:layout_centerVertical="true"
+                    android:layout_width="100dip"
+                    android:layout_height="45dip" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dip"
+                android:layout_marginTop="@dimen/activity_magin_10">
+
+                <TextView
+                    android:text="严重低电压动作"
+                    android:textColor="@color/user_icon_default_white"
+                    android:layout_alignParentLeft="true"
+                    android:textSize="@dimen/txt_size_18"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <Spinner
+                    android:id="@+id/kg_low_battery_spinner"
+                    android:textColor="@color/Blue_700"
+                    android:textSize="@dimen/txt_size_18"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_width="100dip"
+                    android:layout_height="45dip" />
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</layout>

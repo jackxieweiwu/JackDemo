@@ -23,7 +23,7 @@ public class RecordSettingFragment extends AbsFragment {
 
     @Override
     protected int setLayoutId() {
-        return R.layout.setting_drone_fragment;
+        return R.layout.setting_record_fragment;
     }
 
     @Override

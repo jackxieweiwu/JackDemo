@@ -23,7 +23,7 @@ public class BatterySettingFragment extends AbsFragment {
 
     @Override
     protected int setLayoutId() {
-        return R.layout.setting_drone_fragment;
+        return R.layout.setting_battery_fragment;
     }
 
     @Override

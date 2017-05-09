@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="strFlightMode"
+            type="String"/>
+
+        <variable
+            name="strCommposStates"
+            type="String"/>
+        <variable
+            name="setImuNumber"
+            type="String"/>
+    </data>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:background="@color/back_150"
+        android:scrollbars="none"
+        android:padding="@dimen/activity_magin_10">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_marginTop="@dimen/activity_magin_10"
+                android:layout_width="wrap_content"
+                android:layout_height="50dip">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/user_icon_default_white"
+                    android:text="多模式:"/>
+
+                <Switch
+                    android:id="@+id/switch_drone_mode"
+                    android:layout_width="55dip"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:thumb="@mipmap/fpv_switch_ball"
+                    android:background="@mipmap/fpv_switch_bg"
+                    android:textColor="@color/user_icon_default_white"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginTop="@dimen/activity_magin_10"
+                android:layout_width="wrap_content"
+                android:layout_height="50dip">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/user_icon_default_white"
+                    android:text="是否避障:"/>
+
+                <Switch
+                    android:id="@+id/switch_obstacle"
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:thumb="@mipmap/fpv_switch_ball"
+                    android:background="@mipmap/fpv_switch_bg"
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rela_obstacle"
+                android:layout_marginTop="@dimen/activity_magin_10"
+                android:visibility="visible"
+                android:layout_width="wrap_content"
+                android:layout_height="50dip">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/user_icon_default_white"
+                    android:text="避障生效距离:"/>
+
+                <EditText
+                    android:id="@+id/edit_setting_obstacle_distance"
+                    android:layout_width="60dip"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="@dimen/activity_magin_3"
+                    android:background="@drawable/exit_bg"
+                    android:gravity="center"
+                    android:ems="3"
+                    android:inputType="numberSigned"
+                    android:singleLine="true"
+                    android:padding="@dimen/activity_magin_2"
+                    android:textColor="@color/Blue_700" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rela_obstacle_speed"
+                android:layout_marginTop="@dimen/activity_magin_10"
+                android:visibility="visible"
+                android:layout_width="wrap_content"
+                android:layout_height="50dip">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/user_icon_default_white"
+                    android:text="避障速度:"/>
+
+                <EditText
+                    android:id="@+id/edit_setting_obstacle_speed"
+                    android:layout_width="60dip"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/activity_magin_3"
+                    android:background="@drawable/exit_bg"
+                    android:gravity="center"
+                    android:ems="3"
+                    android:text="0"
+                    android:inputType="numberDecimal"
+                    android:singleLine="true"
+                    android:padding="@dimen/activity_magin_2"
+                    android:textColor="@color/Blue_700" />
+
+                <TextView
+                    android:layout_toLeftOf="@+id/edit_setting_obstacle_speed"
+                    android:layout_width="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/activity_magin_10"
+                    android:textColor="@color/user_icon_default_white"
+                    android:text="M/S"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginTop="@dimen/activity_magin_10"
+                android:layout_width="wrap_content"
+                android:layout_height="50dip">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/user_icon_default_white"
+                    android:text="脚架自动收放:"/>
+
+                <Switch
+                    android:id="@+id/switch_tripod"
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:thumb="@mipmap/fpv_switch_ball"
+                    android:background="@mipmap/fpv_switch_bg"
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/rela_obstacle_correct"
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/activity_magin_10"
+                android:layout_width="wrap_content"
+                android:layout_height="50dip">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/user_icon_default_white"
+                    android:text="脚架校准:"/>
+                <Button
+                    android:id="@+id/btn_tripod_stop"
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center"
+                    android:background="@drawable/ground_speed_bg"
+                    android:textColor="@color/user_icon_default_white"
+                    android:layout_margin="@dimen/activity_magin_5"
+                    android:layout_centerHorizontal="true"
+                    android:layout_height="wrap_content"
+                    android:text="停止"/>
+                <Button
+                    android:id="@+id/btn_tripod_dowm"
+                    android:layout_width="wrap_content"
+                    android:layout_toLeftOf="@+id/btn_tripod_stop"
+                    android:background="@drawable/ground_speed_bg"
+                    android:textColor="@color/user_icon_default_white"
+                    android:layout_margin="@dimen/activity_magin_5"
+                    android:gravity="center"
+                    android:layout_centerHorizontal="true"
+                    android:layout_height="wrap_content"
+                    android:text="降落"/>
+                <Button
+                    android:id="@+id/btn_tripod_up"
+                    android:layout_toLeftOf="@+id/btn_tripod_dowm"
+                    android:layout_width="wrap_content"
+                    android:background="@drawable/ground_speed_bg"
+                    android:textColor="@color/user_icon_default_white"
+                    android:layout_margin="@dimen/activity_magin_5"
+                    android:gravity="center"
+                    android:layout_centerHorizontal="true"
+                    android:layout_height="wrap_content"
+                    android:text="升起"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rela_obstacle_calibration"
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/activity_magin_10"
+                android:layout_width="wrap_content"
+                android:layout_height="50dip">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/user_icon_default_white"
+                    android:text="脚架收放:"/>
+
+                <Switch
+                    android:id="@+id/switch_obstacle_setting_down"
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:thumb="@mipmap/fpv_switch_ball"
+                    android:background="@mipmap/fpv_switch_bg"
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_height="45dip">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:textColor="@color/user_icon_default_white"
+                    android:text="指南针状态:"
+                    android:textSize="@dimen/txt_size_18"/>
+
+                <TextView
+                    android:id="@+id/txt_commpos_status"
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/user_icon_default_white"
+                    android:text="@{strCommposStates}"
+                    android:textSize="@dimen/txt_size_18"/>
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/txt_btn_Calibrate_compass"
+                android:layout_width="match_parent"
+                android:layout_height="45dip"
+                android:textColor="@color/green_back"
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/activity_magin_10"
+                android:gravity="center"
+                android:textSize="@dimen/txt_size_18"
+                android:text="校准指南针"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_height="45dip">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:textColor="@color/user_icon_default_white"
+                    android:text="IMU数量:"
+                    android:textSize="@dimen/txt_size_18"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/user_icon_default_white"
+                    android:text="@{setImuNumber}"
+                    android:textSize="@dimen/txt_size_18"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_height="45dip">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:textColor="@color/user_icon_default_white"
+                    android:text="IMU状态:"
+                    android:textSize="@dimen/txt_size_18"/>
+
+                <TextView
+                    android:id="@+id/txt_imu_status"
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/user_icon_default_white"
+                    android:text="正常"
+                    android:textSize="@dimen/txt_size_18"/>
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/txt_btn_Calibrate_imu"
+                android:layout_width="match_parent"
+                android:layout_height="45dip"
+                android:textColor="@color/green_back"
+                android:layout_marginTop="@dimen/activity_magin_10"
+                android:gravity="center"
+                android:textSize="@dimen/txt_size_18"
+                android:text="校准IMU"/>
+        </LinearLayout>
+    </ScrollView>
+</layout>

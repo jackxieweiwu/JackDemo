@@ -1,0 +1,647 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:background="@color/back_150"
+        android:scrollbars="none"
+        android:padding="@dimen/activity_magin_10">
+        <LinearLayout
+            android:orientation="vertical" android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dip">
+
+                <TextView
+                    android:text="信道"
+                    android:textColor="@color/user_icon_default_white"
+                    android:layout_alignParentLeft="true"
+                    android:textSize="@dimen/txt_size_18"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/txt_camera_hd_custom"
+                    android:text="自定义"
+                    android:textColor="@color/user_icon_default_white"
+                    android:layout_alignParentRight="true"
+                    android:textSize="@dimen/txt_size_18"
+                    android:padding="5dip"
+                    android:gravity="center"
+                    android:background="@drawable/exit_bg"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/txt_camera_hd_motion"
+                    android:text="自动选择"
+                    android:layout_marginRight="@dimen/activity_magin_10"
+                    android:textColor="@color/user_icon_default_white"
+                    android:layout_toLeftOf="@id/txt_camera_hd_custom"
+                    android:textSize="@dimen/txt_size_18"
+                    android:padding="5dip"
+                    android:gravity="center"
+                    android:background="@drawable/exit_bg"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="280dip">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recy_list_route"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dip"/>
+
+                <ImageView
+                    android:id="@+id/img_blue"
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_below="@id/recy_list_route"
+                    android:background="@mipmap/light_blue"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/recy_list_route"
+                    android:id="@+id/txt_blue"
+                    android:layout_toRightOf="@+id/img_blue"
+                    android:textColor="@color/user_icon_default_white"
+                    android:text="当前信道"/>
+
+                <ImageView
+                    android:layout_toRightOf="@+id/txt_blue"
+                    android:id="@+id/img_blue2"
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_magin_10"
+                    android:layout_alignParentBottom="true"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_below="@id/recy_list_route"
+                    android:background="@mipmap/light_yellow"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/recy_list_route"
+                    android:id="@+id/txt_blue2"
+                    android:layout_toRightOf="@+id/img_blue2"
+                    android:textColor="@color/user_icon_default_white"
+                    android:text="干扰信道"/>
+
+                <ImageView
+                    android:layout_toRightOf="@+id/txt_blue2"
+                    android:id="@+id/img_blue3"
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_magin_10"
+                    android:layout_alignParentBottom="true"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_below="@id/recy_list_route"
+                    android:background="@mipmap/light_red"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:id="@+id/txt_blue3"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/recy_list_route"
+                    android:layout_toRightOf="@+id/img_blue3"
+                    android:textColor="@color/user_icon_default_white"
+                    android:text="严重干扰"/>
+
+                <ImageView
+                    android:id="@+id/img_blue4"
+                    android:layout_toRightOf="@+id/txt_blue3"
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_magin_10"
+                    android:layout_alignParentBottom="true"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_below="@id/recy_list_route"
+                    android:background="@mipmap/light_green"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:id="@+id/txt_blue4"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/recy_list_route"
+                    android:layout_toRightOf="@+id/img_blue4"
+                    android:textColor="@color/user_icon_default_white"
+                    android:text="正常信道"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rela_xinhao_one"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/activity_magin_10"
+                android:layout_height="50dip">
+
+                <TextView
+                    android:text="信道选择"
+                    android:textColor="@color/user_icon_default_white"
+                    android:layout_alignParentLeft="true"
+                    android:textSize="@dimen/txt_size_18"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <Spinner
+                    android:id="@+id/spinner_camera_hd"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rela_xinhao_two"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/activity_magin_10"
+                android:layout_height="50dip">
+
+                <TextView
+                    android:id="@+id/txt_quality"
+                    android:text="图传质量"
+                    android:textColor="@color/user_icon_default_white"
+                    android:layout_alignParentLeft="true"
+                    android:textSize="@dimen/txt_size_18"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/txt_number_quality"
+                    android:text="6Mbps(2km)"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:textColor="@color/user_icon_default_white"
+                    android:textSize="@dimen/txt_size_14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <SeekBar
+                    android:id="@+id/setting_hd_camera_seek"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/activity_magin_5"
+                    android:layout_marginRight="@dimen/activity_magin_5"
+                    android:thumb="@drawable/thumb_image"
+                    android:layout_toRightOf="@+id/txt_quality"
+                    android:layout_toLeftOf="@id/txt_number_quality"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/activity_magin_10"
+                android:layout_height="50dip">
+
+                <TextView
+                    android:id="@+id/txt_bandwidth"
+                    android:text="带宽分配"
+                    android:textColor="@color/user_icon_default_white"
+                    android:layout_alignParentLeft="true"
+                    android:textSize="@dimen/txt_size_18"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/txt_number_bandwidth"
+                    android:text="LB:100%EXT:0%"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:textColor="@color/user_icon_default_white"
+                    android:textSize="@dimen/txt_size_14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <SeekBar
+                    android:id="@+id/setting_bandwidth_seek"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/activity_magin_5"
+                    android:thumb="@drawable/thumb_image"
+                    android:layout_marginRight="@dimen/activity_magin_5"
+                    android:layout_toRightOf="@+id/txt_bandwidth"
+                    android:layout_toLeftOf="@id/txt_number_bandwidth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/ext_rela"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/activity_magin_10"
+                android:layout_height="50dip">
+
+                <TextView
+                    android:text="图传模式"
+                    android:textColor="@color/user_icon_default_white"
+                    android:layout_alignParentLeft="true"
+                    android:textSize="@dimen/txt_size_18"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/txt_camera_mode_delay"
+                    android:text="低延迟"
+                    android:textColor="@color/user_icon_default_white"
+                    android:layout_alignParentRight="true"
+                    android:textSize="@dimen/txt_size_18"
+                    android:padding="7dip"
+                    android:gravity="center"
+                    android:background="@drawable/exit_bg"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/txt_camera_mode_quality"
+                    android:text="高画质"
+                    android:layout_marginRight="@dimen/activity_magin_10"
+                    android:textColor="@color/user_icon_default_white"
+                    android:layout_toLeftOf="@id/txt_camera_mode_delay"
+                    android:textSize="@dimen/txt_size_18"
+                    android:padding="7dip"
+                    android:gravity="center"
+                    android:background="@drawable/exit_bg"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/activity_magin_10"
+                android:layout_height="50dip">
+
+                <TextView
+                    android:text="HDMI/SDI视频输出"
+                    android:textColor="@color/user_icon_default_white"
+                    android:layout_alignParentLeft="true"
+                    android:textSize="@dimen/txt_size_18"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <Switch
+                    android:id="@+id/switch_ios_camera"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:thumb="@mipmap/fpv_switch_ball"
+                    android:background="@mipmap/fpv_switch_bg"
+                    android:layout_width="55dp"
+                    android:layout_height="28dp"/>
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/rela_video_out"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/activity_magin_10"
+                android:layout_height="50dip">
+
+                <TextView
+                    android:text="开启EXT端口"
+                    android:textColor="@color/user_icon_default_white"
+                    android:layout_alignParentLeft="true"
+                    android:textSize="@dimen/txt_size_18"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <Switch
+                    android:id="@+id/switch_ios_camera_ext"
+                    android:layout_alignParentRight="true"
+                    android:thumb="@mipmap/fpv_switch_ball"
+                    android:background="@mipmap/fpv_switch_bg"
+                    android:layout_centerVertical="true"
+                    android:layout_width="55dp"
+                    android:layout_height="28dp"/>
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/rela_voide_outmode"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/activity_magin_10"
+                android:layout_height="50dip">
+
+                <TextView
+                    android:text="APP输出模式"
+                    android:textColor="@color/user_icon_default_white"
+                    android:layout_alignParentLeft="true"
+                    android:textSize="@dimen/txt_size_18"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <Spinner
+                    android:id="@+id/spinner_setting_app_mode"
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/exit_bg"
+                    android:layout_height="wrap_content"/>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_video_in"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:id="@+id/rela_video_out_api"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/activity_magin_10"
+                    android:layout_height="50dip">
+
+                    <TextView
+                        android:text="视频输出接口"
+                        android:textColor="@color/user_icon_default_white"
+                        android:layout_alignParentLeft="true"
+                        android:textSize="@dimen/txt_size_18"
+                        android:layout_centerVertical="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/txt_camera_sdi"
+                        android:text="SDI"
+                        android:textColor="@color/user_icon_default_white"
+                        android:layout_alignParentRight="true"
+                        android:textSize="@dimen/txt_size_18"
+                        android:padding="7dip"
+                        android:gravity="center"
+                        android:background="@drawable/exit_bg"
+                        android:layout_centerVertical="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/txt_camera_hd_hdmi"
+                        android:text="HDMI"
+                        android:layout_marginRight="@dimen/activity_magin_10"
+                        android:textColor="@color/user_icon_default_white"
+                        android:layout_toLeftOf="@id/txt_camera_sdi"
+                        android:textSize="@dimen/txt_size_18"
+                        android:padding="7dip"
+                        android:gravity="center"
+                        android:background="@drawable/exit_bg"
+                        android:layout_centerVertical="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/activity_magin_10"
+                    android:layout_height="50dip">
+
+                    <TextView
+                        android:text="视频输出分辨率"
+                        android:textColor="@color/user_icon_default_white"
+                        android:layout_alignParentLeft="true"
+                        android:textSize="@dimen/txt_size_18"
+                        android:layout_centerVertical="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <Spinner
+                        android:id="@+id/spinner_camera_format"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:textColor="@color/back_150"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/activity_magin_10"
+                    android:layout_height="50dip">
+
+                    <TextView
+                        android:text="视频输出模式"
+                        android:textColor="@color/user_icon_default_white"
+                        android:layout_alignParentLeft="true"
+                        android:textSize="@dimen/txt_size_18"
+                        android:layout_centerVertical="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <Spinner
+                        android:id="@+id/spinner_setting_video_mode"
+                        android:layout_width="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/exit_bg"
+                        android:layout_height="wrap_content"/>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/activity_magin_10"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/Blue_700"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:gravity="center"
+                    android:textSize="@dimen/txt_size_16"
+                    android:text="请保持遥控器和天空端天线\n与地面垂直，并相互平行"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/setting_ui_hd_signal_loc"/>
+
+                <TextView
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center"
+                    android:textSize="@dimen/txt_size_16"
+                    android:textColor="@color/Blue_700"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="请保持两米距离"/>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/activity_magin_8"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="RSSI接收信号强度指示"
+                    android:textColor="@color/user_icon_default_white"
+                    android:textSize="@dimen/txt_size_16"
+                    android:layout_gravity="center|left|top"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/activity_magin_8"
+                    android:layout_height="45dip">
+
+                    <RelativeLayout
+                        android:layout_width="0dip"
+                        android:layout_marginRight="@dimen/activity_magin_5"
+                        android:layout_height="45dip"
+                        android:layout_weight="0.5">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="45dip"
+                            android:text="天线1"
+                            android:textSize="@dimen/txt_size_14"
+                            android:textColor="@color/user_icon_default_white"
+                            android:layout_alignParentLeft="true"
+                            android:gravity="center"
+                            android:layout_centerVertical="true"/>
+
+                        <TextView
+                            android:id="@+id/txt_rssi_number_one"
+                            android:layout_width="wrap_content"
+                            android:layout_height="45dip"
+                            android:text="-20dBm"
+                            android:textSize="@dimen/txt_size_14"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:textColor="@color/user_icon_default_white"
+                            android:gravity="center"/>
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
+                        android:layout_width="0dip"
+                        android:layout_marginLeft="@dimen/activity_magin_5"
+                        android:layout_height="45dip"
+                        android:layout_weight="0.5">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="45dip"
+                            android:text="天线2"
+                            android:textSize="@dimen/txt_size_14"
+                            android:textColor="@color/user_icon_default_white"
+                            android:layout_alignParentLeft="true"
+                            android:gravity="center"
+                            android:layout_centerVertical="true"/>
+
+                        <TextView
+                            android:id="@+id/txt_rssi_number_three"
+                            android:layout_width="wrap_content"
+                            android:layout_height="45dip"
+                            android:text="-20dBm"
+                            android:textSize="@dimen/txt_size_14"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:textColor="@color/user_icon_default_white"
+                            android:gravity="center"/>
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:visibility="gone"
+                    android:layout_marginBottom="@dimen/activity_magin_10"
+                    android:layout_height="45dip">
+
+                    <RelativeLayout
+                        android:layout_width="0dip"
+                        android:layout_marginRight="@dimen/activity_magin_5"
+                        android:layout_height="45dip"
+                        android:layout_weight="0.5">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="45dip"
+                            android:text="天线2"
+                            android:textSize="@dimen/txt_size_14"
+                            android:textColor="@color/user_icon_default_white"
+                            android:layout_alignParentLeft="true"
+                            android:gravity="center"
+                            android:layout_centerVertical="true"/>
+
+                        <TextView
+                            android:id="@+id/txt_rssi_number_two"
+                            android:layout_width="wrap_content"
+                            android:layout_height="45dip"
+                            android:text="-20dBm"
+                            android:textSize="@dimen/txt_size_14"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:textColor="@color/user_icon_default_white"
+                            android:gravity="center"/>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dip"
+                        android:layout_marginLeft="@dimen/activity_magin_5"
+                        android:layout_height="45dip"
+                        android:layout_weight="0.5">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="45dip"
+                            android:text="天线4"
+                            android:textSize="@dimen/txt_size_14"
+                            android:textColor="@color/user_icon_default_white"
+                            android:layout_alignParentLeft="true"
+                            android:gravity="center"
+                            android:layout_centerVertical="true"/>
+
+                        <TextView
+                            android:id="@+id/txt_rssi_number_four"
+                            android:layout_width="wrap_content"
+                            android:layout_height="45dip"
+                            android:text="-20dBm"
+                            android:textSize="@dimen/txt_size_14"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:textColor="@color/user_icon_default_white"
+                            android:gravity="center"/>
+                    </RelativeLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</layout>

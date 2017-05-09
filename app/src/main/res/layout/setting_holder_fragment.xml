@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:background="@color/back_150"
+        android:scrollbars="none"
+        android:padding="@dimen/activity_magin_10">
+
+        <LinearLayout
+            android:orientation="vertical" android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dip"
+                android:layout_marginTop="@dimen/activity_magin_10">
+
+                <TextView
+                    android:text="配置"
+                    android:textColor="@color/user_icon_default_white"
+                    android:layout_alignParentLeft="true"
+                    android:textSize="@dimen/txt_size_18"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <Spinner
+                    android:id="@+id/spinner_holder_setting"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_width="100dip"
+                    android:layout_height="45dip"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dip"
+                android:layout_marginTop="@dimen/activity_magin_10">
+
+                <TextView
+                    android:id="@+id/txt_name_hodler_one"
+                    android:text="云台俯仰轴"
+                    android:textColor="@color/user_icon_default_white"
+                    android:layout_alignParentLeft="true"
+                    android:textSize="@dimen/txt_size_18"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_marginLeft="@dimen/activity_magin_10"
+                    android:layout_toRightOf="@+id/txt_name_hodler_one"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="(0-100)"
+                    android:textColor="@color/user_icon_default_white"/>
+
+                <SeekBar
+                    android:id="@+id/seekbar_bolder_one"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_width="100dip"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/txt_seekbar_one"
+                    android:layout_toLeftOf="@id/seekbar_bolder_one"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/user_icon_default_white"
+                    android:text="0"
+                    android:textSize="@dimen/txt_size_14"
+                    android:gravity="center"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/activity_magin_5"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dip"
+                android:layout_marginTop="@dimen/activity_magin_10">
+
+                <TextView
+                    android:id="@+id/txt_name_hodler_two"
+                    android:text="云台偏航轴"
+                    android:textColor="@color/user_icon_default_white"
+                    android:layout_alignParentLeft="true"
+                    android:textSize="@dimen/txt_size_18"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_marginLeft="@dimen/activity_magin_10"
+                    android:layout_toRightOf="@+id/txt_name_hodler_two"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="(0-100)"
+                    android:textColor="@color/user_icon_default_white"/>
+
+                <SeekBar
+                    android:id="@+id/seekbar_bolder_two"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_width="100dip"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/txt_seekbar_two"
+                    android:layout_toLeftOf="@id/seekbar_bolder_two"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/user_icon_default_white"
+                    android:text="0"
+                    android:textSize="@dimen/txt_size_14"
+                    android:gravity="center"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/activity_magin_5"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dip"
+                android:layout_marginTop="@dimen/activity_magin_10">
+
+                <TextView
+                    android:id="@+id/txt_name_hodler_three"
+                    android:text="云台俯仰平滑"
+                    android:textColor="@color/user_icon_default_white"
+                    android:layout_alignParentLeft="true"
+                    android:textSize="@dimen/txt_size_18"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_marginLeft="@dimen/activity_magin_10"
+                    android:layout_toRightOf="@+id/txt_name_hodler_three"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="(0-30)"
+                    android:textColor="@color/user_icon_default_white"/>
+
+                <SeekBar
+                    android:id="@+id/seekbar_bolder_three"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_width="100dip"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/txt_seekbar_three"
+                    android:layout_toLeftOf="@id/seekbar_bolder_three"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/user_icon_default_white"
+                    android:text="0"
+                    android:textSize="@dimen/txt_size_14"
+                    android:gravity="center"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/activity_magin_5"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dip"
+                android:layout_marginTop="@dimen/activity_magin_10">
+
+                <TextView
+                    android:text="云台Yaw跟随同步"
+                    android:textColor="@color/user_icon_default_white"
+                    android:layout_alignParentLeft="true"
+                    android:textSize="@dimen/txt_size_18"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <Switch
+                    android:id="@+id/switch_ios_holder"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:thumb="@mipmap/fpv_switch_ball"
+                    android:background="@mipmap/fpv_switch_bg"
+                    android:layout_width="55dp"
+                    android:layout_height="28dp"/>
+            </RelativeLayout>
+
+            <View
+                android:layout_marginTop="@dimen/activity_magin_8"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/activity_magin_1"
+                android:layout_marginBottom="@dimen/activity_magin_8"
+                android:background="@color/user_icon_default_white"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="45dip">
+
+                <TextView
+                    android:id="@+id/txt_holder_reset"
+                    android:layout_width="0dip"
+                    android:layout_weight="0.5"
+                    android:textColor="@color/Blue_700"
+                    android:gravity="center"
+                    android:text="重置所有参数"
+                    android:textSize="@dimen/txt_size_18"
+                    android:layout_height="45dip" />
+
+                <TextView
+                    android:id="@+id/txt_holder_correct"
+                    android:layout_width="0dip"
+                    android:layout_weight="0.5"
+                    android:gravity="center"
+                    android:textColor="@color/Blue_700"
+                    android:text="云台自动校准"
+                    android:textSize="@dimen/txt_size_18"
+                    android:layout_height="45dip" />
+
+                <TextView
+                    android:id="@+id/txt_holder_resetGimbal"
+                    android:layout_width="0dip"
+                    android:layout_weight="0.5"
+                    android:gravity="center"
+                    android:textColor="@color/Blue_700"
+                    android:text="重置云台"
+                    android:textSize="@dimen/txt_size_18"
+                    android:layout_height="45dip" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</layout>

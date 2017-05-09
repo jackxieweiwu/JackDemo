@@ -33,9 +33,11 @@ import zkrtdrone.zkrt.com.jackmvvm.util.ModuleVerificationUtil;
 import zkrtdrone.zkrt.com.view.fragment.DroneSetting.BasisSettingFragment;
 import zkrtdrone.zkrt.com.view.fragment.DroneSetting.BatterySettingFragment;
 import zkrtdrone.zkrt.com.view.fragment.DroneSetting.DroneSettingFragment;
+import zkrtdrone.zkrt.com.view.fragment.DroneSetting.HdSettingFragment;
 import zkrtdrone.zkrt.com.view.fragment.DroneSetting.HolderSettingFragment;
 import zkrtdrone.zkrt.com.view.fragment.DroneSetting.MapSettingFragment;
 import zkrtdrone.zkrt.com.view.fragment.DroneSetting.RecordSettingFragment;
+import zkrtdrone.zkrt.com.view.fragment.DroneSetting.RemoteSettingFragment;
 import zkrtdrone.zkrt.com.widght.XCSlideView;
 
 /**
@@ -68,6 +70,8 @@ public class HandStateFragment extends AbsFragment<FragmentHandBinding> {
         BasisSettingFragment basisSettingFragment = new BasisSettingFragment();
         MapSettingFragment mapSettingFragment = new MapSettingFragment();
         RecordSettingFragment recordSettingFragment = new RecordSettingFragment();
+        RemoteSettingFragment remoteSettingFragment = new RemoteSettingFragment();
+        HdSettingFragment hdSettingFragment = new HdSettingFragment();
 
         View menuViewLeft = LayoutInflater.from(JackApplication.mActivity).inflate(R.layout.setting_drone,null);
         drone_tool_bar = (TabLayout) menuViewLeft.findViewById(R.id.drone_tool_bar);
@@ -77,10 +81,12 @@ public class HandStateFragment extends AbsFragment<FragmentHandBinding> {
         mSlideViewRight.setMenuWidth(JackApplication.getScreenWidth() * 7 / 15);
 
         SimpleViewPagerAdapter adapter = new SimpleViewPagerAdapter(JackApplication.fragmentManager);
-        adapter.addFrag(droneSettingFragment, "飞机");
-        adapter.addFrag(batterySettingFragment, "电源");
-        adapter.addFrag(holderSettingFragment, "云台");
         adapter.addFrag(basisSettingFragment, "基础");
+        adapter.addFrag(droneSettingFragment, "飞机");
+        adapter.addFrag(hdSettingFragment, "相机");
+        adapter.addFrag(batterySettingFragment, "电源");
+        adapter.addFrag(remoteSettingFragment, "遥控");
+        adapter.addFrag(holderSettingFragment, "云台");
         adapter.addFrag(mapSettingFragment, "地图");
         adapter.addFrag(recordSettingFragment, "记录");
         drone_setting_pager.setAdapter(adapter);
