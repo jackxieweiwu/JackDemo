@@ -110,6 +110,10 @@ public interface MarkerInfo {
 			return 0;
 		}
 
+		/*@Override
+		public Bitmap getIcon(Resources res) {
+			return null;
+		}*/
 		@Override
 		public Bitmap getIcon(Resources res) {
 			return null;

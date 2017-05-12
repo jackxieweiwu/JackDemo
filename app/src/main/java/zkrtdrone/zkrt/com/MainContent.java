@@ -52,7 +52,7 @@ public class MainContent extends RelativeLayout {
             public void onClick(View v) {
                 if (GeneralUtils.isFastDoubleClick()) return;
                 //进入配对模式
-                DialogPairimg dialog = new DialogPairimg(this);
+                DialogPairimg dialog = new DialogPairimg();
                 dialog.show(JackApplication.fragmentManager, "ip_dialog");
             }
         });
@@ -82,7 +82,7 @@ public class MainContent extends RelativeLayout {
             ftb_frequency.setVisibility(GONE);
             BaseApplication.bool = false;
         } else {
-            ftb_start.setVisibility(VISIBLE);  //GONE
+            ftb_start.setVisibility(GONE);  //GONE
             BaseApplication.bool = true; //需要遥控器配对的
             ftb_frequency.setVisibility(GONE);
         }

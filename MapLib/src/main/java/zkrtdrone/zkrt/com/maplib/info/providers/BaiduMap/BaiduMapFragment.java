@@ -19,6 +19,7 @@ import com.baidu.location.Poi;
 import com.baidu.mapapi.map.BitmapDescriptor;
 import com.baidu.mapapi.map.MapStatus;
 import com.baidu.mapapi.map.MyLocationConfiguration;
+import com.baidu.mapapi.map.Overlay;
 import com.baidu.mapapi.map.OverlayOptions;
 import com.baidu.mapapi.map.Stroke;
 import java.util.ArrayList;
@@ -44,7 +45,10 @@ import com.baidu.mapapi.map.SupportMapFragment;
 import com.baidu.mapapi.map.Projection;
 import com.baidu.mapapi.map.MapPoi;
 import com.baidu.mapapi.map.MyLocationData;
+import com.baidu.mapapi.utils.CoordinateConverter;
+
 import zkrtdrone.zkrt.com.jackmvvm.base.BaseApplication;
+import zkrtdrone.zkrt.com.jackmvvm.mvvm.util.show.T;
 import zkrtdrone.zkrt.com.maplib.R;
 import zkrtdrone.zkrt.com.maplib.info.DPmap;
 import zkrtdrone.zkrt.com.maplib.info.MarkerInfo;
@@ -59,6 +63,7 @@ import zkrtdrone.zkrt.com.maplib.info.units.collection.HashBiMap;
 import zkrtdrone.zkrt.com.maplib.info.until.DroidPlannerPrefs;
 
 import static android.content.Context.SENSOR_SERVICE;
+import static java.lang.Float.NaN;
 import static zkrtdrone.zkrt.com.jackmvvm.base.BaseApplication.droneloLat;
 import static zkrtdrone.zkrt.com.jackmvvm.base.BaseApplication.droneloLng;
 
@@ -92,6 +97,7 @@ public class BaiduMapFragment extends SupportMapFragment implements DPmap,Sensor
     private float mCurrentAccracy;
     private int mCurrentDirection = 0;
     private MyLocationData locData;
+    private CoordinateConverter converter  = new CoordinateConverter();
 
     @Override
     public void onAttach(Activity activity) {
@@ -207,6 +213,8 @@ public class BaiduMapFragment extends SupportMapFragment implements DPmap,Sensor
         mLocClient.start();
         getBaiduMap().setMyLocationConfigeration(new MyLocationConfiguration(
                 MyLocationConfiguration.LocationMode.NORMAL, true, null));
+
+        converter.from(CoordinateConverter.CoordType.GPS);
         return view;
     }
 
@@ -321,14 +329,20 @@ public class BaiduMapFragment extends SupportMapFragment implements DPmap,Sensor
         }
     }
 
+    private Marker markerDroneBit;
     @Override
     public void setDroneMap(Bitmap droneBitmap) {
-        LatLng point = new LatLng(droneloLat, droneloLng);
+        if(droneloLat == NaN) return;
+        if(getBaiduMap() ==null) return;
+        //坐标转换
+
+        converter.coord(new LatLng(droneloLat,droneloLng));
         BitmapDescriptor bitmap = BitmapDescriptorFactory.fromBitmap(droneBitmap);
         OverlayOptions option = new MarkerOptions()
-                .position(point)
+                .position(converter.convert())
                 .icon(bitmap);
-        getBaiduMap().addOverlay(option);
+        if(markerDroneBit !=null) markerDroneBit.remove();
+        markerDroneBit = (Marker)getBaiduMap().addOverlay(option);
     }
 
     @Override
@@ -651,6 +665,10 @@ public class BaiduMapFragment extends SupportMapFragment implements DPmap,Sensor
     @Override
     public void goToDroneLocation() {
         final float currentZoomLevel = getBaiduMap().getMapStatus().zoom;
+        // sourceLatLng待转换坐标
+        if(droneloLat == NaN) return;
+        /*converter.coord(new LatLng(droneloLat,droneloLng));
+        LatLng desLatLng = converter.convert();*/
         updateCamera(new LatLong(droneloLat,droneloLng), (int) currentZoomLevel);
     }
 

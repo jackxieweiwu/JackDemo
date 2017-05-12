@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="strRemoteVersion"
+            type="String"/>
+        <variable
+            name="strRemoteName"
+            type="String"/>
+        <variable
+            name="strRemotePwd"
+            type="String"/>
+        <variable
+            name="strRemoteBattery"
+            type="String"/>
+    </data>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -32,7 +47,7 @@
                     android:gravity="center"
                     android:textColor="@color/user_icon_default_white"
                     android:layout_height="match_parent"
-                    android:text="遥控器固件版本"/>
+                    android:text="@{strRemoteVersion}"/>
 
             </LinearLayout>
 
@@ -58,6 +73,7 @@
                     android:singleLine="true"
                     android:enabled="false"
                     android:gravity="center"
+                    android:text="@{strRemoteName}"
                     android:layout_centerVertical="true"
                     android:inputType="text"
                     android:background="@drawable/exit_bg"
@@ -72,6 +88,7 @@
                     android:layout_alignParentRight="true"
                     android:enabled="false"
                     android:singleLine="true"
+                    android:text="@{strRemotePwd}"
                     android:inputType="text"
                     android:background="@drawable/exit_bg"
                     android:layout_height="wrap_content" />
@@ -90,6 +107,54 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dip"
+                android:layout_marginTop="@dimen/activity_magin_10">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_alignParentLeft="true"
+                    android:textColor="@color/user_icon_default_white"
+                    android:text="遥控器电量:"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="@color/user_icon_default_white"
+                    android:text="@{strRemoteBattery}"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dip"
+                android:layout_marginTop="@dimen/activity_magin_10">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_alignParentLeft="true"
+                    android:textColor="@color/user_icon_default_white"
+                    android:text="是否移动设备充电:"/>
+
+
+                <com.jaredrummler.materialspinner.MaterialSpinner
+                    android:id="@+id/spinner_ios_phone"
+                    android:layout_width="120dip"
+                    app:ms_background_color="@color/load_blue"
+                    app:ms_text_color="@color/user_icon_default_white"
+                    android:layout_alignParentRight="true"
+                    android:layout_height="45dip"
+                    android:gravity="center"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dip"
+                android:visibility="gone"
                 android:layout_marginTop="@dimen/activity_magin_10">
 
                 <TextView
@@ -133,7 +198,7 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="45dip"
+                android:layout_height="50dip"
                 android:orientation="horizontal">
 
                 <TextView
@@ -144,34 +209,14 @@
                     android:textColor="@color/user_icon_default_white"
                     android:text="左上角驳轮动作:"/>
 
-                <Button
-                    android:id="@+id/btn_bolun_hangx"
-                    android:layout_width="wrap_content"
+                <com.jaredrummler.materialspinner.MaterialSpinner
+                    android:id="@+id/spinner_ios_pyr"
+                    android:layout_width="100dip"
+                    app:ms_background_color="@color/load_blue"
+                    app:ms_text_color="@color/user_icon_default_white"
                     android:layout_alignParentRight="true"
-                    android:background="@drawable/ground_speed_bg"
-                    android:textColor="@color/user_icon_default_white"
-                    android:layout_height="wrap_content"
-                    android:text="航向"/>
-
-                <Button
-                    android:id="@+id/btn_bolun_roll"
-                    android:layout_toLeftOf="@id/btn_bolun_hangx"
-                    android:layout_marginRight="@dimen/activity_magin_5"
-                    android:background="@drawable/ground_speed_bg"
-                    android:textColor="@color/user_icon_default_white"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="横滚"/>
-
-                <Button
-                    android:layout_toLeftOf="@+id/btn_bolun_roll"
-                    android:background="@drawable/ground_speed_bg"
-                    android:layout_marginRight="@dimen/activity_magin_5"
-                    android:textColor="@color/user_icon_default_white"
-                    android:id="@+id/btn_bolun_pitch"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="俯仰"/>
+                    android:layout_height="45dip"
+                    android:gravity="center"/>
             </RelativeLayout>
 
             <RelativeLayout
@@ -189,13 +234,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
-                <Spinner
+                <com.jaredrummler.materialspinner.MaterialSpinner
                     android:id="@+id/spinner_rocker_mode"
                     android:layout_centerVertical="true"
+                    app:ms_background_color="@color/load_blue"
+                    app:ms_text_color="@color/user_icon_default_white"
                     android:layout_alignParentRight="true"
-                    android:layout_width="100dip"
+                    android:layout_width="120dip"
                     android:layout_height="45dip"/>
-
 
             </RelativeLayout>
 
@@ -204,7 +250,7 @@
                 android:layout_marginTop="@dimen/activity_magin_5"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
-                android:background="@mipmap/setting_ui_rc_slave"
+                android:background="@mipmap/setting_ui_rc_custom"
                 android:layout_height="wrap_content" />
 
             <View

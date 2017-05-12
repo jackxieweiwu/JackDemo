@@ -1,5 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="strAntennaOne"
+            type="String"/>
+        <variable
+            name="strAntennatwo"
+            type="String"/>
+        <variable
+            name="strAntennaThree"
+            type="String"/>
+        <variable
+            name="strAntennaFour"
+            type="String"/>
+        <variable
+            name="strCodeRate"
+            type="String"/>
+        <variable
+            name="strTransmissionModeSw"
+            type="Boolean"/>
+        <variable
+            name="strHdmiSdiVideo"
+            type="Boolean"/>
+        <variable
+            name="strHdmiAv"
+            type="String"/>
+    </data>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -159,6 +186,7 @@
 
             <RelativeLayout
                 android:id="@+id/rela_xinhao_one"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_marginTop="@dimen/activity_magin_10"
                 android:layout_height="50dip">
@@ -172,8 +200,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
-                <Spinner
+                <com.jaredrummler.materialspinner.MaterialSpinner
                     android:id="@+id/spinner_camera_hd"
+                    app:ms_text_color="@color/user_icon_default_white"
+                    app:ms_background_color="@color/load_blue"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_width="wrap_content"
@@ -182,13 +212,14 @@
 
             <RelativeLayout
                 android:id="@+id/rela_xinhao_two"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_marginTop="@dimen/activity_magin_10"
                 android:layout_height="50dip">
 
                 <TextView
                     android:id="@+id/txt_quality"
-                    android:text="图传质量"
+                    android:text="图传码率"
                     android:textColor="@color/user_icon_default_white"
                     android:layout_alignParentLeft="true"
                     android:textSize="@dimen/txt_size_18"
@@ -198,7 +229,7 @@
 
                 <TextView
                     android:id="@+id/txt_number_quality"
-                    android:text="6Mbps(2km)"
+                    android:text="@{strCodeRate}"
                     android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
                     android:textColor="@color/user_icon_default_white"
@@ -212,6 +243,7 @@
                     android:layout_marginLeft="@dimen/activity_magin_5"
                     android:layout_marginRight="@dimen/activity_magin_5"
                     android:thumb="@drawable/thumb_image"
+                    android:max="3"
                     android:layout_toRightOf="@+id/txt_quality"
                     android:layout_toLeftOf="@id/txt_number_quality"
                     android:layout_width="wrap_content"
@@ -235,7 +267,7 @@
 
                 <TextView
                     android:id="@+id/txt_number_bandwidth"
-                    android:text="LB:100%EXT:0%"
+                    android:text="@{strHdmiAv}"
                     android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
                     android:textColor="@color/user_icon_default_white"
@@ -247,6 +279,7 @@
                     android:id="@+id/setting_bandwidth_seek"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/activity_magin_5"
+                    android:max="10"
                     android:thumb="@drawable/thumb_image"
                     android:layout_marginRight="@dimen/activity_magin_5"
                     android:layout_toRightOf="@+id/txt_bandwidth"
@@ -259,6 +292,7 @@
             <RelativeLayout
                 android:id="@+id/ext_rela"
                 android:layout_width="match_parent"
+                android:visibility="gone"
                 android:layout_marginTop="@dimen/activity_magin_10"
                 android:layout_height="50dip">
 
@@ -273,7 +307,7 @@
 
                 <TextView
                     android:id="@+id/txt_camera_mode_delay"
-                    android:text="低延迟"
+                    android:text="高画质"
                     android:textColor="@color/user_icon_default_white"
                     android:layout_alignParentRight="true"
                     android:textSize="@dimen/txt_size_18"
@@ -286,7 +320,7 @@
 
                 <TextView
                     android:id="@+id/txt_camera_mode_quality"
-                    android:text="高画质"
+                    android:text="低延迟"
                     android:layout_marginRight="@dimen/activity_magin_10"
                     android:textColor="@color/user_icon_default_white"
                     android:layout_toLeftOf="@id/txt_camera_mode_delay"
@@ -317,6 +351,7 @@
                     android:id="@+id/switch_ios_camera"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
+                    android:checked="@{strHdmiSdiVideo}"
                     android:thumb="@mipmap/fpv_switch_ball"
                     android:background="@mipmap/fpv_switch_bg"
                     android:layout_width="55dp"
@@ -342,6 +377,7 @@
                 <Switch
                     android:id="@+id/switch_ios_camera_ext"
                     android:layout_alignParentRight="true"
+                    android:checked="@{strTransmissionModeSw}"
                     android:thumb="@mipmap/fpv_switch_ball"
                     android:background="@mipmap/fpv_switch_bg"
                     android:layout_centerVertical="true"
@@ -429,7 +465,7 @@
                     android:layout_height="50dip">
 
                     <TextView
-                        android:text="视频输出分辨率"
+                        android:text="视频输出模式"
                         android:textColor="@color/user_icon_default_white"
                         android:layout_alignParentLeft="true"
                         android:textSize="@dimen/txt_size_18"
@@ -437,12 +473,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
-                    <Spinner
-                        android:id="@+id/spinner_camera_format"
+                    <com.jaredrummler.materialspinner.MaterialSpinner
+                        android:id="@+id/spinner_setting_video_mode"
+                        app:ms_background_color="@color/load_blue"
+                        app:ms_text_color="@color/user_icon_default_white"
+                        android:layout_width="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
-                        android:textColor="@color/back_150"
-                        android:layout_width="wrap_content"
+                        android:background="@drawable/exit_bg"
                         android:layout_height="wrap_content"/>
                 </RelativeLayout>
 
@@ -452,7 +490,7 @@
                     android:layout_height="50dip">
 
                     <TextView
-                        android:text="视频输出模式"
+                        android:text="视频输出格式"
                         android:textColor="@color/user_icon_default_white"
                         android:layout_alignParentLeft="true"
                         android:textSize="@dimen/txt_size_18"
@@ -460,12 +498,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
-                    <Spinner
-                        android:id="@+id/spinner_setting_video_mode"
-                        android:layout_width="wrap_content"
+                    <com.jaredrummler.materialspinner.MaterialSpinner
+                        app:ms_background_color="@color/load_blue"
+                        app:ms_text_color="@color/user_icon_default_white"
+                        android:id="@+id/spinner_camera_format"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
-                        android:background="@drawable/exit_bg"
+                        android:textColor="@color/back_150"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                 </RelativeLayout>
             </LinearLayout>
@@ -541,7 +581,7 @@
                             android:id="@+id/txt_rssi_number_one"
                             android:layout_width="wrap_content"
                             android:layout_height="45dip"
-                            android:text="-20dBm"
+                            android:text="@{strAntennaOne}"
                             android:textSize="@dimen/txt_size_14"
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
@@ -570,7 +610,7 @@
                             android:id="@+id/txt_rssi_number_three"
                             android:layout_width="wrap_content"
                             android:layout_height="45dip"
-                            android:text="-20dBm"
+                            android:text="@{strAntennatwo}"
                             android:textSize="@dimen/txt_size_14"
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
@@ -581,7 +621,6 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:visibility="gone"
                     android:layout_marginBottom="@dimen/activity_magin_10"
                     android:layout_height="45dip">
 
@@ -594,7 +633,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="45dip"
-                            android:text="天线2"
+                            android:text="天线3"
                             android:textSize="@dimen/txt_size_14"
                             android:textColor="@color/user_icon_default_white"
                             android:layout_alignParentLeft="true"
@@ -605,7 +644,7 @@
                             android:id="@+id/txt_rssi_number_two"
                             android:layout_width="wrap_content"
                             android:layout_height="45dip"
-                            android:text="-20dBm"
+                            android:text="@{strAntennaThree}"
                             android:textSize="@dimen/txt_size_14"
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
@@ -633,7 +672,7 @@
                             android:id="@+id/txt_rssi_number_four"
                             android:layout_width="wrap_content"
                             android:layout_height="45dip"
-                            android:text="-20dBm"
+                            android:text="@{strAntennaFour}"
                             android:textSize="@dimen/txt_size_14"
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"

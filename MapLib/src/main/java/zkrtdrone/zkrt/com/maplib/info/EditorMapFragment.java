@@ -12,6 +12,8 @@ import zkrtdrone.zkrt.com.jackmvvm.base.BaseApplication;
 import zkrtdrone.zkrt.com.jackmvvm.mvvm.util.show.T;
 import zkrtdrone.zkrt.com.maplib.info.mission.coordinate.LatLong;
 
+import static zkrtdrone.zkrt.com.jackmvvm.base.BaseApplication.mActivity;
+
 /**
  * Created by jack_xie on 17-4-24.
  */
@@ -103,7 +105,10 @@ public class EditorMapFragment extends DroneMap implements DPmap.OnMapLongClickL
     }
 
     public void setDroneBitmap(Bitmap droneBitmap) {
-        if(droneBitmap !=null || mMapFragment !=null);
+        if(droneBitmap == null ) return;
+        if(mMapFragment ==null) return;
+        //new DroneMarker().getIcon(getResources());
+        //mMapFragment.updateMarker(graphicDrone);
         mMapFragment.setDroneMap(droneBitmap);
     }
 }

@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="strGohomeHiget"
+            type="String"/>
+        <variable
+            name="strHightDrone"
+            type="String"/>
+        <variable
+            name="strDroneRadiusBooleanNumber"
+            type="String"/>
+    </data>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -32,17 +44,19 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:padding="@dimen/activity_magin_5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:background="@drawable/exit_bg"
+                    android:layout_width="70dip"
+                    android:layout_height="35dip"
                     android:src="@mipmap/leftmenu_homepoint_rc"/>
 
                 <ImageView
                     android:id="@+id/img_gohome_setting_drone"
                     android:layout_toLeftOf="@id/img_gohome_setting_peplo"
                     android:layout_centerVertical="true"
-                    android:layout_width="wrap_content"
                     android:layout_marginEnd="@dimen/activity_magin_10"
-                    android:layout_height="wrap_content"
+                    android:background="@drawable/exit_bg"
+                    android:layout_width="70dip"
+                    android:layout_height="35dip"
                     android:padding="@dimen/activity_magin_5"
                     android:src="@mipmap/leftmenu_homepoint_now"/>
             </RelativeLayout>
@@ -85,6 +99,7 @@
                         android:layout_toLeftOf="@id/txt_m"
                         android:background="@drawable/exit_bg"
                         android:inputType="number"
+                        android:text="@{strGohomeHiget}"
                         android:ems="3"
                         android:singleLine="true"
                         android:gravity="center"
@@ -162,7 +177,7 @@
                     android:layout_alignParentLeft="true"
                     android:layout_below="@id/relay_fly"
                     android:layout_marginTop="@dimen/activity_magin_10"
-                    android:text="新手模式下，飞行器只能在返航点的30米半径范围内飞行，飞行器飞行速度将是显著变慢"
+                    android:text="新手模式下，飞行器只能在返航点的30米半径范围内飞行，飞行距离限制在50米之内"
                     android:textColor="@color/user_icon_default_white" />
             </RelativeLayout>
 
@@ -184,7 +199,7 @@
                     android:textSize="@dimen/txt_size_18" />
 
                 <EditText
-                    android:id="@+id/edit_setting_fly_gohome_hight"
+                    android:id="@+id/edit_setting_fly_max_hight"
                     android:layout_width="60dip"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -192,6 +207,7 @@
                     android:layout_marginRight="@dimen/activity_magin_3"
                     android:background="@drawable/exit_bg"
                     android:gravity="center"
+                    android:text="@{strHightDrone}"
                     android:ems="3"
                     android:inputType="numberSigned"
                     android:singleLine="true"
@@ -203,7 +219,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="@dimen/activity_magin_3"
-                    android:layout_toLeftOf="@id/edit_setting_fly_gohome_hight"
+                    android:layout_toLeftOf="@id/edit_setting_fly_max_hight"
                     android:text="(20-500)"
                     android:textColor="@color/user_icon_default_white" />
             </RelativeLayout>
@@ -239,12 +255,12 @@
             <RelativeLayout
                 android:id="@+id/rela_dis_number"
                 android:layout_marginTop="@dimen/activity_magin_8"
-                android:visibility="visible"
+                android:visibility="gone"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
                 android:layout_below="@id/rela_dis"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="50dip">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -256,7 +272,7 @@
                     android:textSize="@dimen/txt_size_18" />
 
                 <EditText
-                    android:id="@+id/edit_setting_fly_gohome_distance"
+                    android:id="@+id/edit_setting_fly_radius_distance"
                     android:layout_width="60dip"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -265,6 +281,7 @@
                     android:background="@drawable/exit_bg"
                     android:inputType="numberSigned"
                     android:gravity="center"
+                    android:text="@{strDroneRadiusBooleanNumber}"
                     android:padding="@dimen/activity_magin_2"
                     android:textColor="@color/Blue_700" />
 
@@ -276,9 +293,66 @@
                     android:ems="4"
                     android:inputType="numberSigned"
                     android:singleLine="true"
-                    android:layout_toLeftOf="@id/edit_setting_fly_gohome_distance"
-                    android:text="(15-500)"
+                    android:layout_toLeftOf="@id/edit_setting_fly_radius_distance"
+                    android:text="(15-8000)"
                     android:textColor="@color/user_icon_default_white" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginTop="@dimen/activity_magin_8"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:layout_below="@id/rela_dis"
+                android:layout_width="match_parent"
+                android:layout_height="50dip">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="LED"
+                    android:textColor="@color/user_icon_default_white"
+                    android:textSize="@dimen/txt_size_18" />
+
+                <Switch
+                    android:id="@+id/distance_ios_led"
+                    android:layout_width="55dp"
+                    android:layout_height="28dp"
+                    android:thumb="@mipmap/fpv_switch_ball"
+                    android:background="@mipmap/fpv_switch_bg"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/activity_magin_3"
+                    android:layout_marginTop="@dimen/activity_magin_3" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="50dip"
+                android:layout_marginBottom="@dimen/activity_magin_10"
+                android:layout_marginTop="@dimen/activity_magin_10">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="航向锁定"
+                    android:textColor="@color/user_icon_default_white"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:textSize="@dimen/txt_size_18"/>
+
+                <com.jaredrummler.materialspinner.MaterialSpinner
+                    android:id="@+id/spinner_heading"
+                    android:layout_centerVertical="true"
+                    app:ms_background_color="@color/load_blue"
+                    app:ms_text_color="@color/user_icon_default_white"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="130dip"
+                    android:layout_height="45dip"/>
             </RelativeLayout>
 
             <RelativeLayout
@@ -297,9 +371,11 @@
                     android:layout_alignParentLeft="true"
                     android:textSize="@dimen/txt_size_18"/>
 
-                <Spinner
+                <com.jaredrummler.materialspinner.MaterialSpinner
                     android:id="@+id/spinner_outof"
                     android:layout_centerVertical="true"
+                    app:ms_background_color="@color/load_blue"
+                    app:ms_text_color="@color/user_icon_default_white"
                     android:layout_alignParentRight="true"
                     android:layout_width="100dip"
                     android:layout_height="45dip"/>

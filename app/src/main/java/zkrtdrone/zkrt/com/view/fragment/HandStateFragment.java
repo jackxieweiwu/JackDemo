@@ -9,11 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.arialyy.absadapter.viewpager.SimpleViewPagerAdapter;
-
-import java.text.DecimalFormat;
-
 import butterknife.Bind;
 import butterknife.OnClick;
 import dji.common.airlink.SignalQualityCallback;
@@ -21,14 +17,13 @@ import dji.common.battery.BatteryState;
 import dji.common.error.DJIError;
 import dji.common.flightcontroller.FlightControllerState;
 import dji.common.flightcontroller.GPSSignalLevel;
+import dji.common.flightcontroller.imu.IMUState;
 import dji.common.util.CommonCallbacks;
 import zkrtdrone.zkrt.com.JackApplication;
 import zkrtdrone.zkrt.com.R;
 import zkrtdrone.zkrt.com.databinding.FragmentHandBinding;
 import zkrtdrone.zkrt.com.jackmvvm.mvvm.core.AbsFragment;
 import zkrtdrone.zkrt.com.jackmvvm.mvvm.util.CalendarUtils;
-import zkrtdrone.zkrt.com.jackmvvm.mvvm.util.ScreenUtil;
-import zkrtdrone.zkrt.com.jackmvvm.mvvm.util.show.T;
 import zkrtdrone.zkrt.com.jackmvvm.util.ModuleVerificationUtil;
 import zkrtdrone.zkrt.com.view.fragment.DroneSetting.BasisSettingFragment;
 import zkrtdrone.zkrt.com.view.fragment.DroneSetting.BatterySettingFragment;
@@ -38,13 +33,14 @@ import zkrtdrone.zkrt.com.view.fragment.DroneSetting.HolderSettingFragment;
 import zkrtdrone.zkrt.com.view.fragment.DroneSetting.MapSettingFragment;
 import zkrtdrone.zkrt.com.view.fragment.DroneSetting.RecordSettingFragment;
 import zkrtdrone.zkrt.com.view.fragment.DroneSetting.RemoteSettingFragment;
+import zkrtdrone.zkrt.com.view.fragment.baseFragment.BaseIMUFragment;
 import zkrtdrone.zkrt.com.widght.XCSlideView;
 
 /**
  * Created by jack_xie on 17-4-20.
  */
 
-public class HandStateFragment extends AbsFragment<FragmentHandBinding> {
+public class HandStateFragment extends BaseIMUFragment<FragmentHandBinding> {
     @Bind(R.id.img_gps_status) ImageView img_gps_status;
     @Bind(R.id.img_yao_status) ImageView img_yao_status;
     @Bind(R.id.img_hd_status) ImageView img_hd_status;
@@ -86,7 +82,11 @@ public class HandStateFragment extends AbsFragment<FragmentHandBinding> {
         adapter.addFrag(hdSettingFragment, "相机");
         adapter.addFrag(batterySettingFragment, "电源");
         adapter.addFrag(remoteSettingFragment, "遥控");
-        adapter.addFrag(holderSettingFragment, "云台");
+        if(ModuleVerificationUtil.isGimbalModuleAvailable()){
+            if(JackApplication.getAircraftInstance().getGimbal().isConnected()){
+                adapter.addFrag(holderSettingFragment, "云台");
+            }
+        }
         adapter.addFrag(mapSettingFragment, "地图");
         adapter.addFrag(recordSettingFragment, "记录");
         drone_setting_pager.setAdapter(adapter);
@@ -150,7 +150,6 @@ public class HandStateFragment extends AbsFragment<FragmentHandBinding> {
             });
 
             //FlightControlle
-
             JackApplication.getAircraftInstance().getFlightController().setStateCallback(new FlightControllerState.Callback() {
                 @Override
                 public void onUpdate(@NonNull FlightControllerState flightControllerState) {
@@ -182,6 +181,46 @@ public class HandStateFragment extends AbsFragment<FragmentHandBinding> {
                 }
             });
         }
+    }
+
+
+    //IMU
+    @Override
+    public void updateCallBack(final IMUState imuState) {
+        mActivity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                if(imuState.isConnected()){
+                    int imuEmuNum = imuState.getGyroscopeState().value();
+                    if(imuEmuNum == 255) {setTextState(Color.RED,"IMU未知错误");
+                        txt_state_drone.setTextColor(Color.WHITE);}
+                    if(imuEmuNum == 1){setTextState(Color.RED,"IMU与飞行控制器断开连接");
+                        txt_state_drone.setTextColor(Color.WHITE);}
+                    if(imuEmuNum == 2){setTextState(Color.YELLOW,"IMU正在校准");
+                        txt_state_drone.setTextColor(Color.WHITE);}
+                    if(imuEmuNum == 3){setTextState(Color.YELLOW,"校准IMU失败");
+                        txt_state_drone.setTextColor(Color.WHITE);}
+                    if(imuEmuNum == 4){setTextState(Color.RED,"IMU数据异常,校准IMU并重启飞机");
+                        txt_state_drone.setTextColor(Color.WHITE);}
+                    if(imuEmuNum == 5){setTextState(Color.RED,"IMU正在升温");
+                        txt_state_drone.setTextColor(Color.WHITE);}
+                    if(imuEmuNum == 6){setTextState(Color.YELLOW,"飞机可能不够稳定");
+                        txt_state_drone.setTextColor(Color.WHITE);}
+                    if(ModuleVerificationUtil.isFlightControllerAvailable()){
+                        if(!JackApplication.getAircraftInstance().getFlightController().getState().isFlying()){
+                            if(imuEmuNum == 7){setTextState(Color.GREEN,"飞机可以安全起飞");
+                                txt_state_drone.setTextColor(Color.WHITE);}
+                            if(imuEmuNum == 8){setTextState(Color.GREEN,"飞机可以安全起飞");img_gps_status.setImageResource(R.mipmap.osd_singal_level0);
+                                txt_state_drone.setTextColor(Color.WHITE);}
+                        }else{
+                            setTextState(Color.GREEN,"null");
+                        }
+                    }
+                    if(imuEmuNum == 9){setTextState(Color.RED,"需要进行IMU校准");img_gps_status.setImageResource(R.mipmap.osd_singal_level0);
+                        txt_state_drone.setTextColor(Color.WHITE);}
+                }
+            }
+        });
     }
 
     public void isRemoteDrone(final boolean bool, final int number){

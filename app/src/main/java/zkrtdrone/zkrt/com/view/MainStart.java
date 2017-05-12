@@ -61,7 +61,7 @@ public class MainStart extends RelativeLayout implements GestureMapFragment.OnPa
     private GestureMapFragment gestureMapFragment;
     private HandStateFragment handStateFragment;
     private MapMountFragment mapMountFragment;
-    private DroneFragment droneFragment;
+    //private DroneFragment droneFragment;
     private ImageView mount_open,img_clean_click;
     private int numberMapView = 0; //0为camera / map is min     1为 Map/camera
     //切换窗口

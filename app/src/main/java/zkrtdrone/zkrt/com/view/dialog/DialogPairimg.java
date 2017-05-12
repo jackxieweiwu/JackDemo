@@ -20,10 +20,6 @@ public class DialogPairimg extends AbsDialogFragment<DialogPairingBinding> imple
     @Bind(R.id.enter)Button mEnter;
     @Bind(R.id.cancel) Button mCancel;
 
-    public DialogPairimg(Object obj) {
-        super(obj);
-    }
-
     @Override
     protected void init(Bundle savedInstanceState) {
         getModule(BindingModule.class).dialogBindingTest(this);

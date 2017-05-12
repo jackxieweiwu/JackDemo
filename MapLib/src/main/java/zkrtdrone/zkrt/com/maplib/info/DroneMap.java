@@ -131,6 +131,4 @@ public abstract class DroneMap extends Fragment {
         super.onStart();
         updateMapFragment();
     }
-
-
 }

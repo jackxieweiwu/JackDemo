@@ -8,5 +8,5 @@
             <solid android:color="@android:color/transparent" />
         </shape>
     </item>
-    <item android:drawable="@mipmap/active_radio_highlight"/>
+    <item android:drawable="@mipmap/fpv_playback_video_thumb"/>
 </layer-list>
