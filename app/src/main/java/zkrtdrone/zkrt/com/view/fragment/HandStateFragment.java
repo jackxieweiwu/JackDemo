@@ -2,6 +2,7 @@ package zkrtdrone.zkrt.com.view.fragment;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -22,8 +23,10 @@ import dji.common.util.CommonCallbacks;
 import zkrtdrone.zkrt.com.JackApplication;
 import zkrtdrone.zkrt.com.R;
 import zkrtdrone.zkrt.com.databinding.FragmentHandBinding;
+import zkrtdrone.zkrt.com.databinding.SettingBasisFragmentBinding;
 import zkrtdrone.zkrt.com.jackmvvm.mvvm.core.AbsFragment;
 import zkrtdrone.zkrt.com.jackmvvm.mvvm.util.CalendarUtils;
+import zkrtdrone.zkrt.com.jackmvvm.mvvm.util.show.T;
 import zkrtdrone.zkrt.com.jackmvvm.util.ModuleVerificationUtil;
 import zkrtdrone.zkrt.com.view.fragment.DroneSetting.BasisSettingFragment;
 import zkrtdrone.zkrt.com.view.fragment.DroneSetting.BatterySettingFragment;
@@ -36,20 +39,24 @@ import zkrtdrone.zkrt.com.view.fragment.DroneSetting.RemoteSettingFragment;
 import zkrtdrone.zkrt.com.view.fragment.baseFragment.BaseIMUFragment;
 import zkrtdrone.zkrt.com.widght.XCSlideView;
 
+import static zkrtdrone.zkrt.com.jackmvvm.base.BaseApplication.batteryS;
+
 /**
  * Created by jack_xie on 17-4-20.
  */
 
-public class HandStateFragment extends BaseIMUFragment<FragmentHandBinding> {
+public class HandStateFragment extends AbsFragment<FragmentHandBinding> {
     @Bind(R.id.img_gps_status) ImageView img_gps_status;
     @Bind(R.id.img_yao_status) ImageView img_yao_status;
     @Bind(R.id.img_hd_status) ImageView img_hd_status;
     @Bind(R.id.txt_state_drone) TextView txt_state_drone;
     @Bind(R.id.hand_battery) ImageView hand_battery;
     @Bind(R.id.hand_setting) ImageView hand_setting;
+    private FlightControllerState flightControllerState;
 
     private TabLayout drone_tool_bar;
     private ViewPager drone_setting_pager;
+    private int status =-1;  //0 电量低  1GPS错误  2 IMU错误
 
     private XCSlideView mSlideViewRight;
     @OnClick(R.id.hand_setting)
@@ -94,33 +101,9 @@ public class HandStateFragment extends BaseIMUFragment<FragmentHandBinding> {
 
         if(ModuleVerificationUtil.isFlightControllerAvailable()){
             //Battery
-            JackApplication.getAircraftInstance().getBattery().setNumberOfCells(12, new CommonCallbacks.CompletionCallback() {
+            JackApplication.getAircraftInstance().getBattery().setNumberOfCells(batteryS, new CommonCallbacks.CompletionCallback() {
                 @Override
                 public void onResult(DJIError djiError) {
-
-                }
-            });
-
-            JackApplication.getAircraftInstance().getBattery().getLevel1CellVoltageThreshold(new CommonCallbacks.CompletionCallbackWith<Integer>() {
-                @Override
-                public void onSuccess(Integer integer) {
-                    batteryWaring1 = integer*12;
-                }
-
-                @Override
-                public void onFailure(DJIError djiError) {
-
-                }
-            });
-
-            JackApplication.getAircraftInstance().getBattery().getLevel2CellVoltageThreshold(new CommonCallbacks.CompletionCallbackWith<Integer>() {
-                @Override
-                public void onSuccess(Integer integer) {
-                    batteryLow2 = integer*12;
-                }
-
-                @Override
-                public void onFailure(DJIError djiError) {
 
                 }
             });
@@ -128,29 +111,64 @@ public class HandStateFragment extends BaseIMUFragment<FragmentHandBinding> {
             JackApplication.getAircraftInstance().getBattery().setStateCallback(new BatteryState.Callback() {
                 @Override
                 public void onUpdate(BatteryState batteryState) {
+
+                    JackApplication.getAircraftInstance().getBattery().getLevel1CellVoltageThreshold(new CommonCallbacks.CompletionCallbackWith<Integer>() {
+                        @Override
+                        public void onSuccess(Integer integer) {
+                            batteryWaring1 = integer*batteryS;
+                        }
+
+                        @Override
+                        public void onFailure(DJIError djiError) {
+
+                        }
+                    });
+
+                    JackApplication.getAircraftInstance().getBattery().getLevel2CellVoltageThreshold(new CommonCallbacks.CompletionCallbackWith<Integer>() {
+                        @Override
+                        public void onSuccess(Integer integer) {
+                            batteryLow2 = integer*batteryS;
+                        }
+
+                        @Override
+                        public void onFailure(DJIError djiError) {
+
+                        }
+                    });
+
                     final int mv = batteryState.getVoltage();
                     getBinding().setBatteryStr(String.format("%.2f", mv/1000.0f)+"V");
-
                     mActivity.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
                             if(mv<=batteryWaring1 && mv>batteryLow2){
                                 setPreateBatteryWaring(R.mipmap.osd_electric_warning);
                                 setTextState(Color.RED,"电量过低");txt_state_drone.setTextColor(Color.WHITE);
+                                status = 0;
                             }else if(mv<=batteryLow2){
+                                status = 0;
                                 setPreateBatteryWaring(R.mipmap.osd_electric_low);
                                 setTextState(Color.RED,"电量严重过低");txt_state_drone.setTextColor(Color.WHITE);
                             }else{
+                                status = -1;
                                 setTextState(Color.GREEN,"null");
                                 setPreateBatteryWaring(R.mipmap.osd_electric_btn_normal);
                             }
                         }
                     });
+
+                    //FlightControlle
+                    if(flightControllerState == null) flightControllerState = JackApplication.getAircraftInstance().getFlightController().getState();
+                    getBinding().setDroneMode(flightControllerState.getFlightModeString()+"");
+                    getBinding().setGPSSignal(flightControllerState.getSatelliteCount()+"");
+                    GPSSignalLevel gpsSignalLevel = flightControllerState.getGPSSignalLevel();
+                    getBinding().setDroneTime(CalendarUtils.cal(flightControllerState.getFlightTimeInSeconds()));
+                    setState(gpsSignalLevel.value());
                 }
             });
 
             //FlightControlle
-            JackApplication.getAircraftInstance().getFlightController().setStateCallback(new FlightControllerState.Callback() {
+            /*JackApplication.getAircraftInstance().getFlightController().setStateCallback(new FlightControllerState.Callback() {
                 @Override
                 public void onUpdate(@NonNull FlightControllerState flightControllerState) {
                     getBinding().setDroneMode(flightControllerState.getFlightModeString()+"");
@@ -159,7 +177,7 @@ public class HandStateFragment extends BaseIMUFragment<FragmentHandBinding> {
                     getBinding().setDroneTime(CalendarUtils.cal(flightControllerState.getFlightTimeInSeconds()));
                     setState(gpsSignalLevel.value());
                 }
-            });
+            });*/
 
             //HD
             JackApplication.getProductInstance().getAirLink().setUplinkSignalQualityCallback(new SignalQualityCallback() {
@@ -180,43 +198,57 @@ public class HandStateFragment extends BaseIMUFragment<FragmentHandBinding> {
                     getBinding().setRemoteSignal(i+"");
                 }
             });
+
+            //IMU
+            JackApplication.getAircraftInstance().getFlightController().setIMUStateCallback(new IMUState.Callback() {
+                @Override
+                public void onUpdate(@NonNull IMUState imuState) {
+                    updateCallBack(imuState);
+                }
+            });
         }
     }
 
+    int imuEmuNum = imuState.getGyroscopeState().value();
+    if(imuEmuNum == 255) getBinding().setStrImuStates("IMU未知错误");
+    if(imuEmuNum == 1) getBinding().setStrImuStates("IMU与飞行控制器断开连接");
+    if(imuEmuNum == 2) getBinding().setStrImuStates("IMU正在校准");
+    if(imuEmuNum == 3) getBinding().setStrImuStates("校准IMU失败");
+    if(imuEmuNum == 4) getBinding().setStrImuStates("IMU数据异常,校准IMU并重启飞机");
+    if(imuEmuNum == 5) getBinding().setStrImuStates("IMU正在升温");
+    if(imuEmuNum == 6) getBinding().setStrImuStates("飞机可能不够稳定");
+    if(imuEmuNum == 7) getBinding().setStrImuStates("正常");
+    if(imuEmuNum == 8) getBinding().setStrImuStates("正常");
+    if(imuEmuNum == 9) getBinding().setStrImuStates("需要进行IMU校准");
 
     //IMU
-    @Override
     public void updateCallBack(final IMUState imuState) {
+        if(status == 1) return;
         mActivity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 if(imuState.isConnected()){
                     int imuEmuNum = imuState.getGyroscopeState().value();
-                    if(imuEmuNum == 255) {setTextState(Color.RED,"IMU未知错误");
+                    if(imuEmuNum == 255) {setTextState(Color.RED,"IMU未知错误"); status = 2;
+                        getBinding(SettingBasisFragmentBinding).setStrImuStates("IMU未知错误");
                         txt_state_drone.setTextColor(Color.WHITE);}
-                    if(imuEmuNum == 1){setTextState(Color.RED,"IMU与飞行控制器断开连接");
+                    if(imuEmuNum == 1){setTextState(Color.RED,"IMU与飞行控制器断开连接"); status = 2;
                         txt_state_drone.setTextColor(Color.WHITE);}
-                    if(imuEmuNum == 2){setTextState(Color.YELLOW,"IMU正在校准");
+                    if(imuEmuNum == 2){setTextState(Color.YELLOW,"IMU正在校准"); status = 2;
                         txt_state_drone.setTextColor(Color.WHITE);}
-                    if(imuEmuNum == 3){setTextState(Color.YELLOW,"校准IMU失败");
+                    if(imuEmuNum == 3){setTextState(Color.YELLOW,"校准IMU失败"); status = 2;
                         txt_state_drone.setTextColor(Color.WHITE);}
-                    if(imuEmuNum == 4){setTextState(Color.RED,"IMU数据异常,校准IMU并重启飞机");
+                    if(imuEmuNum == 4){setTextState(Color.RED,"IMU数据异常,校准IMU并重启飞机"); status = 2;
                         txt_state_drone.setTextColor(Color.WHITE);}
-                    if(imuEmuNum == 5){setTextState(Color.RED,"IMU正在升温");
+                    if(imuEmuNum == 5){setTextState(Color.RED,"IMU正在升温"); status = 2;
                         txt_state_drone.setTextColor(Color.WHITE);}
-                    if(imuEmuNum == 6){setTextState(Color.YELLOW,"飞机可能不够稳定");
+                    if(imuEmuNum == 6){setTextState(Color.YELLOW,"飞机可能不够稳定"); status = 2;
                         txt_state_drone.setTextColor(Color.WHITE);}
-                    if(ModuleVerificationUtil.isFlightControllerAvailable()){
-                        if(!JackApplication.getAircraftInstance().getFlightController().getState().isFlying()){
-                            if(imuEmuNum == 7){setTextState(Color.GREEN,"飞机可以安全起飞");
-                                txt_state_drone.setTextColor(Color.WHITE);}
-                            if(imuEmuNum == 8){setTextState(Color.GREEN,"飞机可以安全起飞");img_gps_status.setImageResource(R.mipmap.osd_singal_level0);
-                                txt_state_drone.setTextColor(Color.WHITE);}
-                        }else{
-                            setTextState(Color.GREEN,"null");
-                        }
-                    }
-                    if(imuEmuNum == 9){setTextState(Color.RED,"需要进行IMU校准");img_gps_status.setImageResource(R.mipmap.osd_singal_level0);
+                    if(imuEmuNum == 7){setTextState(Color.GREEN,"飞机可以安全起飞"); status = -1;
+                        txt_state_drone.setTextColor(Color.WHITE);}
+                    if(imuEmuNum == 8){setTextState(Color.GREEN,"飞机可以安全起飞"); status = -1;
+                        txt_state_drone.setTextColor(Color.WHITE);}
+                    if(imuEmuNum == 9){setTextState(Color.RED,"需要进行IMU校准"); status = 2;
                         txt_state_drone.setTextColor(Color.WHITE);}
                 }
             }
@@ -279,34 +311,38 @@ public class HandStateFragment extends BaseIMUFragment<FragmentHandBinding> {
     }
 
     private void setState(final int number){
+        if(status == 0) return;
         mActivity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                if(number == 0) {setTextState(Color.RED,"GPS几乎没有信号");img_gps_status.setImageResource(R.mipmap.osd_singal_level0);
+                if(number == 0) {setTextState(Color.RED,"GPS几乎没有信号");img_gps_status.setImageResource(R.mipmap.osd_singal_level0); status = 1;
                     txt_state_drone.setTextColor(Color.WHITE);}
-                if(number == 1) {setTextState(Color.YELLOW,"GPS信号非常弱");img_gps_status.setImageResource(R.mipmap.osd_singal_level1);
+                if(number == 1) {setTextState(Color.YELLOW,"GPS信号非常弱");img_gps_status.setImageResource(R.mipmap.osd_singal_level1); status = 1;
                     txt_state_drone.setTextColor(Color.RED);}
-                if(number == 2) {setTextState(Color.YELLOW,"GPS信号较弱");img_gps_status.setImageResource(R.mipmap.osd_singal_level2);
+                if(number == 2) {setTextState(Color.YELLOW,"GPS信号较弱");img_gps_status.setImageResource(R.mipmap.osd_singal_level2); status = 1;
                     txt_state_drone.setTextColor(Color.RED);}
-                if(number == 3) {setTextState(Color.GREEN,"null");img_gps_status.setImageResource(R.mipmap.osd_singal_level3);
+                if(number == 3) {setTextState(Color.GREEN,"null");img_gps_status.setImageResource(R.mipmap.osd_singal_level3); status = -1;
                     txt_state_drone.setTextColor(Color.WHITE);}
-                if(number == 4) {setTextState(Color.GREEN,"null");img_gps_status.setImageResource(R.mipmap.osd_singal_level4);
+                if(number == 4) {setTextState(Color.GREEN,"null");img_gps_status.setImageResource(R.mipmap.osd_singal_level4); status = -1;
                     txt_state_drone.setTextColor(Color.WHITE);}
-                if(number == 5) {setTextState(Color.GREEN,"null");img_gps_status.setImageResource(R.mipmap.osd_singal_level5);
+                if(number == 5) {setTextState(Color.GREEN,"null");img_gps_status.setImageResource(R.mipmap.osd_singal_level5); status = -1;
                     txt_state_drone.setTextColor(Color.WHITE);}
-                if(number == 255) {setTextState(Color.RED,"没有GPS信号");img_gps_status.setImageResource(R.mipmap.osd_singal_level0);
+                if(number == 255) {setTextState(Color.RED,"没有GPS信号");img_gps_status.setImageResource(R.mipmap.osd_singal_level0); status = 1;
                     txt_state_drone.setTextColor(Color.WHITE);}
-                if(number == 400){setTextState(Color.RED,"与飞行器断开连接");img_gps_status.setImageResource(R.mipmap.osd_singal_level0);
+                if(number == 400){setTextState(Color.RED,"与飞行器断开连接");img_gps_status.setImageResource(R.mipmap.osd_singal_level0); status = 1;
                     txt_state_drone.setTextColor(Color.WHITE);}
-                if(number == 401){setTextState(Color.RED,"与遥控断开断开连接");img_gps_status.setImageResource(R.mipmap.osd_singal_level0);
+                if(number == 401){setTextState(Color.RED,"与遥控断开断开连接");img_gps_status.setImageResource(R.mipmap.osd_singal_level0); status = 1;
                     txt_state_drone.setTextColor(Color.WHITE);}
             }
         });
     }
 
-    private void setTextState(int number,String name){
-        txt_state_drone.setBackgroundColor(number);
-        if(!name.equals("null"))getBinding().setDronestate(name);
-        else getBinding().setDronestate("正常");
+    private void setTextState(final int number, final String name){
+        if(status != -1){
+            txt_state_drone.setBackgroundColor(number);
+            getBinding().setDronestate(name);
+        }else{
+            getBinding().setDronestate("正常");
+        }
     }
 }

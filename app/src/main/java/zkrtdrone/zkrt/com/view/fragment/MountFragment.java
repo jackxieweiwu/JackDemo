@@ -30,6 +30,7 @@ public class MountFragment extends AbsFragment<FragmentMountBinding> {
 
     @Override
     protected void init(Bundle savedInstanceState) {
+
         setImgRotateAnimation();
     }
 

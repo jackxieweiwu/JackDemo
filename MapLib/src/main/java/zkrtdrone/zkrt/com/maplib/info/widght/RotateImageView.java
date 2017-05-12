@@ -1,4 +1,4 @@
-package zkrtdrone.zkrt.com.widght;
+package zkrtdrone.zkrt.com.maplib.info.widght;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -7,9 +7,6 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.util.AttributeSet;
 import android.view.View;
-
-import zkrtdrone.zkrt.com.JackApplication;
-import zkrtdrone.zkrt.com.jackmvvm.mvvm.util.show.T;
 
 /**
  * Created by jack_xie on 17-4-27.

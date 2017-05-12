@@ -305,6 +305,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:orientation="horizontal"
+                android:visibility="gone"
                 android:gravity="center"
                 android:layout_height="45dip">
 

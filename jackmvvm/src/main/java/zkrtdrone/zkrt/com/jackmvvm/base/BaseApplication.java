@@ -47,6 +47,7 @@ public abstract class BaseApplication extends Application {
     private RefWatcher refWatcher;
     private static int screenWidth,screenHeigh;
     public static boolean bool;  //是否断开连接   true  断开
+    public static int batteryS = 12;
 
     public static RefWatcher getRefWatcher(Context context) {
         BaseApplication application = (BaseApplication) context.getApplicationContext();

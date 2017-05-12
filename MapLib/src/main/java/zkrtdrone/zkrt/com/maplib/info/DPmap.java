@@ -55,7 +55,7 @@ public interface DPmap {
     public static final String PREF_ZOOM = "pref_map_zoom";
     public static final int DEFAULT_ZOOM_LEVEL = 5;
 
-    void setDroneMap(Bitmap droneBitmap);
+    //void setDroneMap(Bitmap droneBitmap);
 
     interface PathSource {
         public List<LatLong> getPathPoints();

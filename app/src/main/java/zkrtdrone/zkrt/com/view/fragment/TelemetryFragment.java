@@ -23,7 +23,6 @@ import zkrtdrone.zkrt.com.jackmvvm.mvvm.util.DensityUtils;
 import zkrtdrone.zkrt.com.jackmvvm.util.ModuleVerificationUtil;
 import zkrtdrone.zkrt.com.maplib.info.GestureMapFragment;
 import zkrtdrone.zkrt.com.widght.AttitudeIndicator;
-import zkrtdrone.zkrt.com.widght.RotateImageView;
 
 /**
  * Created by jack_xie on 17-4-26.
@@ -32,8 +31,8 @@ import zkrtdrone.zkrt.com.widght.RotateImageView;
 public class TelemetryFragment extends AbsFragment<FragmentTelemetryBinding> {
     @Bind(R.id.aiView) AttitudeIndicator attitudeIndicator;
     private boolean headingModeFPV;
-    private RotateImageView rotateImageView;
-    private View viewDrone;
+    //private RotateImageView rotateImageView;
+    //private View viewDrone;
     private GestureMapFragment gestureMapFragment;
 
     @Override
@@ -46,7 +45,7 @@ public class TelemetryFragment extends AbsFragment<FragmentTelemetryBinding> {
 
     @Override
     protected void init(Bundle savedInstanceState) {
-        viewDrone = View.inflate(mActivity, R.layout.view_drone, null);
+        /*viewDrone = View.inflate(mActivity, R.layout.view_drone, null);
         rotateImageView = (RotateImageView) viewDrone.findViewById(R.id.img_drone);
         if(ModuleVerificationUtil.isFlightControllerAvailable()){
             JackApplication.getAircraftInstance().getFlightController().setStateCallback(new FlightControllerState.Callback() {
@@ -61,7 +60,7 @@ public class TelemetryFragment extends AbsFragment<FragmentTelemetryBinding> {
                     gestureMapFragment.getMapFragment().setDroneBitmap(loadBitmapFromView());
                 }
             });
-        }
+        }*/
     }
 
     @Override
@@ -129,7 +128,7 @@ public class TelemetryFragment extends AbsFragment<FragmentTelemetryBinding> {
         return converter.convert();
     }
 
-    public Bitmap loadBitmapFromView() {
+    /*public Bitmap loadBitmapFromView() {
         if (viewDrone == null) {
             return null;
         }
@@ -141,7 +140,7 @@ public class TelemetryFragment extends AbsFragment<FragmentTelemetryBinding> {
         viewDrone.buildDrawingCache();
         return viewDrone.getDrawingCache();
     }
-
+*/
     public void setGestureMapFragment(GestureMapFragment gestureMapFragment) {
         this.gestureMapFragment = gestureMapFragment;
     }

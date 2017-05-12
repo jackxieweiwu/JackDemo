@@ -104,11 +104,11 @@ public class EditorMapFragment extends DroneMap implements DPmap.OnMapLongClickL
         }*/
     }
 
-    public void setDroneBitmap(Bitmap droneBitmap) {
+    /*public void setDroneBitmap(Bitmap droneBitmap) {
         if(droneBitmap == null ) return;
         if(mMapFragment ==null) return;
         //new DroneMarker().getIcon(getResources());
         //mMapFragment.updateMarker(graphicDrone);
         mMapFragment.setDroneMap(droneBitmap);
-    }
+    }*/
 }

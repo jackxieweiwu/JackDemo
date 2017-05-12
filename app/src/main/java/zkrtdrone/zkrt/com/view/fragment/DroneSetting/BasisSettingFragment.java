@@ -13,6 +13,7 @@ import dji.common.util.CommonCallbacks;
 import zkrtdrone.zkrt.com.JackApplication;
 import zkrtdrone.zkrt.com.R;
 import zkrtdrone.zkrt.com.databinding.SettingBasisFragmentBinding;
+import zkrtdrone.zkrt.com.jackmvvm.mvvm.core.AbsFragment;
 import zkrtdrone.zkrt.com.jackmvvm.mvvm.util.show.T;
 import zkrtdrone.zkrt.com.jackmvvm.util.GeneralUtils;
 import zkrtdrone.zkrt.com.jackmvvm.util.ModuleVerificationUtil;
@@ -25,7 +26,7 @@ import zkrtdrone.zkrt.com.view.fragment.baseFragment.BaseIMUFragment;
  * 基础
  */
 
-public class BasisSettingFragment extends BaseIMUFragment<SettingBasisFragmentBinding> {
+public class BasisSettingFragment extends AbsFragment<SettingBasisFragmentBinding> {
     @Bind(R.id.switch_drone_mode) Switch switch_drone_mode;
     @Bind(R.id.txt_btn_Calibrate_compass) TextView txt_btn_Calibrate_compass;
     private DialogCompass dialogCompass = new DialogCompass();
@@ -47,11 +48,10 @@ public class BasisSettingFragment extends BaseIMUFragment<SettingBasisFragmentBi
 
             //获取IMU数量
             getBinding().setSetImuNumber(JackApplication.getAircraftInstance().getFlightController().getIMUCount()+"");
-
         }
     }
 
-    @Override
+   /* @Override
     public void updateCallBack(final IMUState imuState) {
         int imuEmuNum = imuState.getGyroscopeState().value();
         if(imuEmuNum == 255) getBinding().setStrImuStates("IMU未知错误");
@@ -64,7 +64,7 @@ public class BasisSettingFragment extends BaseIMUFragment<SettingBasisFragmentBi
         if(imuEmuNum == 7) getBinding().setStrImuStates("正常");
         if(imuEmuNum == 8) getBinding().setStrImuStates("正常");
         if(imuEmuNum == 9) getBinding().setStrImuStates("需要进行IMU校准");
-    }
+    }*/
 
     //罗盘校准
     @OnClick(R.id.txt_btn_Calibrate_compass)

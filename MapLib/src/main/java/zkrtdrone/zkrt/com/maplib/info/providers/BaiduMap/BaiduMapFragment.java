@@ -47,8 +47,11 @@ import com.baidu.mapapi.map.MapPoi;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.utils.CoordinateConverter;
 
+import dji.common.flightcontroller.FlightControllerState;
 import zkrtdrone.zkrt.com.jackmvvm.base.BaseApplication;
+import zkrtdrone.zkrt.com.jackmvvm.mvvm.util.DensityUtils;
 import zkrtdrone.zkrt.com.jackmvvm.mvvm.util.show.T;
+import zkrtdrone.zkrt.com.jackmvvm.util.ModuleVerificationUtil;
 import zkrtdrone.zkrt.com.maplib.R;
 import zkrtdrone.zkrt.com.maplib.info.DPmap;
 import zkrtdrone.zkrt.com.maplib.info.MarkerInfo;
@@ -61,6 +64,7 @@ import zkrtdrone.zkrt.com.maplib.info.providers.DPMapProvider;
 import zkrtdrone.zkrt.com.maplib.info.units.DroneHelper;
 import zkrtdrone.zkrt.com.maplib.info.units.collection.HashBiMap;
 import zkrtdrone.zkrt.com.maplib.info.until.DroidPlannerPrefs;
+import zkrtdrone.zkrt.com.maplib.info.widght.RotateImageView;
 
 import static android.content.Context.SENSOR_SERVICE;
 import static java.lang.Float.NaN;
@@ -98,11 +102,16 @@ public class BaiduMapFragment extends SupportMapFragment implements DPmap,Sensor
     private int mCurrentDirection = 0;
     private MyLocationData locData;
     private CoordinateConverter converter  = new CoordinateConverter();
+    private RotateImageView rotateImageView;
+    private View viewDrone;
+    private Bitmap droneBit;
+    private Marker markerDroneBit;
 
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         dpApp = (BaseApplication) activity.getApplication();
+        viewDrone = View.inflate(dpApp, R.layout.view_drone, null);
         //getPleteGpsData();
     }
 
@@ -329,9 +338,7 @@ public class BaiduMapFragment extends SupportMapFragment implements DPmap,Sensor
         }
     }
 
-    private Marker markerDroneBit;
-    @Override
-    public void setDroneMap(Bitmap droneBitmap) {
+    private void setDroneMap(Bitmap droneBitmap) {
         if(droneloLat == NaN) return;
         if(getBaiduMap() ==null) return;
         //坐标转换
@@ -750,6 +757,20 @@ public class BaiduMapFragment extends SupportMapFragment implements DPmap,Sensor
                 getBaiduMap().animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
             }
 
+            //获取飞行器的坐标
+            if(ModuleVerificationUtil.isFlightControllerAvailable()){
+                FlightControllerState flightControllerState = BaseApplication.getAircraftInstance().getFlightController().getState();
+                BaseApplication.droneloLat = flightControllerState.getAircraftLocation().getLatitude();
+                BaseApplication.droneloLng = flightControllerState.getAircraftLocation().getLongitude();
+
+                rotateImageView.setAttitude(flightControllerState.getAttitude().yaw);
+                droneBit = loadBitmapFromView();
+                if(droneBit !=null){
+                    setDroneMap(droneBit);
+                }
+                droneBit = null;
+            }
+
             if (mPanMode.get() == AutoPanMode.USER) {
                 updateCamera(latlong, (int) getBaiduMap().getMapStatus().zoom);
             }
@@ -759,8 +780,19 @@ public class BaiduMapFragment extends SupportMapFragment implements DPmap,Sensor
                 mLocationListener.onLocationChanged(loc);
             }
         }
-        public void onReceivePoi(BDLocation poiLocation) {
+    }
+
+    private Bitmap loadBitmapFromView() {
+        if (viewDrone == null) {
+            return null;
         }
+        viewDrone.measure(View.MeasureSpec.makeMeasureSpec(DensityUtils.dip2px(dpApp, 40f),
+                View.MeasureSpec.EXACTLY), View.MeasureSpec.makeMeasureSpec(
+                DensityUtils.dip2px(dpApp, 45f), View.MeasureSpec.EXACTLY));
+        viewDrone.layout(0, 0, viewDrone.getMeasuredWidth(), viewDrone.getMeasuredHeight());
+        viewDrone.setDrawingCacheEnabled(true);
+        viewDrone.buildDrawingCache();
+        return viewDrone.getDrawingCache();
     }
 
     /*private void setPeleGps(GPSData gpsData){

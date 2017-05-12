@@ -36,12 +36,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
-                <TextView
-                    android:textColor="@color/user_icon_default_white"
+                <com.jaredrummler.materialspinner.MaterialSpinner
+                    android:id="@+id/s_battery_spinner"
+                    android:textColor="@color/back_150"
+                    app:ms_background_color="@color/load_blue"
+                    app:ms_text_color="@color/user_icon_default_white"
                     android:layout_alignParentRight="true"
                     android:textSize="@dimen/txt_size_18"
-                    android:text="12S"
-                    android:gravity="center"
                     android:layout_centerVertical="true"
                     android:layout_width="100dip"
                     android:layout_height="45dip" />

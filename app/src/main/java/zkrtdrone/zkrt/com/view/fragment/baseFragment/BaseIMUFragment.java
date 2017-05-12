@@ -4,9 +4,12 @@ import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 
+import dji.common.flightcontroller.FlightControllerState;
+import dji.common.flightcontroller.GPSSignalLevel;
 import dji.common.flightcontroller.imu.IMUState;
 import zkrtdrone.zkrt.com.JackApplication;
 import zkrtdrone.zkrt.com.jackmvvm.mvvm.core.AbsFragment;
+import zkrtdrone.zkrt.com.jackmvvm.mvvm.util.CalendarUtils;
 import zkrtdrone.zkrt.com.jackmvvm.util.ModuleVerificationUtil;
 
 /**
@@ -26,7 +29,7 @@ public abstract class BaseIMUFragment<VB extends ViewDataBinding> extends AbsFra
         }
     }
 
-    public abstract void updateCallBack(IMUState imuState);
+    public void updateCallBack(IMUState imuState){}
 
     @Override
     protected void onDelayLoad() {

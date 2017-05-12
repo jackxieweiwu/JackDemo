@@ -1,44 +1,21 @@
 package zkrtdrone.zkrt.com.view.fragment;
 
-import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
-import android.widget.CompoundButton;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
-import android.widget.Switch;
-import android.widget.TextView;
-import com.arialyy.absadapter.viewpager.SimpleViewPagerAdapter;
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import butterknife.Bind;
 import butterknife.OnClick;
-import dji.common.flightcontroller.Attitude;
-import dji.common.flightcontroller.FlightControllerState;
-import zkrtdrone.zkrt.com.JackApplication;
 import zkrtdrone.zkrt.com.R;
 import zkrtdrone.zkrt.com.databinding.FragmentMapBinding;
 import zkrtdrone.zkrt.com.jackmvvm.mvvm.core.AbsFragment;
-import zkrtdrone.zkrt.com.jackmvvm.mvvm.util.DensityUtils;
-import zkrtdrone.zkrt.com.jackmvvm.mvvm.util.show.T;
-import zkrtdrone.zkrt.com.jackmvvm.rxbean.CommonRxTask;
-import zkrtdrone.zkrt.com.jackmvvm.rxbean.IOTask;
 import zkrtdrone.zkrt.com.jackmvvm.util.GeneralUtils;
-import zkrtdrone.zkrt.com.jackmvvm.util.ModuleVerificationUtil;
-import zkrtdrone.zkrt.com.jackmvvm.util.rxutil.RxjavaUtil;
 import zkrtdrone.zkrt.com.maplib.info.GestureMapFragment;
-import zkrtdrone.zkrt.com.view.fragment.CamSetting.CameraSetting;
-import zkrtdrone.zkrt.com.view.fragment.CamSetting.SetSetting;
-import zkrtdrone.zkrt.com.view.fragment.CamSetting.VideoSetting;
-import zkrtdrone.zkrt.com.widght.RotateImageView;
 
 import static zkrtdrone.zkrt.com.jackmvvm.base.BaseApplication.handler;
 
@@ -58,9 +35,8 @@ public class MapMountFragment extends AbsFragment<FragmentMapBinding> implements
     @Bind(R.id.relayout_camera) RelativeLayout relayout_camera;
     @Bind(R.id.map_type_radiogroup) RadioGroup map_type_radiogroup;
     @Bind(R.id.location_map_radiogroup) RadioGroup location_map_radiogroup;
-    private RotateImageView rotateImageView;
-    private View viewDrone;
-    private Bitmap droneBit;
+    /*private RotateImageView rotateImageView;
+    private View viewDrone;*/
     //Camera
     /*@Bind(R.id.txt_fpv_came_menu) TextView txt_fpv_came_menu;
     @Bind(R.id.switch1) Switch switch1;
@@ -74,6 +50,7 @@ public class MapMountFragment extends AbsFragment<FragmentMapBinding> implements
     @Bind(R.id.tool_bar) TabLayout mTb;
     @Bind(R.id.rela_camera_setting) RelativeLayout rela_camera_setting;*/
 
+    //private Bitmap droneBit = null;
     @Override
     protected void init(Bundle savedInstanceState) {
         map_type_radiogroup.setOnCheckedChangeListener(this);
@@ -85,45 +62,23 @@ public class MapMountFragment extends AbsFragment<FragmentMapBinding> implements
                 img_fpv_camera_rec_take.setBackgroundResource(isChecked?R.mipmap.camera_controll_video_icon_start:R.mipmap.camera_controll_takephoto_icon1);
             }
         });*/
-        viewDrone = View.inflate(mActivity, R.layout.view_drone, null);
-        rotateImageView = (RotateImageView) viewDrone.findViewById(R.id.img_drone);
-        if(ModuleVerificationUtil.isFlightControllerAvailable()){
-            JackApplication.getAircraftInstance().getFlightController().setStateCallback(new FlightControllerState.Callback() {
-                @Override
-                public void onUpdate(@NonNull final FlightControllerState flightControllerState) {
-                    JackApplication.droneloLat = flightControllerState.getAircraftLocation().getLatitude();
-                    JackApplication.droneloLng = flightControllerState.getAircraftLocation().getLongitude();
+       /* viewDrone = View.inflate(JackApplication.mActivity, R.layout.view_drone, null);
+        rotateImageView = (RotateImageView) viewDrone.findViewById(R.id.img_drone);*/
 
-                    RxjavaUtil.executeRxTask(new CommonRxTask<Object>() {
-                        @Override
-                        public void doInIOThread() {
-                            rotateImageView.setAttitude(flightControllerState.getAttitude().yaw);
-                            droneBit = loadBitmapFromView();
-                        }
-
-                        @Override
-                        public void doInUIThread() {
-                            if(droneBit !=null && gestureMapFragment !=null){
-                                gestureMapFragment.getMapFragment().setDroneBitmap(droneBit);
-                            }
-                        }
-                    });
+        //FlightControlle
+        /*JackApplication.getAircraftInstance().getFlightController().setStateCallback(new FlightControllerState.Callback() {
+            @Override
+            public void onUpdate(@NonNull FlightControllerState flightControllerState) {
+                JackApplication.droneloLat = flightControllerState.getAircraftLocation().getLatitude();
+                JackApplication.droneloLng = flightControllerState.getAircraftLocation().getLongitude();
+                rotateImageView.setAttitude(flightControllerState.getAttitude().yaw);
+                droneBit = loadBitmapFromView();
+                if(droneBit !=null && gestureMapFragment !=null){
+                    gestureMapFragment.getMapFragment().setDroneBitmap(droneBit);
                 }
-            });
-        }
-    }
-
-    public Bitmap loadBitmapFromView() {
-        if (viewDrone == null) {
-            return null;
-        }
-        viewDrone.measure(View.MeasureSpec.makeMeasureSpec(DensityUtils.dip2px(mActivity, 40f),
-                View.MeasureSpec.EXACTLY), View.MeasureSpec.makeMeasureSpec(
-                DensityUtils.dip2px(mActivity, 45f), View.MeasureSpec.EXACTLY));
-        viewDrone.layout(0, 0, viewDrone.getMeasuredWidth(), viewDrone.getMeasuredHeight());
-        viewDrone.setDrawingCacheEnabled(true);
-        viewDrone.buildDrawingCache();
-        return viewDrone.getDrawingCache();
+                droneBit = null;
+            }
+        });*/
     }
 
     @Override

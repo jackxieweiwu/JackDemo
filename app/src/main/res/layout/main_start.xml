@@ -121,6 +121,13 @@
                 android:layout_alignParentTop="true"
                 android:layout_height="50dip"/>
 
+            <dji.ui.widget.RemainingFlightTimeWidget
+                android:id="@+id/dji_widget_time"
+                android:visibility="gone"
+                android:layout_below="@+id/fragment_hand"
+                android:layout_width="match_parent"
+                android:layout_height="20dip"/>
+
             <LinearLayout
                 android:id="@+id/camera"
                 android:layout_width="wrap_content"
@@ -253,25 +260,26 @@
                 android:layout_height="60dip"
                 android:fitsSystemWindows="true"
                 tools:layout="@layout/fragment_drone"/>-->
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="200dip"
+                android:layout_marginBottom="45dip"
+                android:orientation="horizontal">
+
+                <dji.ui.widget.TakeOffWidget
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"/>
+
+                <dji.ui.widget.ReturnHomeWidget
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"/>
+            </LinearLayout>
         </RelativeLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="200dip"
-            android:layout_marginBottom="45dip"
-            android:orientation="horizontal">
-
-            <dji.ui.widget.TakeOffWidget
-                android:layout_width="50dp"
-                android:layout_height="50dp"/>
-
-            <dji.ui.widget.ReturnHomeWidget
-                android:layout_width="50dp"
-                android:layout_height="50dp"/>
-        </LinearLayout>
 
         <RelativeLayout
             android:id="@+id/PreflightCheckView"
