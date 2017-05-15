@@ -202,15 +202,14 @@ public class MainStart extends RelativeLayout implements GestureMapFragment.OnPa
                     numberMapView = 1;
                     img_common_exchange.setVisibility(GONE);
                     RelativeLayout.LayoutParams lay = new RelativeLayout.LayoutParams(mapMain.getWidth(), mapMain.getHeight());
-                    lay.setMargins(getScreenWidth()-mapMain.getWidth(),getScreenHeigh()-mapMain.getHeight(),0,0);
-                    lay.bottomMargin = 0;
-                    lay.rightMargin = 0;
+                    //lay.setMargins(getScreenWidth()-mapMain.getWidth(),getScreenHeigh()-mapMain.getHeight(),0,0);
+                    lay.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, RelativeLayout.TRUE);
+                    lay.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, RelativeLayout.TRUE);
                     fpvCameraView.setLayoutParams(lay);
                     mapMain.setLayoutParams(new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
 
                     mapMain.bringToFront();
                     fpvCameraView.bringToFront();
-                    fpvCamera.transformValue(null,null);
                     /*fpvCameraView.setVisibility(GONE);
                     framefpvcamera.setVisibility(VISIBLE);*/
                     //framefpvcamera.bringToFront();
@@ -218,12 +217,11 @@ public class MainStart extends RelativeLayout implements GestureMapFragment.OnPa
                     img_common_exchange.setVisibility(VISIBLE);
                     numberMapView = 0;
                     RelativeLayout.LayoutParams lay = new RelativeLayout.LayoutParams(fpvCameraView.getWidth(), fpvCameraView.getHeight());
-                    lay.setMargins(getScreenWidth()-fpvCameraView.getWidth(),getScreenHeigh()-fpvCameraView.getHeight(),0,0);
-                    lay.bottomMargin = 0;
-                    lay.rightMargin = 0;
+                    //lay.setMargins(getScreenWidth()-fpvCameraView.getWidth(),getScreenHeigh()-fpvCameraView.getHeight(),0,0);
+                    lay.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, RelativeLayout.TRUE);
+                    lay.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, RelativeLayout.TRUE);
                     mapMain.setLayoutParams(lay);
                     fpvCameraView.setLayoutParams(new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-                    fpvCamera.transformValue(null,null);
                     /*framefpvcamera.setVisibility(GONE);
                     fpvCameraView.setVisibility(VISIBLE);*/
                     fpvCameraView.bringToFront();

@@ -1,6 +1,7 @@
 package zkrtdrone.zkrt.com.view.fragment;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
@@ -11,9 +12,16 @@ import android.widget.ImageView;
 import com.github.mikephil.charting.charts.HorizontalBarChart;
 import butterknife.Bind;
 import butterknife.OnClick;
+import dji.common.flightcontroller.FlightControllerState;
+import dji.sdk.flightcontroller.FlightController;
+import zkrtdrone.zkrt.com.JackApplication;
 import zkrtdrone.zkrt.com.R;
+import zkrtdrone.zkrt.com.bean.MavlinkDjiBean;
 import zkrtdrone.zkrt.com.databinding.FragmentMountBinding;
 import zkrtdrone.zkrt.com.jackmvvm.mvvm.core.AbsFragment;
+import zkrtdrone.zkrt.com.jackmvvm.mvvm.util.show.T;
+import zkrtdrone.zkrt.com.jackmvvm.util.ModuleVerificationUtil;
+import zkrtdrone.zkrt.com.jackmvvm.util.byteUtil.JByteUtil;
 
 import static zkrtdrone.zkrt.com.jackmvvm.base.BaseApplication.handler;
 
@@ -30,7 +38,18 @@ public class MountFragment extends AbsFragment<FragmentMountBinding> {
 
     @Override
     protected void init(Bundle savedInstanceState) {
-
+        if(ModuleVerificationUtil.isFlightControllerAvailable()){
+            if(JackApplication.getAircraftInstance().getFlightController().isOnboardSDKDeviceAvailable()){
+                JackApplication.getAircraftInstance().getFlightController().setOnboardSDKDeviceDataCallback(new FlightController.OnboardSDKDeviceDataCallback() {
+                    @Override
+                    public void onReceive(byte[] bytes) {
+                        T.show(mActivity,"****"+bytes.length);
+                        MavlinkDjiBean mavlinkDjiBean = (MavlinkDjiBean) JByteUtil.getObject(MavlinkDjiBean.class, bytes);
+                        T.show(mActivity,mavlinkDjiBean.data+"****"+mavlinkDjiBean.appID);
+                    }
+                });
+            }
+        }
         setImgRotateAnimation();
     }
 
@@ -89,7 +108,6 @@ public class MountFragment extends AbsFragment<FragmentMountBinding> {
 
     @Override
     protected void onDelayLoad() {
-
     }
 
     @Override

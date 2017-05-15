@@ -177,7 +177,6 @@ public class DroneSettingFragment extends AbsFragment<SettingDroneFragmentBindin
                     JackApplication.getAircraftInstance().getFlightController().setMaxFlightRadiusLimitationEnabled(isChecked, new CommonCallbacks.CompletionCallback() {
                         @Override
                         public void onResult(final DJIError djiError) {
-                            T.show(mActivity,djiError+"****/");
                             mActivity.runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {

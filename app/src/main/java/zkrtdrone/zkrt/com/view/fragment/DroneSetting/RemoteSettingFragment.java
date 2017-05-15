@@ -117,8 +117,13 @@ public class RemoteSettingFragment extends AbsFragment<SettingRemoteFragmentBind
                 //获取左上角驳轮的作用
                 JackApplication.getAircraftInstance().getRemoteController().getLeftWheelGimbalControlAxis(new CommonCallbacks.CompletionCallbackWith<GimbalAxis>() {
                     @Override
-                    public void onSuccess(GimbalAxis gimbalAxis) {
-                        spinner_ios_pyr.setSelectedIndex(gimbalAxis.value());
+                    public void onSuccess(final GimbalAxis gimbalAxis) {
+                        mActivity.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                spinner_ios_pyr.setSelectedIndex(gimbalAxis.value());
+                            }
+                        });
                     }
 
                     @Override

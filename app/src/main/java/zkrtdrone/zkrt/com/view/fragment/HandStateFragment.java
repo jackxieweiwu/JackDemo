@@ -209,18 +209,6 @@ public class HandStateFragment extends AbsFragment<FragmentHandBinding> {
         }
     }
 
-    int imuEmuNum = imuState.getGyroscopeState().value();
-    if(imuEmuNum == 255) getBinding().setStrImuStates("IMU未知错误");
-    if(imuEmuNum == 1) getBinding().setStrImuStates("IMU与飞行控制器断开连接");
-    if(imuEmuNum == 2) getBinding().setStrImuStates("IMU正在校准");
-    if(imuEmuNum == 3) getBinding().setStrImuStates("校准IMU失败");
-    if(imuEmuNum == 4) getBinding().setStrImuStates("IMU数据异常,校准IMU并重启飞机");
-    if(imuEmuNum == 5) getBinding().setStrImuStates("IMU正在升温");
-    if(imuEmuNum == 6) getBinding().setStrImuStates("飞机可能不够稳定");
-    if(imuEmuNum == 7) getBinding().setStrImuStates("正常");
-    if(imuEmuNum == 8) getBinding().setStrImuStates("正常");
-    if(imuEmuNum == 9) getBinding().setStrImuStates("需要进行IMU校准");
-
     //IMU
     public void updateCallBack(final IMUState imuState) {
         if(status == 1) return;
@@ -230,7 +218,6 @@ public class HandStateFragment extends AbsFragment<FragmentHandBinding> {
                 if(imuState.isConnected()){
                     int imuEmuNum = imuState.getGyroscopeState().value();
                     if(imuEmuNum == 255) {setTextState(Color.RED,"IMU未知错误"); status = 2;
-                        getBinding(SettingBasisFragmentBinding).setStrImuStates("IMU未知错误");
                         txt_state_drone.setTextColor(Color.WHITE);}
                     if(imuEmuNum == 1){setTextState(Color.RED,"IMU与飞行控制器断开连接"); status = 2;
                         txt_state_drone.setTextColor(Color.WHITE);}

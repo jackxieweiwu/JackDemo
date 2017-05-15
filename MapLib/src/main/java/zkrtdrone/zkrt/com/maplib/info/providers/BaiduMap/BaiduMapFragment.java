@@ -47,10 +47,10 @@ import com.baidu.mapapi.map.MapPoi;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.utils.CoordinateConverter;
 
+import dji.common.flightcontroller.Attitude;
 import dji.common.flightcontroller.FlightControllerState;
 import zkrtdrone.zkrt.com.jackmvvm.base.BaseApplication;
 import zkrtdrone.zkrt.com.jackmvvm.mvvm.util.DensityUtils;
-import zkrtdrone.zkrt.com.jackmvvm.mvvm.util.show.T;
 import zkrtdrone.zkrt.com.jackmvvm.util.ModuleVerificationUtil;
 import zkrtdrone.zkrt.com.maplib.R;
 import zkrtdrone.zkrt.com.maplib.info.DPmap;
@@ -112,6 +112,7 @@ public class BaiduMapFragment extends SupportMapFragment implements DPmap,Sensor
         super.onAttach(activity);
         dpApp = (BaseApplication) activity.getApplication();
         viewDrone = View.inflate(dpApp, R.layout.view_drone, null);
+        rotateImageView = (RotateImageView) viewDrone.findViewById(R.id.img_drone);
         //getPleteGpsData();
     }
 
@@ -762,8 +763,8 @@ public class BaiduMapFragment extends SupportMapFragment implements DPmap,Sensor
                 FlightControllerState flightControllerState = BaseApplication.getAircraftInstance().getFlightController().getState();
                 BaseApplication.droneloLat = flightControllerState.getAircraftLocation().getLatitude();
                 BaseApplication.droneloLng = flightControllerState.getAircraftLocation().getLongitude();
-
-                rotateImageView.setAttitude(flightControllerState.getAttitude().yaw);
+                Attitude attitude = flightControllerState.getAttitude();
+                rotateImageView.setAttitude(attitude.yaw);
                 droneBit = loadBitmapFromView();
                 if(droneBit !=null){
                     setDroneMap(droneBit);
