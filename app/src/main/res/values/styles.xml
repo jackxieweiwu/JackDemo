@@ -21,6 +21,16 @@
         <item name="android:layout_marginLeft">0dp</item>
     </style>
 
+    <!--选择popwindow样式-->
+    <style name="SelectPopWindow">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#70c70c</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
     <style name="largeTelemetryText">
         <item name="android:textColor">#ffffff</item>
         <item name="android:textSize">18sp</item>

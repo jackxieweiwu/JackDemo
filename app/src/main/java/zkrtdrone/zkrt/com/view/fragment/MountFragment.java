@@ -1,29 +1,37 @@
 package zkrtdrone.zkrt.com.view.fragment;
 
+import android.content.res.TypedArray;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.view.animation.TranslateAnimation;
+import android.widget.AdapterView;
 import android.widget.FrameLayout;
+import android.widget.GridView;
 import android.widget.ImageView;
-
+import android.widget.LinearLayout;
 import com.github.mikephil.charting.charts.HorizontalBarChart;
+import java.util.ArrayList;
+import java.util.List;
 import butterknife.Bind;
 import butterknife.OnClick;
-import dji.common.flightcontroller.FlightControllerState;
 import dji.sdk.flightcontroller.FlightController;
 import zkrtdrone.zkrt.com.JackApplication;
 import zkrtdrone.zkrt.com.R;
-import zkrtdrone.zkrt.com.bean.MavlinkDjiBean;
+import zkrtdrone.zkrt.com.bean.Moudle;
 import zkrtdrone.zkrt.com.databinding.FragmentMountBinding;
 import zkrtdrone.zkrt.com.jackmvvm.mvvm.core.AbsFragment;
 import zkrtdrone.zkrt.com.jackmvvm.mvvm.util.show.T;
 import zkrtdrone.zkrt.com.jackmvvm.util.ModuleVerificationUtil;
-import zkrtdrone.zkrt.com.jackmvvm.util.byteUtil.JByteUtil;
+import zkrtdrone.zkrt.com.view.adapter.MoudleAdapter;
+import zkrtdrone.zkrt.com.widght.ExpandableGridView;
 
 import static zkrtdrone.zkrt.com.jackmvvm.base.BaseApplication.handler;
+import static zkrtdrone.zkrt.com.jackmvvm.base.BaseApplication.mActivity;
 
 /**
  * Created by jack_xie on 17-4-27.
@@ -33,24 +41,51 @@ public class MountFragment extends AbsFragment<FragmentMountBinding> {
     @Bind(R.id.horiz_mount) HorizontalBarChart horiz_mount;
     @Bind(R.id.frame_mount) public FrameLayout frame_mount;
     @Bind(R.id.mount_clear) public ImageView mount_clear;
+    @Bind(R.id.bar_char_linear) LinearLayout bar_char_linear;
+    @Bind(R.id.grid_view) ExpandableGridView grid_view;
     public RotateAnimation animation,animation1;
     private ImageView imgOpen;
+    private MoudleAdapter moudleAdapter;
+    private List<Moudle> list = new ArrayList<>();
 
     @Override
     protected void init(Bundle savedInstanceState) {
+        //获取基本的数据
+        String[] moudleName = mActivity.getResources().getStringArray(R.array.moudle_item);
+        TypedArray moudleImage = mActivity.getResources().obtainTypedArray(R.array.moudle_img);
+        int i = 0;
+        for (String name: moudleName){
+            Moudle moudle = new Moudle();
+            moudle.setName(name);
+            moudle.setBitmap(moudleImage.getDrawable(i));
+            i++;
+            moudle.setStatus(false);
+            list.add(moudle);
+        }
+
         if(ModuleVerificationUtil.isFlightControllerAvailable()){
             if(JackApplication.getAircraftInstance().getFlightController().isOnboardSDKDeviceAvailable()){
                 JackApplication.getAircraftInstance().getFlightController().setOnboardSDKDeviceDataCallback(new FlightController.OnboardSDKDeviceDataCallback() {
                     @Override
                     public void onReceive(byte[] bytes) {
                         T.show(mActivity,"****"+bytes.length);
-                        MavlinkDjiBean mavlinkDjiBean = (MavlinkDjiBean) JByteUtil.getObject(MavlinkDjiBean.class, bytes);
-                        T.show(mActivity,mavlinkDjiBean.data+"****"+mavlinkDjiBean.appID);
+                        /*MavlinkDjiBean mavlinkDjiBean = (MavlinkDjiBean) JByteUtil.getObject(MavlinkDjiBean.class, bytes);
+                        T.show(mActivity,mavlinkDjiBean.data+"****"+mavlinkDjiBean.appID);*/
                     }
                 });
             }
         }
         setImgRotateAnimation();
+        //点击进入gridView
+        moudleAdapter = new MoudleAdapter(mActivity,list);
+        grid_view.setAdapter(moudleAdapter);
+        grid_view.setSelector(new ColorDrawable(Color.TRANSPARENT));
+        grid_view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                grid_view.expandGridViewAtView(LayoutInflater.from(mActivity).inflate(R.layout.moudle_obstace,null),grid_view);
+            }
+        });
     }
 
     @OnClick(R.id.mount_clear)
@@ -78,6 +113,16 @@ public class MountFragment extends AbsFragment<FragmentMountBinding> {
         }
     }
 
+    @OnClick(R.id.mount_cut)
+    public void onClickMoubtOut(View v){//
+        bar_char_linear.setVisibility(bar_char_linear.getVisibility() == View.INVISIBLE?View.VISIBLE:View.INVISIBLE);
+        grid_view.setVisibility(bar_char_linear.getVisibility() == View.INVISIBLE?View.VISIBLE:View.INVISIBLE);
+        int w = 0,h = 0;
+        if(bar_char_linear.getVisibility() == View.INVISIBLE){w = 750;h=550;}else{w = 700;h = 500;}
+        FrameLayout.LayoutParams lay = new FrameLayout.LayoutParams(w, h);
+        frame_mount.setLayoutParams(lay);
+    }
+
     private void setImgRotateAnimation(){
         animation =new RotateAnimation(0,180,50f,50f);
         animation.setDuration(1000);//设置动画持续时间
@@ -88,7 +133,7 @@ public class MountFragment extends AbsFragment<FragmentMountBinding> {
         animation1.setFillAfter(true);//动画执行完后是否停留在执行完的状态
     }
 
-    //显示动画
+    //左上部显示动画
     public TranslateAnimation startAnimViewShow(){
         TranslateAnimation mHiddenAction = new TranslateAnimation(Animation.RELATIVE_TO_SELF, -1.0f,
                 Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF,
@@ -97,7 +142,7 @@ public class MountFragment extends AbsFragment<FragmentMountBinding> {
         return mHiddenAction;
     }
 
-    //隐藏动画
+    //左上部隐藏动画
     public TranslateAnimation startAnimViewGone(){
         TranslateAnimation mHiddenAction = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0.0f,
                 Animation.RELATIVE_TO_SELF, -1.0f, Animation.RELATIVE_TO_SELF,

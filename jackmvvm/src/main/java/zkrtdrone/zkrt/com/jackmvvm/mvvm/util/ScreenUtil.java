@@ -60,9 +60,9 @@ public class ScreenUtil {
     }
 
     /**
-     * 获得屏幕高度
+     * 获得屏幕宽度
      */
-    public int getScreenWidth(Context context) {
+    public static int getScreenWidth(Context context) {
         WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics outMetrics = new DisplayMetrics();
         wm.getDefaultDisplay().getMetrics(outMetrics);
@@ -70,7 +70,7 @@ public class ScreenUtil {
     }
 
     /**
-     * 获得屏幕宽度
+     *  获得屏幕高度
      */
     public int getScreenHeight(Context context) {
         WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);

@@ -104,7 +104,6 @@ public class BaiduMapFragment extends SupportMapFragment implements DPmap,Sensor
     private CoordinateConverter converter  = new CoordinateConverter();
     private RotateImageView rotateImageView;
     private View viewDrone;
-    private Bitmap droneBit;
     private Marker markerDroneBit;
 
     @Override
@@ -339,13 +338,14 @@ public class BaiduMapFragment extends SupportMapFragment implements DPmap,Sensor
         }
     }
 
-    private void setDroneMap(Bitmap droneBitmap) {
+    public void setDroneMap(FlightControllerState flightControllerState) {
         if(droneloLat == NaN) return;
         if(getBaiduMap() ==null) return;
+        Attitude attitude = flightControllerState.getAttitude();
+        rotateImageView.setAttitude(attitude.yaw);
         //坐标转换
-
         converter.coord(new LatLng(droneloLat,droneloLng));
-        BitmapDescriptor bitmap = BitmapDescriptorFactory.fromBitmap(droneBitmap);
+        BitmapDescriptor bitmap = BitmapDescriptorFactory.fromBitmap(loadBitmapFromView());
         OverlayOptions option = new MarkerOptions()
                 .position(converter.convert())
                 .icon(bitmap);
@@ -756,20 +756,6 @@ public class BaiduMapFragment extends SupportMapFragment implements DPmap,Sensor
                 MapStatus.Builder builder = new MapStatus.Builder();
                 builder.target(ll).zoom(19f);
                 getBaiduMap().animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
-            }
-
-            //获取飞行器的坐标
-            if(ModuleVerificationUtil.isFlightControllerAvailable()){
-                FlightControllerState flightControllerState = BaseApplication.getAircraftInstance().getFlightController().getState();
-                BaseApplication.droneloLat = flightControllerState.getAircraftLocation().getLatitude();
-                BaseApplication.droneloLng = flightControllerState.getAircraftLocation().getLongitude();
-                Attitude attitude = flightControllerState.getAttitude();
-                rotateImageView.setAttitude(attitude.yaw);
-                droneBit = loadBitmapFromView();
-                if(droneBit !=null){
-                    setDroneMap(droneBit);
-                }
-                droneBit = null;
             }
 
             if (mPanMode.get() == AutoPanMode.USER) {

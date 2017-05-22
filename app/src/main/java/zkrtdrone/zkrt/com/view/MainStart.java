@@ -1,6 +1,8 @@
 package zkrtdrone.zkrt.com.view;
 
 import android.content.Context;
+import android.os.Handler;
+import android.os.Message;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,40 +13,35 @@ import android.view.animation.TranslateAnimation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.squareup.otto.Subscribe;
-
 import java.util.List;
 
-import dji.keysdk.CameraKey;
-import dji.keysdk.DJIKey;
-import dji.midware.data.model.P3.DataCameraVirtualKey;
+import dji.common.error.DJIError;
+import dji.common.util.CommonCallbacks;
 import dji.sdk.base.BaseProduct;
 import dji.ui.widget.FPVWidget;
 import zkrtdrone.zkrt.com.JackApplication;
 import zkrtdrone.zkrt.com.R;
-import zkrtdrone.zkrt.com.jackmvvm.mvvm.util.KeyBoardUtils;
+import zkrtdrone.zkrt.com.bean.RemoteBean;
 import zkrtdrone.zkrt.com.jackmvvm.mvvm.util.ScreenUtil;
 import zkrtdrone.zkrt.com.jackmvvm.mvvm.util.show.T;
-import zkrtdrone.zkrt.com.jackmvvm.rxbean.IOTask;
 import zkrtdrone.zkrt.com.jackmvvm.util.GeneralUtils;
 import zkrtdrone.zkrt.com.jackmvvm.util.ModuleVerificationUtil;
-import zkrtdrone.zkrt.com.jackmvvm.util.rxutil.RxjavaUtil;
+import zkrtdrone.zkrt.com.jackmvvm.util.byteUtil.ByteUtils;
+import zkrtdrone.zkrt.com.jackmvvm.util.byteUtil.Utils;
 import zkrtdrone.zkrt.com.maplib.info.EditorMapFragment;
 import zkrtdrone.zkrt.com.maplib.info.GestureMapFragment;
 import zkrtdrone.zkrt.com.maplib.info.OnEditorInteraction;
 import zkrtdrone.zkrt.com.maplib.info.mission.coordinate.LatLong;
-import zkrtdrone.zkrt.com.view.fragment.DroneFragment;
+import zkrtdrone.zkrt.com.untils.ClientThread;
 import zkrtdrone.zkrt.com.view.fragment.HandStateFragment;
 import zkrtdrone.zkrt.com.view.fragment.MapMountFragment;
 import zkrtdrone.zkrt.com.view.fragment.MountFragment;
-import zkrtdrone.zkrt.com.view.fragment.TelemetryFragment;
-import zkrtdrone.zkrt.com.widght.BaseFpvView;
-
 import static zkrtdrone.zkrt.com.jackmvvm.base.BaseApplication.fragmentManager;
-import static zkrtdrone.zkrt.com.jackmvvm.base.BaseApplication.getScreenHeigh;
-import static zkrtdrone.zkrt.com.jackmvvm.base.BaseApplication.getScreenWidth;
 import static zkrtdrone.zkrt.com.jackmvvm.base.BaseApplication.handler;
+import static zkrtdrone.zkrt.com.jackmvvm.base.BaseApplication.mActivity;
 
 /**
  * Created by jack_xie on 17-4-20.
@@ -70,6 +67,7 @@ public class MainStart extends RelativeLayout implements GestureMapFragment.OnPa
     private FrameLayout fpvCameraView,framefpvcamera;
     private FrameLayout mapMain;
     private RelativeLayout relayout_id_moudle,PreflightCheckView;
+    private TextView txt_tishi;
 
     public MainStart(Context context) {
         super(context);
@@ -88,6 +86,7 @@ public class MainStart extends RelativeLayout implements GestureMapFragment.OnPa
         View view = inflater.inflate(R.layout.main_start, this);
         //slidingDrawer = (SlidingDrawer) view.findViewById(R.id.slidingDrawerRight);
         start_common_map_video = (FrameLayout) view.findViewById(R.id.start_common_map_video);
+        txt_tishi = (TextView) view.findViewById(R.id.txt_tishi);
         relayout_id_moudle = (RelativeLayout) view.findViewById(R.id.relayout_id_moudle);
         PreflightCheckView = (RelativeLayout) view.findViewById(R.id.PreflightCheckView);
         img_common_exchange = (ImageView) view.findViewById(R.id.img_common_exchange);
@@ -154,6 +153,7 @@ public class MainStart extends RelativeLayout implements GestureMapFragment.OnPa
         }*/
         mountFragment.setImgOpen(mount_open);
         mapMountFragment.GestureMapFragment(gestureMapFragment);
+        handStateFragment.GestureMapFragment(gestureMapFragment);
         //telemetryFragment.setGestureMapFragment(gestureMapFragment);
 
         /*fragmentManager.findFragmentById(R.id.fragment_hand).getView().
@@ -182,6 +182,135 @@ public class MainStart extends RelativeLayout implements GestureMapFragment.OnPa
                 }
             });
         }*/
+
+        handler = new Handler(){
+            @Override
+            public void handleMessage(Message msg){
+                if(msg.what == 0x123){
+                    byte[] bRec = msg.getData().getByteArray("buff");
+                    RemoteBean remoteBean = ByteUtils.toObject(bRec, RemoteBean.class);
+                    goneExitText(remoteBean);
+                }
+            }
+        };
+
+        ClientThread clientThread = new ClientThread(handler);
+        new Thread(clientThread).start();
+        if(clientThread.isConnect()){
+
+        }else{
+            T.show(mActivity,"遥感控制版连接失败",500);
+        }
+    }
+
+    //解析遥感以及地面站的机械按钮的实际操作
+    private void goneExitText(RemoteBean remoteBean) {
+        //取遥感上下
+        int upOrDownNum = remoteBean.getThree();  //up -56  center 105-107   dow 0
+        //取遥感左右
+        int leftOrRightNum = remoteBean.getTwo(); //left -56  center  105-107    right 0
+        //取遥感变焦值
+        int zoomNum = remoteBean.getFour();  //right -56  center 102-107  left  0
+        //取按钮的值 remoteBean.getSix()
+
+        String buttonnum = Utils.toBinary(remoteBean.getSix());
+        int nighteBtn = Integer.parseInt(buttonnum.substring(7, 8));
+        int sevenBtn = Integer.parseInt(buttonnum.substring(6, 7));
+        int sixBtn = Integer.parseInt(buttonnum.substring(5, 6));
+        int fiveBtn = Integer.parseInt(buttonnum.substring(4, 5));
+        int fourBtn = Integer.parseInt(buttonnum.substring(3, 4));
+        int threeBtn = Integer.parseInt(buttonnum.substring(2, 3));
+        int twoBtn = Integer.parseInt(buttonnum.substring(1, 2));
+        int oneBtn = Integer.parseInt(buttonnum.substring(0, 1));
+
+        txt_tishi.setText(remoteBean.getSix()+"取遥感上下:"+upOrDownNum
+                +"取遥感左右:"+leftOrRightNum
+                +"取遥感变焦值:"+zoomNum
+                +"起飞:"+oneBtn
+                +"降落:"+twoBtn
+                +"返航:"+threeBtn
+                +"悬停:"+fourBtn
+                +"拍照:"+fiveBtn
+                +"录像:"+sixBtn
+                +"照射:"+sevenBtn
+                +"抛投:"+nighteBtn);
+
+        //执行下面的动作
+        //起飞
+        if(remoteBean.getSix() == -128){
+            if(ModuleVerificationUtil.isFlightControllerAvailable()){
+                JackApplication.getAircraftInstance().getFlightController().startTakeoff(new CommonCallbacks.CompletionCallback() {
+                    @Override
+                    public void onResult(DJIError djiError) {
+                        T.show(mActivity,djiError == null?"起飞":djiError.getDescription(),20);
+                    }
+                });
+            }else{
+                T.show(mActivity,"断开连接",20);
+            }
+        }
+
+        //降落
+        if(remoteBean.getSix() == 64){
+            if(ModuleVerificationUtil.isFlightControllerAvailable()){
+                JackApplication.getAircraftInstance().getFlightController().startLanding(new CommonCallbacks.CompletionCallback() {
+                    @Override
+                    public void onResult(DJIError djiError) {
+                        T.show(mActivity,djiError == null?"降落":djiError.getDescription(),20);
+                    }
+                });
+            }else {
+                T.show(mActivity,"断开连接",20);
+            }
+        }
+
+        //返航
+        if(remoteBean.getSix() == 32){
+            if(ModuleVerificationUtil.isFlightControllerAvailable()){
+                JackApplication.getAircraftInstance().getFlightController().startGoHome(new CommonCallbacks.CompletionCallback() {
+                    @Override
+                    public void onResult(DJIError djiError) {
+                        T.show(mActivity,djiError == null?"返航":djiError.getDescription(),20);
+                    }
+                });
+            }else{
+                T.show(mActivity,"断开连接",20);
+            }
+        }
+
+        //悬停
+        if(remoteBean.getSix() == 16){
+            if(ModuleVerificationUtil.isFlightControllerAvailable()){
+                JackApplication.getAircraftInstance().getFlightController().cancelLanding(new CommonCallbacks.CompletionCallback() {
+                    @Override
+                    public void onResult(DJIError djiError) {
+                        T.show(mActivity,djiError == null?"悬停":djiError.getDescription(),20);
+                    }
+                });
+            }else {
+                T.show(mActivity,"断开连接",20);
+            }
+        }
+
+        //拍照
+        if(remoteBean.getSix() == 8){
+            T.show(mActivity,"拍照",10);
+        }
+
+        //录像
+        if(remoteBean.getSix() == 3){
+            T.show(mActivity,"抛投",10);
+        }
+
+        //照射
+        if(remoteBean.getSix() == 2){
+            T.show(mActivity,"照射",10);
+        }
+
+        //抛投
+        if(remoteBean.getSix() == 1){
+            T.show(mActivity,"抛投",10);
+        }
     }
 
     /*private void updateLocationButtonsMargin(boolean isOpened, int drawerWidth) {

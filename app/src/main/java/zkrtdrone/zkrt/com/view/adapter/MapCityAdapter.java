@@ -42,11 +42,6 @@ public class MapCityAdapter extends AbsLvAdapter<MKOLSearchRecord,MapCityAdapter
             holder.relayout_item_color.setBackgroundResource(android.R.color.transparent);  //其他项背景
         }
         holder.map_city_txt.setText(item.cityName+"");
-       /* holder.mao_city_img.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            }
-        });*/
     }
 
     @Override

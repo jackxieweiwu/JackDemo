@@ -35,14 +35,38 @@
 
     <FrameLayout
         android:id="@+id/frame_mount"
-        android:layout_width="300dip"
-        android:layout_height="200dip">
+        android:layout_width="350dip"
+        android:background="@drawable/ground_speed_bg"
+        android:layout_height="250dip">
+
+        <!--<GridView
+            android:id="@+id/grid_view"
+            android:stretchMode="columnWidth"
+            android:layout_width="match_parent"
+            android:padding="@dimen/activity_magin_10"
+            android:layout_height="match_parent"
+            android:horizontalSpacing="3dp"
+            android:visibility="invisible"
+            android:numColumns="4"
+            android:scrollbars="none"
+            android:verticalSpacing="3dp"/>-->
+        <zkrtdrone.zkrt.com.widght.ExpandableGridView
+            android:id="@+id/grid_view"
+            android:stretchMode="columnWidth"
+            android:layout_width="match_parent"
+            android:padding="@dimen/activity_magin_10"
+            android:layout_height="match_parent"
+            android:horizontalSpacing="3dp"
+            android:visibility="invisible"
+            android:numColumns="4"
+            android:scrollbars="none"
+            android:verticalSpacing="3dp"/>
 
         <LinearLayout
+            android:id="@+id/bar_char_linear"
             android:gravity="center"
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:background="@drawable/ground_speed_bg"
             android:layout_height="match_parent">
 
             <com.github.mikephil.charting.charts.HorizontalBarChart
@@ -244,5 +268,12 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|right"
             android:background="@mipmap/camera_roi_expand_icon2"/>
+
+        <ImageView
+            android:id="@+id/mount_cut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|right"
+            android:background="@mipmap/gs_map_widget_hide_in2"/>
     </FrameLayout>
 </layout>

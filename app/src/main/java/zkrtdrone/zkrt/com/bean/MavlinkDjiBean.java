@@ -1,13 +1,12 @@
 package zkrtdrone.zkrt.com.bean;
 
-import zkrtdrone.zkrt.com.jackmvvm.util.byteUtil.JByte;
 
 /**
  * Created by jack_xie on 17-5-15.
  */
 
 public class MavlinkDjiBean {
-    @JByte(index = 0,lenght = 1)
+/*    @JByte(index = 0,lenght = 1)
     public byte startCode;  //固定值
     @JByte(index = 1,lenght = 1)
     public byte ver;   //协议版本
@@ -33,5 +32,5 @@ public class MavlinkDjiBean {
     @JByte(index = 11,lenght = 2)
     public byte crc;
     @JByte(index = 12,lenght = 1)
-    public byte endCode;     //固定值BE
+    public byte endCode;     //固定值BE*/
 }

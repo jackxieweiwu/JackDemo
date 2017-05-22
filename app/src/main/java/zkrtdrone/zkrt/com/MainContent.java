@@ -1,7 +1,6 @@
 package zkrtdrone.zkrt.com;
 
 import android.content.Context;
-import android.content.Intent;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Button;
@@ -82,7 +81,7 @@ public class MainContent extends RelativeLayout {
             ftb_frequency.setVisibility(GONE);
             BaseApplication.bool = false;
         } else {
-            ftb_start.setVisibility(GONE);  //GONE
+            ftb_start.setVisibility(VISIBLE);  //GONE
             BaseApplication.bool = true; //需要遥控器配对的
             ftb_frequency.setVisibility(GONE);
         }

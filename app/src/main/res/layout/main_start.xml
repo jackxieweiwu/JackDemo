@@ -310,5 +310,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
         </RelativeLayout>
+        <TextView
+            android:id="@+id/txt_tishi"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
     </RelativeLayout>
 </layout>

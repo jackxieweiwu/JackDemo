@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import dji.common.flightcontroller.FlightControllerState;
 import zkrtdrone.zkrt.com.jackmvvm.base.BaseApplication;
 import zkrtdrone.zkrt.com.jackmvvm.mvvm.util.show.T;
 import zkrtdrone.zkrt.com.maplib.info.mission.coordinate.LatLong;
@@ -104,11 +105,11 @@ public class EditorMapFragment extends DroneMap implements DPmap.OnMapLongClickL
         }*/
     }
 
-    /*public void setDroneBitmap(Bitmap droneBitmap) {
-        if(droneBitmap == null ) return;
+    public void setDroneBitmap(FlightControllerState flightControllerState) {
+        if(flightControllerState == null ) return;
         if(mMapFragment ==null) return;
         //new DroneMarker().getIcon(getResources());
         //mMapFragment.updateMarker(graphicDrone);
-        mMapFragment.setDroneMap(droneBitmap);
-    }*/
+        mMapFragment.setDroneMap(flightControllerState);
+    }
 }

@@ -13,15 +13,13 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.AdapterView;
-import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 /**
- * Created by jack_xie on 17-5-7.
+ * Created by jack_xie on 17-5-22.
  */
 
 public class ExpandableGridView extends GridView {
@@ -57,9 +55,9 @@ public class ExpandableGridView extends GridView {
     /**
      * Expand the grid view under the clicked item.
      * @param clickedView The clicked item.
-     * @param expandGridAdapter Adapter set to sub grid view.
+     * @param grid_view
      */
-    public void expandGridViewAtView(View clickedView, final BaseAdapter expandGridAdapter){
+    public void expandGridViewAtView(View clickedView, ExpandableGridView grid_view){
 
         // 0. Init the cover layer
         mCoverView = new LinearLayout(getContext());
@@ -129,30 +127,13 @@ public class ExpandableGridView extends GridView {
 
         // 4. Middle sub grid view, set it's to one row, horizontal scrollable grid view
         LinearLayout linearLayout = new LinearLayout(getContext());
-        GridView gridView = new GridView(getContext());
-        int count = expandGridAdapter.getCount();
         int vSpace = getVerticalSpacing();
         int hSpace = getHorizontalSpacing();
-        LayoutParams gridParams = new LayoutParams(count*(getColumnWidth()+hSpace),
+        LayoutParams gridParams = new LayoutParams(grid_view.getWidth(),
                 ViewGroup.LayoutParams.WRAP_CONTENT);
-        gridView.setLayoutParams(gridParams);
-        gridView.setColumnWidth(getColumnWidth());
-        gridView.setHorizontalSpacing(hSpace);
-        gridView.setVerticalSpacing(vSpace);
-        gridView.setNumColumns(count);
-        gridView.setPadding(hSpace, vSpace, hSpace, vSpace);
-        gridView.setAdapter(expandGridAdapter);
-
-        // 5. Set sub grid view's item click listener
-        gridView.setOnItemClickListener( new OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                if (mListener!=null){
-                    mListener.onItemClick( position , expandGridAdapter.getItem(position));
-                }
-            }
-        });
-        linearLayout.addView(gridView);
+        clickedView.setLayoutParams(gridParams);
+        clickedView.setPadding(hSpace, vSpace, hSpace, vSpace);
+        linearLayout.addView(clickedView);
         middleView.addView(linearLayout);
         // Triangle arrow up
         int touchX = clickedView.getLeft()+getColumnWidth()/2;

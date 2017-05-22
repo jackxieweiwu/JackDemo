@@ -53,6 +53,10 @@ public class ModuleVerificationUtil {
                                                                                              .getCompass());
     }
 
+    public static boolean isOnboardAvailable() {
+        return isFlightControllerAvailable() && isAircraft() && BaseApplication.getAircraftInstance().getFlightController().isOnboardSDKDeviceAvailable();
+    }
+
     public static boolean isFlightLimitationAvailable() {
         return isFlightControllerAvailable() && isAircraft();
     }

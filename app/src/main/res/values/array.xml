@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="moudle_item">
+        <item>@string/array_battery</item>
+        <item>@string/array_announce</item>
+        <item>@string/array_jettisonin</item>
+        <item>@string/array_poisonous</item>
+        <item>@string/array_parachute</item>
+        <item>@string/array_obstacle</item>
+        <item>@string/array_temperature</item>
+        <item>@string/array_infrared</item>
+        <item>@string/array_dimensional_imaging</item>
+        <item>@string/array_blastingflash</item>
+        <item>@string/array_searchlight</item>
+        <item>@string/array_camera</item>
+    </string-array>
+
+    <array name="moudle_img">
+        <item>@mipmap/pic_battery_unling</item>
+        <item>@mipmap/pic_horn_unline</item>
+        <item>@mipmap/pic_toss_unline</item>
+        <item>@mipmap/pic_gas_unline</item>
+        <item>@mipmap/pic_parachute_unline</item>
+        <item>@mipmap/pic_tof_unline</item>
+        <item>@mipmap/pic_temperature_unline</item>
+        <item>@mipmap/pic_infrared_unline</item>
+        <item>@mipmap/pic_3d_unline</item>
+        <item>@mipmap/pic_multispectral_unline</item>
+        <item>@mipmap/pic_searchlight_unline</item>
+        <item>@mipmap/pic_radar_unline</item>
+    </array>
+</resources>

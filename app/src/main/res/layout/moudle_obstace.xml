@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="400dip"
+    android:layout_height="300dip">
+    <TextView
+        android:layout_width="400dip"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:layout_height="300dip"
+        android:text="aaaaaa"/>
+</LinearLayout>

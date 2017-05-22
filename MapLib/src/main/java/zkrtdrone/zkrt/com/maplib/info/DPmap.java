@@ -10,6 +10,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
+import dji.common.flightcontroller.FlightControllerState;
 import zkrtdrone.zkrt.com.maplib.info.location.Location;
 import zkrtdrone.zkrt.com.maplib.info.mission.bean.FootPrint;
 import zkrtdrone.zkrt.com.maplib.info.mission.coordinate.LatLong;
@@ -55,7 +56,7 @@ public interface DPmap {
     public static final String PREF_ZOOM = "pref_map_zoom";
     public static final int DEFAULT_ZOOM_LEVEL = 5;
 
-    //void setDroneMap(Bitmap droneBitmap);
+    void setDroneMap(FlightControllerState flightControllerState);
 
     interface PathSource {
         public List<LatLong> getPathPoints();

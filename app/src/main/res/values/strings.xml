@@ -15,4 +15,18 @@
     <string name="default_angle_value">--°</string>
     <string name="drawer_open">open</string>
     <string name="drawer_close">close</string>
+
+
+    <string name="array_battery">电池</string>
+    <string name="array_announce">喊话</string>
+    <string name="array_jettisonin">抛投</string>
+    <string name="array_poisonous">有毒气体</string>
+    <string name="array_parachute">降落伞</string>
+    <string name="array_obstacle">避障</string>
+    <string name="array_temperature">避温</string>
+    <string name="array_infrared">双光红外</string>
+    <string name="array_dimensional_imaging">三维成像</string>
+    <string name="array_blastingflash">爆闪</string>
+    <string name="array_searchlight">探照灯</string>
+    <string name="array_camera">相机</string>
 </resources>
