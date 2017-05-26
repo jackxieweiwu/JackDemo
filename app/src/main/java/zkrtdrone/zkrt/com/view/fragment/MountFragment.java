@@ -27,6 +27,7 @@ import zkrtdrone.zkrt.com.databinding.FragmentMountBinding;
 import zkrtdrone.zkrt.com.jackmvvm.mvvm.core.AbsFragment;
 import zkrtdrone.zkrt.com.jackmvvm.mvvm.util.show.T;
 import zkrtdrone.zkrt.com.jackmvvm.util.ModuleVerificationUtil;
+import zkrtdrone.zkrt.com.untils.Utils;
 import zkrtdrone.zkrt.com.view.adapter.MoudleAdapter;
 import zkrtdrone.zkrt.com.widght.ExpandableGridView;
 
@@ -83,7 +84,21 @@ public class MountFragment extends AbsFragment<FragmentMountBinding> {
         grid_view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                grid_view.expandGridViewAtView(LayoutInflater.from(mActivity).inflate(R.layout.moudle_obstace,null),grid_view);
+                String name= list.get(position).getName();
+                if(name.equals("避温"))
+                    grid_view.expandGridViewAtView(view,LayoutInflater.from(mActivity).inflate(R.layout.moudle_obstace,null),1,0);
+                if(name.equals("探照灯"))
+                    grid_view.expandGridViewAtView(view,LayoutInflater.from(mActivity).inflate(R.layout.moudle_searchlight,null),2,0);
+                if(name.equals("抛投"))
+                    grid_view.expandGridViewAtView(view,LayoutInflater.from(mActivity).inflate(R.layout.moudle_jettisonin,null),2,0);
+                if(name.equals("双光"))
+                    grid_view.expandGridViewAtView(view,LayoutInflater.from(mActivity).inflate(R.layout.moudle_jettisonin,null),2,0);
+                if(name.equals("避障"))
+                    grid_view.expandGridViewAtView(view,LayoutInflater.from(mActivity).inflate(R.layout.moudle_jettisonin,null),2,0);
+                if(name.equals("有毒气体"))
+                    grid_view.expandGridViewAtView(view,LayoutInflater.from(mActivity).inflate(R.layout.moudle_poisonous,null),2,3);
+                /*if(name.equals("相机"))
+                    grid_view.expandGridViewAtView(view,LayoutInflater.from(mActivity).inflate(R.layout.moudle_jettisonin,null));*/
             }
         });
     }
@@ -117,10 +132,10 @@ public class MountFragment extends AbsFragment<FragmentMountBinding> {
     public void onClickMoubtOut(View v){//
         bar_char_linear.setVisibility(bar_char_linear.getVisibility() == View.INVISIBLE?View.VISIBLE:View.INVISIBLE);
         grid_view.setVisibility(bar_char_linear.getVisibility() == View.INVISIBLE?View.VISIBLE:View.INVISIBLE);
-        int w = 0,h = 0;
+        /*int w = 0,h = 0;
         if(bar_char_linear.getVisibility() == View.INVISIBLE){w = 750;h=550;}else{w = 700;h = 500;}
-        FrameLayout.LayoutParams lay = new FrameLayout.LayoutParams(w, h);
-        frame_mount.setLayoutParams(lay);
+        FrameLayout.LayoutParams lay = new FrameLayout.LayoutParams(Utils.dp2px(getContext(), w), Utils.dp2px(getContext(), h));
+        frame_mount.setLayoutParams(lay);*/
     }
 
     private void setImgRotateAnimation(){

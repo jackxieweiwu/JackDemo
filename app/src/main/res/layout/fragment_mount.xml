@@ -35,9 +35,9 @@
 
     <FrameLayout
         android:id="@+id/frame_mount"
-        android:layout_width="350dip"
+        android:layout_width="390dip"
         android:background="@drawable/ground_speed_bg"
-        android:layout_height="250dip">
+        android:layout_height="278dip">
 
         <!--<GridView
             android:id="@+id/grid_view"
@@ -57,6 +57,7 @@
             android:padding="@dimen/activity_magin_10"
             android:layout_height="match_parent"
             android:horizontalSpacing="3dp"
+            android:background="#00a27e"
             android:visibility="invisible"
             android:numColumns="4"
             android:scrollbars="none"

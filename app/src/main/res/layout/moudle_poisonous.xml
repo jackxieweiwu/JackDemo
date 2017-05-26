@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="0dip"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/txt_pois_co"
+            android:layout_width="50dip"
+            android:layout_height="45dip"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:text="CO:"/>
+
+        <EditText
+            android:id="@+id/edit_pois_co"
+            android:layout_toRightOf="@+id/txt_pois_co"
+            android:gravity="center"
+            android:inputType="numberSigned"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:layout_width="100dip"
+            android:layout_height="45dip" />
+
+        <TextView
+            android:id="@+id/txt_pois_h2s"
+            android:layout_toRightOf="@+id/edit_pois_co"
+            android:layout_width="50dip"
+            android:layout_height="45dip"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:text="H2S:"/>
+
+        <EditText
+            android:id="@+id/edit_pois_h2s"
+            android:layout_toRightOf="@+id/txt_pois_h2s"
+            android:gravity="center"
+            android:inputType="numberSigned"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:layout_width="100dip"
+            android:layout_height="45dip" />
+
+        <TextView
+            android:id="@+id/txt_pois_nh3"
+            android:layout_below="@+id/edit_pois_co"
+            android:layout_width="50dip"
+            android:layout_height="45dip"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:text="NH3:"/>
+
+        <EditText
+            android:id="@+id/edit_pois_nh3"
+            android:gravity="center"
+            android:inputType="numberSigned"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:layout_below="@+id/edit_pois_co"
+            android:layout_toRightOf="@+id/txt_pois_nh3"
+            android:layout_width="100dip"
+            android:layout_height="45dip" />
+
+        <TextView
+            android:id="@+id/txt_pois_co2"
+            android:layout_below="@+id/edit_pois_co"
+            android:layout_toRightOf="@+id/edit_pois_nh3"
+            android:layout_width="50dip"
+            android:layout_height="45dip"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:text="NH3:"/>
+
+        <EditText
+            android:id="@+id/edit_pois_co2"
+            android:gravity="center"
+            android:inputType="numberSigned"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:layout_below="@+id/edit_pois_co"
+            android:layout_toRightOf="@+id/txt_pois_co2"
+            android:layout_width="100dip"
+            android:layout_height="45dip" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative_pois"
+        android:gravity="center"
+        android:layout_width="0dip"
+        android:layout_weight="1"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/txt_pois_cl2"
+            android:layout_width="50dip"
+            android:textColor="@color/white"
+            android:layout_height="45dip"
+            android:gravity="center"
+            android:text="CL2:"/>
+
+        <EditText
+            android:id="@+id/edit_pois_cl2"
+            android:gravity="center"
+            android:inputType="numberSigned"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:layout_toRightOf="@+id/txt_pois_cl2"
+            android:layout_width="100dip"
+            android:layout_height="45dip" />
+
+        <TextView
+            android:id="@+id/txt_pois_SO2"
+            android:layout_toRightOf="@+id/edit_pois_cl2"
+            android:layout_width="50dip"
+            android:layout_height="45dip"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:text="SO2:"/>
+
+        <EditText
+            android:id="@+id/edit_pois_SO2"
+            android:gravity="center"
+            android:inputType="numberSigned"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:layout_toRightOf="@+id/txt_pois_SO2"
+            android:layout_width="100dip"
+            android:layout_height="45dip" />
+
+        <TextView
+            android:id="@+id/txt_pois_voc"
+            android:layout_below="@+id/txt_pois_SO2"
+            android:layout_width="50dip"
+            android:textColor="@color/white"
+            android:layout_height="45dip"
+            android:gravity="center"
+            android:text="VOC:"/>
+
+        <EditText
+            android:id="@+id/edit_pois_voc"
+            android:gravity="center"
+            android:inputType="numberSigned"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:layout_below="@+id/edit_pois_SO2"
+            android:layout_toRightOf="@+id/txt_pois_voc"
+            android:layout_width="100dip"
+            android:layout_height="45dip" />
+
+        <TextView
+            android:id="@+id/txt_pois_ch4"
+            android:layout_below="@+id/txt_pois_SO2"
+            android:layout_toRightOf="@+id/edit_pois_voc"
+            android:layout_width="50dip"
+            android:textColor="@color/white"
+            android:layout_height="45dip"
+            android:gravity="center"
+            android:text="CH4:"/>
+
+        <EditText
+            android:id="@+id/edit_pois_ch4"
+            android:gravity="center"
+            android:inputType="numberSigned"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:layout_below="@+id/edit_pois_SO2"
+            android:layout_toRightOf="@+id/txt_pois_ch4"
+            android:layout_width="100dip"
+            android:layout_height="45dip" />
+    </RelativeLayout>
+</LinearLayout>

@@ -33,7 +33,7 @@ public class MoudleAdapter extends AbsLvAdapter<Moudle,MoudleAdapter.MoudleHolde
         holder.moudle_img_sx.setBackground(item.getBitmap());
         holder.txt_moudle_name.setText(item.getName()+"");
         int count = 3 - position % 3;
-        /*final TranslateAnimation translateAnimation = new TranslateAnimation(
+        final TranslateAnimation translateAnimation = new TranslateAnimation(
                 Animation.RELATIVE_TO_SELF,
                 count,
                 Animation.RELATIVE_TO_SELF,
@@ -41,17 +41,8 @@ public class MoudleAdapter extends AbsLvAdapter<Moudle,MoudleAdapter.MoudleHolde
                 Animation.RELATIVE_TO_SELF,
                 0,
                 Animation.RELATIVE_TO_SELF,
-                0);*/
-        final TranslateAnimation translateAnimation = new TranslateAnimation(
-                Animation.RELATIVE_TO_PARENT,
-                1.0f,
-                Animation.RELATIVE_TO_PARENT,
-                0,
-                Animation.RELATIVE_TO_SELF,
-                0,
-                Animation.RELATIVE_TO_SELF,
                 0);
-        translateAnimation.setDuration(count* 100);
+        translateAnimation.setDuration(count* 50);
 
         final View finalConvertView = holder.itemView;
         holder.itemView.postDelayed(new Runnable() {
@@ -59,7 +50,7 @@ public class MoudleAdapter extends AbsLvAdapter<Moudle,MoudleAdapter.MoudleHolde
             public void run() {
                 finalConvertView.startAnimation(translateAnimation);
             }
-        }, position * 200);
+        }, position * 50);
         translateAnimation.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {

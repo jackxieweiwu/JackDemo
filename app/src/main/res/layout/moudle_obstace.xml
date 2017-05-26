@@ -1,12 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="400dip"
-    android:layout_height="300dip">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:padding="@dimen/activity_magin_10"
+    android:layout_height="match_parent">
+
+    <!--避温-->
     <TextView
-        android:layout_width="400dip"
+        android:id="@+id/txt_obstace_one"
+        android:layout_width="wrap_content"
+        android:layout_height="35dip"
         android:gravity="center"
-        android:textSize="20sp"
-        android:layout_height="300dip"
-        android:text="aaaaaa"/>
-</LinearLayout>
+        android:layout_marginBottom="@dimen/activity_magin_10"
+        android:textColor="@color/white"
+        android:text="上限温度值:"/>
+
+    <EditText
+        android:id="@+id/edit_obstace_up"
+        android:layout_toRightOf="@+id/txt_obstace_one"
+        android:layout_width="100dip"
+        android:textColor="@color/white"
+        android:singleLine="true"
+        android:inputType="numberSigned"
+        android:layout_height="35dip"
+        android:maxLength="4"
+        android:layout_marginLeft="@dimen/activity_magin_10"
+        android:layout_marginBottom="@dimen/activity_magin_10"
+        android:gravity="center"
+        android:background="@drawable/exit_bg"/>
+
+    <TextView
+        android:layout_below="@+id/edit_obstace_up"
+        android:id="@+id/txt_obstace_two"
+        android:layout_width="wrap_content"
+        android:layout_height="35dip"
+        android:layout_marginTop="@dimen/activity_magin_10"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:text="下限温度值:"/>
+
+    <EditText
+        android:id="@+id/edit_obstace_down"
+        android:layout_below="@+id/edit_obstace_up"
+        android:layout_toRightOf="@+id/txt_obstace_two"
+        android:layout_width="100dip"
+        android:inputType="numberSigned"
+        android:maxLength="4"
+        android:textColor="@color/white"
+        android:singleLine="true"
+        android:layout_marginTop="@dimen/activity_magin_10"
+        android:layout_marginLeft="@dimen/activity_magin_10"
+        android:gravity="center"
+        android:layout_height="35dip"
+        android:background="@drawable/exit_bg"/>
+
+    <Button
+        android:layout_toRightOf="@+id/edit_obstace_down"
+        android:id="@+id/btn_obstace_ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_magin_20"
+        android:layout_marginTop="@dimen/activity_magin_20"
+        android:text="确定"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/back_150"
+        android:background="@color/white"/>
+</RelativeLayout>
