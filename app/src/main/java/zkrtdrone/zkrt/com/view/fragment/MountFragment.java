@@ -92,7 +92,7 @@ public class MountFragment extends AbsFragment<FragmentMountBinding> {
                 if(name.equals("抛投"))
                     grid_view.expandGridViewAtView(view,LayoutInflater.from(mActivity).inflate(R.layout.moudle_jettisonin,null),2,0);
                 if(name.equals("双光"))
-                    grid_view.expandGridViewAtView(view,LayoutInflater.from(mActivity).inflate(R.layout.moudle_jettisonin,null),2,0);
+                    grid_view.expandGridViewAtView(view,LayoutInflater.from(mActivity).inflate(R.layout.moudle_bifocal_camera,null),2,0);
                 if(name.equals("避障"))
                     grid_view.expandGridViewAtView(view,LayoutInflater.from(mActivity).inflate(R.layout.moudle_jettisonin,null),2,0);
                 if(name.equals("有毒气体"))
