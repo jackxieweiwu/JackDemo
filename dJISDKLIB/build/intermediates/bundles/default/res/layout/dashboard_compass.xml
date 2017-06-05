@@ -1,0 +1,35 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+<!--merge-->
+    <ImageView
+        android:id="@+id/imageview_info_bar_background"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/compass_info_bar_background"/>
+
+    <dji.midware.ui.widget.dashboard.CompassWidget
+        android:id="@+id/widget_compass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <dji.midware.ui.widget.dashboard.AltitudeWidget
+        android:id="@+id/widget_altitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <dji.midware.ui.widget.dashboard.DistanceHomeWidget
+        android:id="@+id/widget_distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <dji.midware.ui.widget.dashboard.HorizontalVelocityWidget
+        android:id="@+id/widget_h_speed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <dji.midware.ui.widget.dashboard.VerticalVelocityWidget
+        android:id="@+id/widget_v_speed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</merge>

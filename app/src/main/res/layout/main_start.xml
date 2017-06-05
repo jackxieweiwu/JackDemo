@@ -17,13 +17,13 @@
                 android:layout_height="match_parent"
                 android:layout_centerHorizontal="true"/>-->
             <!-- Widget to see first person view (FPV) -->
-            <dji.ui.widget.FPVWidget
+            <dji.midware.ui.widget.FPVWidget
                 android:id="@+id/fpvCamera"
                 android:layout_centerHorizontal="true"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
 
-            <dji.ui.widget.FPVOverlayWidget
+            <dji.midware.ui.widget.FPVOverlayWidget
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
 
@@ -121,7 +121,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_height="50dip"/>
 
-            <dji.ui.widget.RemainingFlightTimeWidget
+            <dji.midware.ui.widget.RemainingFlightTimeWidget
                 android:id="@+id/dji_widget_time"
                 android:visibility="gone"
                 android:layout_below="@+id/fragment_hand"
@@ -139,39 +139,39 @@
                 android:background="@color/dark_gray"
                 android:orientation="horizontal">
 
-                <dji.ui.widget.AutoExposureLockWidget
+                <dji.midware.ui.widget.AutoExposureLockWidget
                     android:layout_width="45dp"
                     android:layout_height="45dp"/>
 
-                <dji.ui.widget.FocusExposureSwitchWidget
+                <dji.midware.ui.widget.FocusExposureSwitchWidget
                     android:layout_width="45dp"
                     android:layout_height="45dp"/>
 
-                <dji.ui.widget.FocusModeWidget
+                <dji.midware.ui.widget.FocusModeWidget
                     android:layout_width="45dp"
                     android:layout_height="45dp"/>
 
-                <dji.ui.widget.config.CameraConfigISOWidget
+                <dji.midware.ui.widget.config.CameraConfigISOWidget
                     android:layout_width="60dip"
                     android:layout_height="45dp"/>
 
-                <dji.ui.widget.config.CameraConfigShutterWidget
+                <dji.midware.ui.widget.config.CameraConfigShutterWidget
                     android:layout_width="60dip"
                     android:layout_height="45dp"/>
 
-                <dji.ui.widget.config.CameraConfigApertureWidget
+                <dji.midware.ui.widget.config.CameraConfigApertureWidget
                     android:layout_width="60dip"
                     android:layout_height="45dp"/>
 
-                <dji.ui.widget.config.CameraConfigEVWidget
+                <dji.midware.ui.widget.config.CameraConfigEVWidget
                     android:layout_width="60dip"
                     android:layout_height="45dp"/>
 
-                <dji.ui.widget.config.CameraConfigWBWidget
+                <dji.midware.ui.widget.config.CameraConfigWBWidget
                     android:layout_width="60dip"
                     android:layout_height="45dp"/>
 
-                <dji.ui.widget.CameraConfigStorageWidget
+                <dji.midware.ui.widget.CameraConfigStorageWidget
                     android:layout_width="110dp"
                     android:layout_height="45dp"/>
             </LinearLayout>
@@ -243,7 +243,7 @@
                 android:fitsSystemWindows="true"
                 tools:layout="@layout/fragment_map"/>
 
-            <dji.ui.widget.dashboard.DashboardWidget
+            <dji.midware.ui.widget.dashboard.DashboardWidget
                 android:id="@+id/Compass"
                 android:layout_width="400dp"
                 android:layout_alignParentLeft="true"
@@ -270,11 +270,11 @@
                 android:layout_marginBottom="45dip"
                 android:orientation="horizontal">
 
-                <dji.ui.widget.TakeOffWidget
+                <dji.midware.ui.widget.TakeOffWidget
                     android:layout_width="50dp"
                     android:layout_height="50dp"/>
 
-                <dji.ui.widget.ReturnHomeWidget
+                <dji.midware.ui.widget.ReturnHomeWidget
                     android:layout_width="50dp"
                     android:layout_height="50dp"/>
             </LinearLayout>
@@ -284,6 +284,7 @@
         <RelativeLayout
             android:id="@+id/PreflightCheckView"
             android:layout_width="600dip"
+            android:visibility="gone"
             android:background="#000000"
             android:layout_height="match_parent">
 
@@ -304,7 +305,7 @@
                 android:layout_alignParentTop="true"
                 android:background="@mipmap/fpv_camera_close"/>
 
-            <dji.ui.panel.PreFlightCheckListPanel
+            <dji.midware.ui.panel.PreFlightCheckListPanel
                 android:layout_below="@+id/img_clean_click"
                 android:layout_alignParentLeft="true"
                 android:layout_width="match_parent"

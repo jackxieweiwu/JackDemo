@@ -1,0 +1,11 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+    <dji.midware.ui.internal.RecyclerListView
+        android:id="@+id/recycle_list_view_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"/>
+
+</merge>

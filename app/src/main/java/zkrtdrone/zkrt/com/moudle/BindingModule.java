@@ -9,6 +9,7 @@ import dji.common.util.CommonCallbacks;
 import zkrtdrone.zkrt.com.JackApplication;
 import zkrtdrone.zkrt.com.databinding.DialogPairingBinding;
 import zkrtdrone.zkrt.com.jackmvvm.base.BaseModule;
+import zkrtdrone.zkrt.com.jackmvvm.mvvm.util.show.T;
 import zkrtdrone.zkrt.com.jackmvvm.util.ModuleVerificationUtil;
 import zkrtdrone.zkrt.com.view.dialog.DialogPairimg;
 
@@ -69,10 +70,12 @@ public class BindingModule extends BaseModule{
                            public void onTick(long millisUntilFinished) {
                                int i = (int) millisUntilFinished/1000;
                                getBinding(DialogPairingBinding.class).setStrMessage("遥控器处于对频状态，时间为"+i+".在对频率状态下不要关闭飞控与遥控器电源");
+                               remoteStates(dialogPairimgClass);
                            }
                            @Override
                            public void onFinish() {
                                dialogPairimgClass.setAddDismiss();
+                               dialogRemoteStopPairing(dialogPairimgClass);
                            }
                        };
                        cdt.start();
@@ -86,11 +89,21 @@ public class BindingModule extends BaseModule{
     }
 
     //获取对频状态
-    private void remoteStates(){
+    private void remoteStates(final DialogPairimg dialogPairimgClass){
         JackApplication.getAircraftInstance().getRemoteController().getPairingState(new CommonCallbacks.CompletionCallbackWith<PairingState>() {
             @Override
             public void onSuccess(PairingState pairingState) {
-
+                switch (pairingState.value()){
+                    case 0: //ok
+                        dialogPairimgClass.setAddDismiss();
+                        break;
+                    case 1:    //配对中
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+                }
             }
 
             @Override

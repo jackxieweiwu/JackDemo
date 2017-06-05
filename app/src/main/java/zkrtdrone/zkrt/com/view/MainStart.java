@@ -21,7 +21,7 @@ import java.util.List;
 import dji.common.error.DJIError;
 import dji.common.util.CommonCallbacks;
 import dji.sdk.base.BaseProduct;
-import dji.ui.widget.FPVWidget;
+import dji.midware.ui.widget.FPVWidget;
 import zkrtdrone.zkrt.com.JackApplication;
 import zkrtdrone.zkrt.com.R;
 import zkrtdrone.zkrt.com.bean.RemoteBean;
@@ -199,7 +199,7 @@ public class MainStart extends RelativeLayout implements GestureMapFragment.OnPa
         if(clientThread.isConnect()){
 
         }else{
-            T.show(mActivity,"遥感控制版连接失败",500);
+            T.show(mActivity,"遥感控制版连接失败",1000);
         }
     }
 

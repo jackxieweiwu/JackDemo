@@ -78,8 +78,13 @@ public class BatterySettingFragment extends AbsFragment<SettingBatteryFragmentBi
             if(JackApplication.getAircraftInstance().getBattery().isConnected()){
                 JackApplication.getAircraftInstance().getBattery().getLevel2CellVoltageBehavior(new CommonCallbacks.CompletionCallbackWith<LowVoltageBehavior>() {
                     @Override
-                    public void onSuccess(LowVoltageBehavior lowVoltageBehavior) {
-                        kg_low_battery_spinner.setSelectedIndex(lowVoltageBehavior.value());
+                    public void onSuccess(final LowVoltageBehavior lowVoltageBehavior) {
+                        mActivity.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                kg_low_battery_spinner.setSelectedIndex(lowVoltageBehavior.value());
+                            }
+                        });
                     }
 
                     @Override

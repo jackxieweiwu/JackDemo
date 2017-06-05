@@ -11,6 +11,7 @@ import com.squareup.otto.Subscribe;
 import dji.sdk.base.BaseProduct;
 import zkrtdrone.zkrt.com.jackmvvm.base.BaseApplication;
 import zkrtdrone.zkrt.com.jackmvvm.util.GeneralUtils;
+import zkrtdrone.zkrt.com.jackmvvm.util.ModuleVerificationUtil;
 import zkrtdrone.zkrt.com.jackmvvm.util.ViewWrapper;
 import zkrtdrone.zkrt.com.view.MainStart;
 import zkrtdrone.zkrt.com.view.dialog.DialogPairimg;
@@ -76,14 +77,16 @@ public class MainContent extends RelativeLayout {
     private void refreshSDKRelativeUI() {
         mProduct = JackApplication.getProductInstance();
         //检查与遥控器连接是否正常
-        if (null != mProduct && mProduct.isConnected()) {
-            ftb_start.setVisibility(VISIBLE);
-            ftb_frequency.setVisibility(GONE);
-            BaseApplication.bool = false;
-        } else {
-            ftb_start.setVisibility(VISIBLE);  //GONE
-            BaseApplication.bool = true; //需要遥控器配对的
-            ftb_frequency.setVisibility(GONE);
+        if(ModuleVerificationUtil.isRemoteControllerAvailable()) {
+            if (null != mProduct && mProduct.isConnected()) {
+                ftb_start.setVisibility(VISIBLE);
+                ftb_frequency.setVisibility(GONE);
+                BaseApplication.bool = false;
+            } else {
+                ftb_start.setVisibility(GONE);  //GONE
+                BaseApplication.bool = true; //需要遥控器配对的
+                ftb_frequency.setVisibility(VISIBLE);  //VISIBLE
+            }
         }
     }
 }

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+
+        <TextView
+            android:id="@+id/expandable_child_sb_tv"
+            style="@style/GenCenterWrapTxt"
+            android:layout_gravity="center_horizontal"
+            android:textSize="@dimen/text_size_small" />
+
+        <SeekBar
+            android:id="@+id/expandable_child_sb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/view_simple_marginleft"
+            android:layout_marginRight="@dimen/view_simple_marginright"
+            android:max="80"
+            android:maxHeight="@dimen/view_top_min_margin"
+            android:minHeight="@dimen/view_top_min_margin"
+            android:padding="0dp"
+            android:progress="0"
+            android:progressDrawable="@drawable/seekbar_progress"
+            android:thumb="@drawable/seek_thumb_enabled"
+            android:thumbOffset="0dp" />
+
+</merge>

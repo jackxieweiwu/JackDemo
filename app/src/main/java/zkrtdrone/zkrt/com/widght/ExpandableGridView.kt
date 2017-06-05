@@ -54,7 +54,7 @@ class ExpandableGridView @JvmOverloads constructor(
         /*}else{
             val middleView = FrameLayout(context) //HorizontalScrollView(context)
          }*/
-
+context
         val touchBottom = view.getBottom()
         if (touchBottom > measuredHeight - paddingBottom - verticalSpacing) {
             hasScrolled = true

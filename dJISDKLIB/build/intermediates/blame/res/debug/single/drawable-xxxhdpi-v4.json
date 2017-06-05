@@ -1,0 +1,882 @@
+[
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_vf_1920x1080_240p.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_vf_1920x1080_240p.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/rectangle_314_copy_2.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/rectangle_314_copy_2.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/camera_selected_item_background.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/camera_selected_item_background.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_checklist_radio_channel_quality.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_checklist_radio_channel_quality.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_vf_3840x2160_30p.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_vf_3840x2160_30p.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_vf_1280x720_50p.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_vf_1280x720_50p.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_vf_3840x2160_50p.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_vf_3840x2160_50p.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_vf_1280x720_30p.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_vf_1280x720_30p.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/leftmenu_dlg_landing.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/leftmenu_dlg_landing.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/camera_controll_exposure_mode_s.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/camera_controll_exposure_mode_s.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_wb_outdoor.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_wb_outdoor.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/abc_spinner_mtrl_am_alpha.9.png",
+        "source": "/root/.android/build-cache/38ce267a48580d0cf94e785393ccb022c66f14f8/output/res/drawable-xxxhdpi-v4/abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/button_minus.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/button_minus.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_vf_1280x720_48p.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_vf_1280x720_48p.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/seek_thumb_disabled.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/seek_thumb_disabled.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/abc_ic_star_half_black_48dp.png",
+        "source": "/root/.android/build-cache/38ce267a48580d0cf94e785393ccb022c66f14f8/output/res/drawable-xxxhdpi-v4/abc_ic_star_half_black_48dp.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/camera_controll_stopintervalphoto_nor.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/camera_controll_stopintervalphoto_nor.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_topbar_wifi_level_5.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_topbar_wifi_level_5.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/oval_120.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/oval_120.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_checklist_compass.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_checklist_compass.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/abc_text_select_handle_left_mtrl_dark.png",
+        "source": "/root/.android/build-cache/38ce267a48580d0cf94e785393ccb022c66f14f8/output/res/drawable-xxxhdpi-v4/abc_text_select_handle_left_mtrl_dark.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/btn_cam_capture_progress.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/btn_cam_capture_progress.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/triangle_16_copy_2.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/triangle_16_copy_2.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_checklist_firmware.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_checklist_firmware.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_photo_size_16x9.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_photo_size_16x9.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_checklist_controler_battery.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_checklist_controler_battery.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/camera_controll_takephoto_icon_hdr.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/camera_controll_takephoto_icon_hdr.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_topbar_hd_nor.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_topbar_hd_nor.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_vf_1920x1080_96p.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_vf_1920x1080_96p.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_camera_setting_jr.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_camera_setting_jr.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/abc_scrubber_control_to_pressed_mtrl_000.png",
+        "source": "/root/.android/build-cache/38ce267a48580d0cf94e785393ccb022c66f14f8/output/res/drawable-xxxhdpi-v4/abc_scrubber_control_to_pressed_mtrl_000.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_compass_gimbal_yaw.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_compass_gimbal_yaw.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_photo_mode_timepause_3s.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_photo_mode_timepause_3s.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/camera_controll_stopvideo_select.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/camera_controll_stopvideo_select.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/abc_ic_menu_copy_mtrl_am_alpha.png",
+        "source": "/root/.android/build-cache/38ce267a48580d0cf94e785393ccb022c66f14f8/output/res/drawable-xxxhdpi-v4/abc_ic_menu_copy_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_photo_mode_continuous_14.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_photo_mode_continuous_14.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_photo_mode_custom.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_photo_mode_custom.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/roundbackgroundhighlighted.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/roundbackgroundhighlighted.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_vf_1920x1080_50p.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_vf_1920x1080_50p.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/leftmenu_dlg_takeoff.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/leftmenu_dlg_takeoff.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/abc_ic_menu_share_mtrl_alpha.png",
+        "source": "/root/.android/build-cache/38ce267a48580d0cf94e785393ccb022c66f14f8/output/res/drawable-xxxhdpi-v4/abc_ic_menu_share_mtrl_alpha.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_photo_mode_timepause_2s.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_photo_mode_timepause_2s.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_vf_1280x720_96p.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_vf_1280x720_96p.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_topbar_signal_level_4.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_topbar_signal_level_4.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/abc_btn_radio_to_on_mtrl_015.png",
+        "source": "/root/.android/build-cache/38ce267a48580d0cf94e785393ccb022c66f14f8/output/res/drawable-xxxhdpi-v4/abc_btn_radio_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/button_plus.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/button_plus.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_antifliker_50hz.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_antifliker_50hz.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_topbar_signal_level_1.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_topbar_signal_level_1.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_camera_setting_raw.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_camera_setting_raw.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/abc_text_select_handle_left_mtrl_light.png",
+        "source": "/root/.android/build-cache/38ce267a48580d0cf94e785393ccb022c66f14f8/output/res/drawable-xxxhdpi-v4/abc_text_select_handle_left_mtrl_light.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_compass_aircraft.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_compass_aircraft.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_vf_3840x2160_48p.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_vf_3840x2160_48p.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/abc_ic_star_half_black_16dp.png",
+        "source": "/root/.android/build-cache/38ce267a48580d0cf94e785393ccb022c66f14f8/output/res/drawable-xxxhdpi-v4/abc_ic_star_half_black_16dp.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/disconnected.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/disconnected.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_vf_2p7k_50p.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_vf_2p7k_50p.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_topbar_wifi_level_1.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_topbar_wifi_level_1.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_vf_4096x2160_25p.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_vf_4096x2160_25p.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_vt_pal.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_vt_pal.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_topbar_battery_error.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_topbar_battery_error.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/abc_text_select_handle_right_mtrl_dark.png",
+        "source": "/root/.android/build-cache/38ce267a48580d0cf94e785393ccb022c66f14f8/output/res/drawable-xxxhdpi-v4/abc_text_select_handle_right_mtrl_dark.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_vf_1280x720_24p.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_vf_1280x720_24p.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_checklist_aircraft_battery_temperature.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_checklist_aircraft_battery_temperature.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/auto_iso.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/auto_iso.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/connected.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/connected.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/pic.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/pic.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_vf_1920x1080_25p.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_vf_1920x1080_25p.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_wb_auto.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_wb_auto.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_vf_3840x2160_24p.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_vf_3840x2160_24p.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_cam_setting_sharpe.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_cam_setting_sharpe.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_vsf_mov.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_vsf_mov.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_vf_1920x1080_48p.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_vf_1920x1080_48p.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_cam_setting_scenemode_auto.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_cam_setting_scenemode_auto.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_topbar_wifi_level_2.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_topbar_wifi_level_2.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/seek_thumb_enabled.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/seek_thumb_enabled.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/abc_ic_star_black_16dp.png",
+        "source": "/root/.android/build-cache/38ce267a48580d0cf94e785393ccb022c66f14f8/output/res/drawable-xxxhdpi-v4/abc_ic_star_black_16dp.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/camera_exposure_ev_plus.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/camera_exposure_ev_plus.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_antifliker_60hz.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_antifliker_60hz.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_wb_neon.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_wb_neon.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_vf_4096x2160_48p.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_vf_4096x2160_48p.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/camera_controll_stopintervalphoto_select.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/camera_controll_stopintervalphoto_select.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_photo_mode_nor.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_photo_mode_nor.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/abc_tab_indicator_mtrl_alpha.9.png",
+        "source": "/root/.android/build-cache/38ce267a48580d0cf94e785393ccb022c66f14f8/output/res/drawable-xxxhdpi-v4/abc_tab_indicator_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/camera_controll_recordvideo_select.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/camera_controll_recordvideo_select.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_vf_4096x2160_30p.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_vf_4096x2160_30p.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_topbar_signal_level_5.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_topbar_signal_level_5.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_photo_mode_timepause_10s.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_photo_mode_timepause_10s.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/capture_switch_bg.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/capture_switch_bg.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/roundbackgroundnormal.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/roundbackgroundnormal.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/north.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/north.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_vf_2p7k_30p.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_vf_2p7k_30p.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/seek_bar.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/seek_bar.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_vf_1920x1080_180p.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_vf_1920x1080_180p.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/btn_cam_capture_border.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/btn_cam_capture_border.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/camera_controll_recordvideo_nor.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/camera_controll_recordvideo_nor.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/abc_switch_track_mtrl_alpha.9.png",
+        "source": "/root/.android/build-cache/38ce267a48580d0cf94e785393ccb022c66f14f8/output/res/drawable-xxxhdpi-v4/abc_switch_track_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/abc_text_select_handle_right_mtrl_light.png",
+        "source": "/root/.android/build-cache/38ce267a48580d0cf94e785393ccb022c66f14f8/output/res/drawable-xxxhdpi-v4/abc_text_select_handle_right_mtrl_light.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/leftmenu_popup_warning.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/leftmenu_popup_warning.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_vf_1920x1080_100p.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_vf_1920x1080_100p.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_vf_1920x1080_30p.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_vf_1920x1080_30p.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/abc_btn_check_to_on_mtrl_015.png",
+        "source": "/root/.android/build-cache/38ce267a48580d0cf94e785393ccb022c66f14f8/output/res/drawable-xxxhdpi-v4/abc_btn_check_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_topbar_wifi_level_3.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_topbar_wifi_level_3.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_topbar_signal_level_0.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_topbar_signal_level_0.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_vf_2p7k_24p.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_vf_2p7k_24p.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_vf_1280x720_120p.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_vf_1280x720_120p.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/camera_exposure_ev_minus.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/camera_exposure_ev_minus.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/abc_btn_check_to_on_mtrl_000.png",
+        "source": "/root/.android/build-cache/38ce267a48580d0cf94e785393ccb022c66f14f8/output/res/drawable-xxxhdpi-v4/abc_btn_check_to_on_mtrl_000.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_compass_background.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_compass_background.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_photo_mode_hdr.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_photo_mode_hdr.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_vf_2p7k_48p.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_vf_2p7k_48p.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_vf_2p7k_25p.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_vf_2p7k_25p.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_vf_1920x1080_24p.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_vf_1920x1080_24p.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_photo_mode_continuous_10.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_photo_mode_continuous_10.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_wb_tungsten.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_wb_tungsten.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_vf_4096x2160_60p.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_vf_4096x2160_60p.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/video_highlight.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/video_highlight.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_photo_mode_continuous_5.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_photo_mode_continuous_5.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_photo_mode_aeb_continuous_7.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_photo_mode_aeb_continuous_7.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_vf_1280x720_60p.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_vf_1280x720_60p.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_checklist_sdcard.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_checklist_sdcard.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/rectangle_1112_metering_icon.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/rectangle_1112_metering_icon.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_photo_mode_timepause_5s.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_photo_mode_timepause_5s.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/camera_setting_back_arrow.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/camera_setting_back_arrow.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_ps_landscape.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_ps_landscape.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_photo_mode_continuous_7.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_photo_mode_continuous_7.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_vf_1280x720_25p.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_vf_1280x720_25p.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_topbar_battery_dangerous.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_topbar_battery_dangerous.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/camera_exposure_mode_auto_normal.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/camera_exposure_mode_auto_normal.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_vf_3840x2160_60p.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_vf_3840x2160_60p.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/rectangle_866_copy.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/rectangle_866_copy.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_vf_2p7k_60p.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_vf_2p7k_60p.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/sd.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/sd.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/abc_ic_star_black_36dp.png",
+        "source": "/root/.android/build-cache/38ce267a48580d0cf94e785393ccb022c66f14f8/output/res/drawable-xxxhdpi-v4/abc_ic_star_black_36dp.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_none.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_none.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/camera_menu_press.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/camera_menu_press.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/capture_switch_ball.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/capture_switch_ball.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_vf_1920x1080_120p.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_vf_1920x1080_120p.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/playback.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/playback.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/visual_enable.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/visual_enable.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_photo_mode_aeb.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_photo_mode_aeb.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_videotype_ntsc.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_videotype_ntsc.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_vf_3840x2160_25p.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_vf_3840x2160_25p.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/abc_btn_radio_to_on_mtrl_000.png",
+        "source": "/root/.android/build-cache/38ce267a48580d0cf94e785393ccb022c66f14f8/output/res/drawable-xxxhdpi-v4/abc_btn_radio_to_on_mtrl_000.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_photo_size_3x2.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_photo_size_3x2.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/compass_info_bar_background.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/compass_info_bar_background.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_checklist_imu.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_checklist_imu.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_photo_mode_360.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_photo_mode_360.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/camera_controll_exposure_mode_p.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/camera_controll_exposure_mode_p.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_photo_size_4x3.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_photo_size_4x3.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_vf_1280x720_180p.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_vf_1280x720_180p.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_photo_mode_timepause_60s.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_photo_mode_timepause_60s.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_vf_4096x2160_24p.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_vf_4096x2160_24p.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_vf_1280x720_100p.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_vf_1280x720_100p.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_vf_1920x1080_60p.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_vf_1920x1080_60p.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_cam_setting_digitalfilter_blackandwhite.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_cam_setting_digitalfilter_blackandwhite.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/camera_settings_other_highlight.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/camera_settings_other_highlight.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_photo_mode_timepause_15s.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_photo_mode_timepause_15s.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/seek_bar_highlight.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/seek_bar_highlight.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_camera_setting_remote.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_camera_setting_remote.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_camera_setting_jpg.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_camera_setting_jpg.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_photo_mode_timepause_20s.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_photo_mode_timepause_20s.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_topbar_wifi_level_4.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_topbar_wifi_level_4.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_photo_mode_continuous_3.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_photo_mode_continuous_3.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_photo_mode_aeb_continuous_5.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_photo_mode_aeb_continuous_5.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_topbar_flight_mode.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_topbar_flight_mode.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/leftmenu_dlg_gohome.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/leftmenu_dlg_gohome.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/double_right_arrow.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/double_right_arrow.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/camera_settings_other.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/camera_settings_other.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/camera_setting_back_arrow_highlight.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/camera_setting_back_arrow_highlight.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_camera_setting_tiff.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_camera_setting_tiff.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_wb_inhouse.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_wb_inhouse.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_vsf_mp4.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_vsf_mp4.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_checklist_gimbal.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_checklist_gimbal.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/camera_exposure_mode_setting_background.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/camera_exposure_mode_setting_background.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_vf_1280x720_240p.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_vf_1280x720_240p.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_topbar_signal_level_3.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_topbar_signal_level_3.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_topbar_remote_nor.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_topbar_remote_nor.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/abc_ic_menu_cut_mtrl_alpha.png",
+        "source": "/root/.android/build-cache/38ce267a48580d0cf94e785393ccb022c66f14f8/output/res/drawable-xxxhdpi-v4/abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_checklist_esc.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_checklist_esc.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/camera_controll_exposure_mode_m.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/camera_controll_exposure_mode_m.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/camera_controll_stopvideo_nor.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/camera_controll_stopvideo_nor.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/leftmenu_popup_greencheck.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/leftmenu_popup_greencheck.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/rectangle_310.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/rectangle_310.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_ps_custom.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_ps_custom.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_photo_mode_timepause_7s.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_photo_mode_timepause_7s.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/pic_highlight.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/pic_highlight.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_topbar_battery_thunder.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_topbar_battery_thunder.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_vf_4096x2160_50p.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_vf_4096x2160_50p.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/camera_controll_aelock_unlock.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/camera_controll_aelock_unlock.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/camera_controll_exposure_mode_a.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/camera_controll_exposure_mode_a.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/leftmenu_dlg_cancel.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/leftmenu_dlg_cancel.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_photo_mode_continuous.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_photo_mode_continuous.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_ps_soft.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_ps_soft.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/camera_exp_press.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/camera_exp_press.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_compass_inner_circles.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_compass_inner_circles.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_topbar_signal_level_2.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_topbar_signal_level_2.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_topbar_battery_nor.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_topbar_battery_nor.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_photo_mode_timepause_30s.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_photo_mode_timepause_30s.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/camera_controll_aelock_lock.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/camera_controll_aelock_lock.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png",
+        "source": "/root/.android/build-cache/38ce267a48580d0cf94e785393ccb022c66f14f8/output/res/drawable-xxxhdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/leftmenu_popup_alert.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/leftmenu_popup_alert.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/visual.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/visual.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_compass_home.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_compass_home.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_cam_setting_digitalfilter_saturation.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_cam_setting_digitalfilter_saturation.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/camera_exposure_mode_auto_highlight.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/camera_exposure_mode_auto_highlight.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_camera_setting_battery.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_camera_setting_battery.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_photo_mode_aeb_continuous_3.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_photo_mode_aeb_continuous_3.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/video.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/video.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_photo_mode_autotimer.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_photo_mode_autotimer.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/abc_ic_menu_selectall_mtrl_alpha.png",
+        "source": "/root/.android/build-cache/38ce267a48580d0cf94e785393ccb022c66f14f8/output/res/drawable-xxxhdpi-v4/abc_ic_menu_selectall_mtrl_alpha.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_vf_4608x2160_24p.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_vf_4608x2160_24p.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/camera_settings_tab_indicator.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/camera_settings_tab_indicator.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_vf_4608x2160_25p.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_vf_4608x2160_25p.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/btn_cam_capture_released.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/btn_cam_capture_released.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_topbar_gps_nor.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_topbar_gps_nor.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/abc_ic_star_black_48dp.png",
+        "source": "/root/.android/build-cache/38ce267a48580d0cf94e785393ccb022c66f14f8/output/res/drawable-xxxhdpi-v4/abc_ic_star_black_48dp.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/abc_ic_menu_paste_mtrl_am_alpha.png",
+        "source": "/root/.android/build-cache/38ce267a48580d0cf94e785393ccb022c66f14f8/output/res/drawable-xxxhdpi-v4/abc_ic_menu_paste_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/abc_scrubber_control_to_pressed_mtrl_005.png",
+        "source": "/root/.android/build-cache/38ce267a48580d0cf94e785393ccb022c66f14f8/output/res/drawable-xxxhdpi-v4/abc_scrubber_control_to_pressed_mtrl_005.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/abc_btn_switch_to_on_mtrl_00001.9.png",
+        "source": "/root/.android/build-cache/38ce267a48580d0cf94e785393ccb022c66f14f8/output/res/drawable-xxxhdpi-v4/abc_btn_switch_to_on_mtrl_00001.9.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/abc_ic_star_half_black_36dp.png",
+        "source": "/root/.android/build-cache/38ce267a48580d0cf94e785393ccb022c66f14f8/output/res/drawable-xxxhdpi-v4/abc_ic_star_half_black_36dp.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/ic_advanced_more_vf_4608x2160_30p.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/drawable-xxxhdpi-v4/ic_advanced_more_vf_4608x2160_30p.png"
+    }
+]

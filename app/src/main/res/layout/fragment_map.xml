@@ -128,13 +128,13 @@
             android:layout_marginBottom="200dip"
             android:layout_height="wrap_content">
 
-            <dji.ui.widget.controls.CameraControlsWidget
+            <dji.midware.ui.widget.controls.CameraControlsWidget
                 android:id="@+id/CameraCapturePanel"
                 android:layout_alignParentRight="true"
                 android:layout_width="62dp"
                 android:layout_height="260dip"/>
 
-            <dji.ui.panel.CameraSettingExposurePanel
+            <dji.midware.ui.panel.CameraSettingExposurePanel
                 android:id="@+id/CameraExposureMode"
                 android:layout_width="190dip"
                 android:layout_toLeftOf="@+id/CameraCapturePanel"
@@ -143,7 +143,7 @@
                 android:layout_height="260dip"
                 android:visibility="invisible"/>
 
-            <dji.ui.panel.CameraSettingAdvancedPanel
+            <dji.midware.ui.panel.CameraSettingAdvancedPanel
                 android:id="@+id/CameraAdvancedSetting"
                 android:layout_width="190dip"
                 android:layout_height="260dip"

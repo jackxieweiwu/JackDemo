@@ -86,15 +86,20 @@ public class HdSettingFragment extends AbsFragment<SettingHdFragmentBinding> imp
         txt_camera_sdi.setOnClickListener(this);
         txt_camera_hd_hdmi.setOnClickListener(this);
         if(ModuleVerificationUtil.isAirlinkAvailable()){
-            if(!JackApplication.getAircraftInstance().getAirLink().isConnected()) return;
+
             //获取是否自动信道
             getChannelSelect();
 
             //获取所有的下行信道
             JackApplication.getAircraftInstance().getAirLink().getLightbridgeLink().getChannelRange(new CommonCallbacks.CompletionCallbackWith<Integer[]>() {
                 @Override
-                public void onSuccess(Integer[] integers) {
-                    spinner_camera_hd.setItems(integers);
+                public void onSuccess(final Integer[] integers) {
+                    mActivity.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            spinner_camera_hd.setItems(integers);
+                        }
+                    });
                 }
 
                 @Override
@@ -109,7 +114,6 @@ public class HdSettingFragment extends AbsFragment<SettingHdFragmentBinding> imp
                 public void onSuccess(LightbridgeDataRate lightbridgeDataRate) {
                     final int codeRateNum = lightbridgeDataRate.value();
                     if(codeRateNum == 255) return;
-
                     mActivity.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {

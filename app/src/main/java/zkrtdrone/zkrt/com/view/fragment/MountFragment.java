@@ -22,11 +22,13 @@ import butterknife.OnClick;
 import dji.sdk.flightcontroller.FlightController;
 import zkrtdrone.zkrt.com.JackApplication;
 import zkrtdrone.zkrt.com.R;
+import zkrtdrone.zkrt.com.bean.MavlinkDjiBean;
 import zkrtdrone.zkrt.com.bean.Moudle;
 import zkrtdrone.zkrt.com.databinding.FragmentMountBinding;
 import zkrtdrone.zkrt.com.jackmvvm.mvvm.core.AbsFragment;
 import zkrtdrone.zkrt.com.jackmvvm.mvvm.util.show.T;
 import zkrtdrone.zkrt.com.jackmvvm.util.ModuleVerificationUtil;
+import zkrtdrone.zkrt.com.jackmvvm.util.byteUtil.ByteUtils;
 import zkrtdrone.zkrt.com.untils.Utils;
 import zkrtdrone.zkrt.com.view.adapter.MoudleAdapter;
 import zkrtdrone.zkrt.com.widght.ExpandableGridView;
@@ -68,10 +70,31 @@ public class MountFragment extends AbsFragment<FragmentMountBinding> {
             if(JackApplication.getAircraftInstance().getFlightController().isOnboardSDKDeviceAvailable()){
                 JackApplication.getAircraftInstance().getFlightController().setOnboardSDKDeviceDataCallback(new FlightController.OnboardSDKDeviceDataCallback() {
                     @Override
-                    public void onReceive(byte[] bytes) {
-                        T.show(mActivity,"****"+bytes.length);
-                        /*MavlinkDjiBean mavlinkDjiBean = (MavlinkDjiBean) JByteUtil.getObject(MavlinkDjiBean.class, bytes);
-                        T.show(mActivity,mavlinkDjiBean.data+"****"+mavlinkDjiBean.appID);*/
+                    public void onReceive(final byte[] bytes) {
+                        mActivity.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                MavlinkDjiBean mavlinkDjiBean = ByteUtils.toObject(bytes,MavlinkDjiBean.class);
+
+                                /*if(Byte.toString(mavlinkDjiBean.getUavIDFour()).equals("102")){
+                                    T.show(mActivity,"ssssss");
+                                }*/
+
+                                T.show(mActivity,"startCode******"+Byte.toString(mavlinkDjiBean.getStartCode())
+                                        +"\t\nversion******"+Byte.toString(mavlinkDjiBean.getVer())
+                                        +"\t\nsessionAck******"+Byte.toString(mavlinkDjiBean.getSessionAck())
+                                        +"\t\nappIDOne******"+Byte.toString(mavlinkDjiBean.getAppIDOne())
+                                        +"\t\nappID2******"+Byte.toString(mavlinkDjiBean.getAppIDTwo())
+                                        +"\t\nappID3******"+Byte.toString(mavlinkDjiBean.getAppIDThree())
+                                        +"\t\nuavIDOne******"+Byte.toString(mavlinkDjiBean.getUavIDOne())
+                                        +"\t\nuavID2******"+Byte.toString(mavlinkDjiBean.getUavIDOne())
+                                        +"\t\nuavID3******"+Byte.toString(mavlinkDjiBean.getUavIDTwo())
+                                        +"\t\nuavID4******"+Byte.toString(mavlinkDjiBean.getUavIDThree())
+                                        +"\t\nuavID5******"+Byte.toString(mavlinkDjiBean.getUavIDFour())
+                                        +"\t\nuavID6******"+Byte.toString(mavlinkDjiBean.getUavIDFIve())
+                                        +"\t\ndata******"+Byte.toString(mavlinkDjiBean.getGas_Status()));
+                            }
+                        });
                     }
                 });
             }
@@ -91,7 +114,7 @@ public class MountFragment extends AbsFragment<FragmentMountBinding> {
                     grid_view.expandGridViewAtView(view,LayoutInflater.from(mActivity).inflate(R.layout.moudle_searchlight,null),2,0);
                 if(name.equals("抛投"))
                     grid_view.expandGridViewAtView(view,LayoutInflater.from(mActivity).inflate(R.layout.moudle_jettisonin,null),2,0);
-                if(name.equals("双光"))
+                if(name.equals("双光红外"))
                     grid_view.expandGridViewAtView(view,LayoutInflater.from(mActivity).inflate(R.layout.moudle_bifocal_camera,null),2,0);
                 if(name.equals("避障"))
                     grid_view.expandGridViewAtView(view,LayoutInflater.from(mActivity).inflate(R.layout.moudle_jettisonin,null),2,0);

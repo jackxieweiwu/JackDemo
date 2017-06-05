@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="DJITextView">
+        <attr name="djiTextFace">
+            <enum name="demi" value="0"></enum>
+            <enum name="nlight" value="1"></enum>
+            <enum name="nbold" value="2"></enum>
+            <enum name="bold" value="3"></enum>
+        </attr>
+    </declare-styleable>
+    
+    <declare-styleable name="DJIDeviceType">
+        <attr name="djiDeviceType">
+            <enum name="phone" value="0"></enum>
+            <enum name="pad" value="1"></enum>
+        </attr>
+    </declare-styleable>
+    <attr format="reference" name="abstractWheelViewStyle"/>
+
+    <declare-styleable name="AbstractWheelView"><attr format="integer" name="visibleItems"/><attr format="boolean" name="isAllVisible"/><attr format="integer" name="itemOffsetPercent"/><attr format="dimension" name="itemsPadding"/><attr format="integer" name="selectionDividerDimmedAlpha"/><attr format="integer" name="selectionDividerActiveAlpha"/><attr format="reference" name="selectionDivider"/><attr format="integer" name="itemsDimmedAlpha"/><attr format="boolean" name="isCyclic"/></declare-styleable>
+
+    <declare-styleable name="DULCollection"><attr format="dimension" name="widgetSpacing"/><attr format="color" name="fillColor"/><attr format="color" name="borderColor"/><attr format="dimension" name="borderWidth"/><attr format="boolean" name="roundedCorner"/><attr format="enum" name="widgetArrangement">
+        <enum name="start" value="0"/>
+        <enum name="end" value="1"/>
+        <enum name="center" value="2"/>
+        <enum name="auto" value="3"/>
+    </attr><attr format="boolean" name="autosize"/></declare-styleable>
+    <declare-styleable name="DULTopBar"><attr format="string" name="exampleString"/><attr format="dimension" name="exampleDimension"/><attr format="color" name="exampleColor"/><attr format="color|reference" name="exampleDrawable"/></declare-styleable>
+    <declare-styleable name="WheelHorizontalView"><attr format="dimension" name="selectionDividerWidth"/></declare-styleable>
+    <declare-styleable name="WheelVerticalView"><attr format="dimension" name="selectionDividerHeight"/></declare-styleable>
+</resources>

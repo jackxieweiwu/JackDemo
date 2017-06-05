@@ -228,7 +228,12 @@ public class HttpUtil {
             }
 
             @Override public void onResponse(Call call, Response response){
-                String data = response.body().string();
+                String data = null;
+                try {
+                    data = response.body().string();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 L.d(TAG, "数据获取成功，获取到的数据为 >>>> ");
                 L.j(data);
                 if (useCache) {
@@ -294,7 +299,12 @@ public class HttpUtil {
             }
 
             @Override public void onResponse(Call call, Response response) {
-                String data = response.body().string();
+                String data = null;
+                try {
+                    data = response.body().string();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 L.d(TAG, "数据获取成功，获取到的数据为 >>>>");
                 L.j(data);
                 if (useCache) {
