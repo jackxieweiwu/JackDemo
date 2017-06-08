@@ -148,12 +148,12 @@
         "source": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/bundles/debug/res/drawable/draw_arrow.png"
     },
     {
-        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/androidTest/debug/drawable/abc_seekbar_thumb_material.xml",
-        "source": "/root/.android/build-cache/38ce267a48580d0cf94e785393ccb022c66f14f8/output/res/drawable/abc_seekbar_thumb_material.xml"
-    },
-    {
         "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/androidTest/debug/drawable/radio_checked.png",
         "source": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/bundles/debug/res/drawable/radio_checked.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/androidTest/debug/drawable/abc_seekbar_thumb_material.xml",
+        "source": "/root/.android/build-cache/38ce267a48580d0cf94e785393ccb022c66f14f8/output/res/drawable/abc_seekbar_thumb_material.xml"
     },
     {
         "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/androidTest/debug/drawable/draw_route_pass.png",

@@ -26,7 +26,7 @@ public class MainContent extends RelativeLayout {
     }
     private BaseProduct mProduct;
     private Button ftb_start,ftb_frequency;
-    private TextView txt_log_remote;
+    //private TextView txt_log_remote;
 
     @Override
     protected void onFinishInflate() {
@@ -37,13 +37,14 @@ public class MainContent extends RelativeLayout {
 
     private void initUI() {
         ftb_start = (Button) findViewById(R.id.ftb_start);
-        txt_log_remote = (TextView) findViewById(R.id.txt_log_remote);
+        //txt_log_remote = (TextView) findViewById(R.id.txt_log_remote);
         ftb_frequency = (Button) findViewById(R.id.ftb_frequency);
         ftb_start.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (GeneralUtils.isFastDoubleClick()) return;
                 JackApplication.getEventBus().post(new ViewWrapper(new MainStart(JackApplication.mActivity),R.string.activity_component_list));
+                //ftb_start.setClickable(false);
             }
         });
 

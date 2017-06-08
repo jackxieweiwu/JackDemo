@@ -208,12 +208,12 @@
         "source": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/bundles/debug/res/drawable-xxxhdpi-v4/compass_info_bar_background.png"
     },
     {
-        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/androidTest/debug/drawable-xxxhdpi-v4/ic_compass_background.png",
-        "source": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/bundles/debug/res/drawable-xxxhdpi-v4/ic_compass_background.png"
-    },
-    {
         "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/androidTest/debug/drawable-xxxhdpi-v4/camera_controll_stopvideo_select.png",
         "source": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/bundles/debug/res/drawable-xxxhdpi-v4/camera_controll_stopvideo_select.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/androidTest/debug/drawable-xxxhdpi-v4/ic_compass_background.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/bundles/debug/res/drawable-xxxhdpi-v4/ic_compass_background.png"
     },
     {
         "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/androidTest/debug/drawable-xxxhdpi-v4/ic_photo_mode_timepause_15s.png",
@@ -384,16 +384,16 @@
         "source": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/bundles/debug/res/drawable-xxxhdpi-v4/ic_checklist_sdcard.png"
     },
     {
-        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/androidTest/debug/drawable-xxxhdpi-v4/ic_camera_setting_jpg.png",
-        "source": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/bundles/debug/res/drawable-xxxhdpi-v4/ic_camera_setting_jpg.png"
-    },
-    {
         "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/androidTest/debug/drawable-xxxhdpi-v4/abc_btn_check_to_on_mtrl_015.png",
         "source": "/root/.android/build-cache/38ce267a48580d0cf94e785393ccb022c66f14f8/output/res/drawable-xxxhdpi-v4/abc_btn_check_to_on_mtrl_015.png"
     },
     {
         "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/androidTest/debug/drawable-xxxhdpi-v4/ic_photo_mode_timepause_2s.png",
         "source": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/bundles/debug/res/drawable-xxxhdpi-v4/ic_photo_mode_timepause_2s.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/androidTest/debug/drawable-xxxhdpi-v4/ic_camera_setting_jpg.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/bundles/debug/res/drawable-xxxhdpi-v4/ic_camera_setting_jpg.png"
     },
     {
         "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/androidTest/debug/drawable-xxxhdpi-v4/leftmenu_dlg_landing.png",

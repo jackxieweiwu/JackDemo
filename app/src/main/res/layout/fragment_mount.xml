@@ -1,36 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
-        <variable
+        <!--<variable
             name="strTempOne"
-            type="String"/>
+            type="String"/>-->
         <variable
             name="strTempTwo"
             type="String"/>
+
         <variable
+            name="strFount"
+            type="String"/>
+
+        <variable
+            name="strBack"
+            type="String"/>
+
+        <variable
+            name="strLeft"
+            type="String"/>
+
+        <variable
+            name="strRight"
+            type="String"/>
+        <!--<variable
             name="strCo"
-            type="String"/> <!--CO-->
+            type="String"/> &lt;!&ndash;CO&ndash;&gt;
         <variable
             name="strCo_One"
             type="String"/>
         <variable
             name="strHTwoS"
-            type="String"/>  <!--H2S-->
+            type="String"/>  &lt;!&ndash;H2S&ndash;&gt;
         <variable
             name="strHTwoS_One"
             type="String"/>
         <variable
             name="strNHThree"
-            type="String"/>  <!--NH3-->
+            type="String"/>  &lt;!&ndash;NH3&ndash;&gt;
         <variable
             name="strNHThree_One"
             type="String"/>
         <variable
             name="strCOTwo"
-            type="String"/>  <!--CO2-->
+            type="String"/>  &lt;!&ndash;CO2&ndash;&gt;
         <variable
             name="strCOTwo_One"
-            type="String"/>
+            type="String"/>-->
     </data>
 
     <FrameLayout
@@ -70,11 +86,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <com.github.mikephil.charting.charts.HorizontalBarChart
+            <!--<com.github.mikephil.charting.charts.HorizontalBarChart
                 android:id="@+id/horiz_mount"
                 android:layout_width="match_parent"
                 android:layout_height="0dip"
                 android:clickable="false"
+                android:layout_weight="0.9"/>-->
+            <ListView
+                android:id="@+id/horiz_moudle_seekbar"
+                android:padding="@dimen/activity_magin_5"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
                 android:layout_weight="0.9"/>
 
             <View
@@ -86,14 +108,16 @@
                 android:layout_height="45dip"
                 android:orientation="horizontal">
 
-                <RelativeLayout
+                <LinearLayout
                     android:layout_below="@+id/horiz_error"
                     android:layout_width="0dip"
                     android:layout_weight="0.2"
+                    android:gravity="center"
+                    android:orientation="horizontal"
                     android:layout_height="match_parent"
                     android:baselineAligned="true">
 
-                    <TextView
+                    <!--<TextView
                         android:id="@+id/targetAltitudeValue"
                         style="@style/largeTelemetryText"
                         android:layout_width="wrap_content"
@@ -110,7 +134,7 @@
                         android:layout_toRightOf="@+id/targetAltitudeValue"
                         android:layout_alignBaseline="@+id/targetAltitudeValue"
                         android:text="@string/meter_unit2"
-                        android:textColor="@color/altitude_target"/>
+                        android:textColor="@color/altitude_target"/>-->
 
                     <TextView
                         android:id="@+id/altitudeValue"
@@ -140,7 +164,7 @@
                         android:layout_centerVertical="true"
                         android:text="@string/altitude_label"
                         android:textColor="@color/altitude_label"/>-->
-                </RelativeLayout>
+                </LinearLayout>
 
                 <View
                     android:layout_width="1dip"
@@ -154,6 +178,44 @@
                     android:gravity="center"
                     android:layout_height="match_parent">
 
+                    <TextView
+                        android:text="@{strFount}"
+                        android:textSize="@dimen/txt_size_12"
+                        android:layout_width="match_parent"
+                        android:layout_marginLeft="@dimen/activity_magin_5"
+                        style="@style/largeTelemetryText"
+                        android:gravity="center|left"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"/>
+
+                    <TextView
+                        android:text="@{strBack}"
+                        android:textSize="@dimen/txt_size_12"
+                        android:layout_width="match_parent"
+                        style="@style/largeTelemetryText"
+                        android:gravity="center|left"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5" />
+
+                    <TextView
+                        android:text="@{strLeft}"
+                        android:textSize="@dimen/txt_size_12"
+                        android:layout_width="match_parent"
+                        style="@style/largeTelemetryText"
+                        android:gravity="center|left"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"/>
+
+                    <TextView
+                        android:text="@{strRight}"
+                        android:textSize="@dimen/txt_size_12"
+                        android:layout_width="match_parent"
+                        style="@style/largeTelemetryText"
+                        android:gravity="center|left"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5" />
+
+
                     <!--<TextView
                         android:text="气体"
                         android:textSize="@dimen/txt_size_12"
@@ -164,7 +226,7 @@
                         android:padding="@dimen/activity_magin_10"
                         android:textColor="@color/altitude_label"
                         android:layout_height="match_parent" />-->
-                    <LinearLayout
+                    <!--<LinearLayout
                         android:layout_width="0dip"
                         android:layout_height="match_parent"
                         android:layout_weight="0.25"
@@ -258,7 +320,7 @@
                             android:layout_weight="0.5"
                             android:gravity="center"
                             android:layout_height="0dip" />
-                    </LinearLayout>
+                    </LinearLayout>-->
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

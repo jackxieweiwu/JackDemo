@@ -920,10 +920,14 @@
     <string name="videotime">%1$02d:%2$02d:%3$02d</string>
     <string name="vision_status">Vision Sensors</string>
     <style name="AppBaseTheme" parent="android:Theme.Light">
-        
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
     </style>
     <style name="AppTheme" parent="AppBaseTheme">
-        
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
     <style name="DialogTheme" parent="android:Theme.Dialog">
         <item name="android:windowNoTitle">true</item>

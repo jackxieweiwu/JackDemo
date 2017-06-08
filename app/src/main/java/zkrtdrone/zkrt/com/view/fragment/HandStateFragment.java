@@ -75,7 +75,7 @@ public class HandStateFragment extends AbsFragment<FragmentHandBinding> {
 
     @Override
     protected void init(Bundle savedInstanceState) {
-        DroneSettingFragment droneSettingFragment = new DroneSettingFragment();
+        /*DroneSettingFragment droneSettingFragment = new DroneSettingFragment();
         BatterySettingFragment batterySettingFragment = new BatterySettingFragment();
         HolderSettingFragment holderSettingFragment = new HolderSettingFragment();
         BasisSettingFragment basisSettingFragment = new BasisSettingFragment();
@@ -105,7 +105,7 @@ public class HandStateFragment extends AbsFragment<FragmentHandBinding> {
         adapter.addFrag(mapSettingFragment, "地图");
         adapter.addFrag(recordSettingFragment, "记录");
         drone_setting_pager.setAdapter(adapter);
-        drone_tool_bar.setupWithViewPager(drone_setting_pager);
+        drone_tool_bar.setupWithViewPager(drone_setting_pager);*/
 
         if(ModuleVerificationUtil.isFlightControllerAvailable()){
             //Battery

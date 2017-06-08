@@ -1,1 +1,1 @@
-include ':app', ':jackmvvm', ':MapLib', ':android-uilib-release', ':dJISDKLIB', ':Animatorlibrary'
+include ':app', ':jackmvvm', ':MapLib', ':dJISDKLIB', ':Animatorlibrary'

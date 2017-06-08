@@ -151,7 +151,7 @@ public class MainStart extends RelativeLayout implements GestureMapFragment.OnPa
                     .add(R.id.drone_value, droneFragment)
                     .commit();
         }*/
-        mountFragment.setImgOpen(mount_open);
+        mountFragment.setImgOpen(mount_open,txt_tishi);
         mapMountFragment.GestureMapFragment(gestureMapFragment);
         handStateFragment.GestureMapFragment(gestureMapFragment);
         //telemetryFragment.setGestureMapFragment(gestureMapFragment);

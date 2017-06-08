@@ -16,12 +16,12 @@
         "source": "/root/.android/build-cache/38ce267a48580d0cf94e785393ccb022c66f14f8/output/res/layout/notification_template_lines_media.xml"
     },
     {
-        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/androidTest/debug/layout/expandable_view_group.xml",
-        "source": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/bundles/debug/res/layout/expandable_view_group.xml"
-    },
-    {
         "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/androidTest/debug/layout/notification_template_part_chronometer.xml",
         "source": "/root/.android/build-cache/38ce267a48580d0cf94e785393ccb022c66f14f8/output/res/layout/notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/androidTest/debug/layout/expandable_view_group.xml",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/bundles/debug/res/layout/expandable_view_group.xml"
     },
     {
         "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/androidTest/debug/layout/precheck_list_item_view.xml",

@@ -4,12 +4,12 @@
         "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/layout/widget_signal.xml"
     },
     {
-        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/layout/abc_action_mode_bar.xml",
-        "source": "/root/.android/build-cache/38ce267a48580d0cf94e785393ccb022c66f14f8/output/res/layout/abc_action_mode_bar.xml"
-    },
-    {
         "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/layout/abc_screen_toolbar.xml",
         "source": "/root/.android/build-cache/38ce267a48580d0cf94e785393ccb022c66f14f8/output/res/layout/abc_screen_toolbar.xml"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/layout/abc_action_mode_bar.xml",
+        "source": "/root/.android/build-cache/38ce267a48580d0cf94e785393ccb022c66f14f8/output/res/layout/abc_action_mode_bar.xml"
     },
     {
         "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/layout/widget_preflight_status.xml",
@@ -52,12 +52,12 @@
         "source": "/root/.android/build-cache/38ce267a48580d0cf94e785393ccb022c66f14f8/output/res/layout/abc_alert_dialog_button_bar_material.xml"
     },
     {
-        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/layout/precheck_list_item_view.xml",
-        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/layout/precheck_list_item_view.xml"
-    },
-    {
         "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/layout/wheel_item_camera_set_shutter.xml",
         "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/layout/wheel_item_camera_set_shutter.xml"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/layout/precheck_list_item_view.xml",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/layout/precheck_list_item_view.xml"
     },
     {
         "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/debug/layout/widget_format_and_storage.xml",

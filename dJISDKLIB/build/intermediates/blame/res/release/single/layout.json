@@ -4,12 +4,12 @@
         "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/layout/widget_rc_video_signal.xml"
     },
     {
-        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/release/layout/notification_template_lines_media.xml",
-        "source": "/root/.android/build-cache/38ce267a48580d0cf94e785393ccb022c66f14f8/output/res/layout/notification_template_lines_media.xml"
-    },
-    {
         "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/release/layout/abc_search_dropdown_item_icons_2line.xml",
         "source": "/root/.android/build-cache/38ce267a48580d0cf94e785393ccb022c66f14f8/output/res/layout/abc_search_dropdown_item_icons_2line.xml"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/release/layout/notification_template_lines_media.xml",
+        "source": "/root/.android/build-cache/38ce267a48580d0cf94e785393ccb022c66f14f8/output/res/layout/notification_template_lines_media.xml"
     },
     {
         "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/release/layout/abc_list_menu_item_checkbox.xml",
@@ -20,24 +20,24 @@
         "source": "/root/.android/build-cache/38ce267a48580d0cf94e785393ccb022c66f14f8/output/res/layout/abc_alert_dialog_button_bar_material.xml"
     },
     {
-        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/release/layout/abc_action_bar_view_list_nav_layout.xml",
-        "source": "/root/.android/build-cache/38ce267a48580d0cf94e785393ccb022c66f14f8/output/res/layout/abc_action_bar_view_list_nav_layout.xml"
-    },
-    {
         "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/release/layout/abc_screen_simple_overlay_action_mode.xml",
         "source": "/root/.android/build-cache/38ce267a48580d0cf94e785393ccb022c66f14f8/output/res/layout/abc_screen_simple_overlay_action_mode.xml"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/release/layout/abc_action_bar_view_list_nav_layout.xml",
+        "source": "/root/.android/build-cache/38ce267a48580d0cf94e785393ccb022c66f14f8/output/res/layout/abc_action_bar_view_list_nav_layout.xml"
     },
     {
         "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/release/layout/widget_camera_info.xml",
         "source": "/home/jack/视频/JackDemo/dJISDKLIB/src/main/res/layout/widget_camera_info.xml"
     },
     {
-        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/release/layout/abc_list_menu_item_icon.xml",
-        "source": "/root/.android/build-cache/38ce267a48580d0cf94e785393ccb022c66f14f8/output/res/layout/abc_list_menu_item_icon.xml"
-    },
-    {
         "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/release/layout/abc_expanded_menu_layout.xml",
         "source": "/root/.android/build-cache/38ce267a48580d0cf94e785393ccb022c66f14f8/output/res/layout/abc_expanded_menu_layout.xml"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/release/layout/abc_list_menu_item_icon.xml",
+        "source": "/root/.android/build-cache/38ce267a48580d0cf94e785393ccb022c66f14f8/output/res/layout/abc_list_menu_item_icon.xml"
     },
     {
         "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/release/layout/select_dialog_singlechoice_material.xml",

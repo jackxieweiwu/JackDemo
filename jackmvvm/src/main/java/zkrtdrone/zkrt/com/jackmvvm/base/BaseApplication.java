@@ -21,6 +21,7 @@ import dji.sdk.products.Aircraft;
 import dji.sdk.products.HandHeld;
 import dji.sdk.sdkmanager.DJISDKManager;
 import zkrtdrone.zkrt.com.jackmvvm.mvvm.core.AbsFrame;
+import zkrtdrone.zkrt.com.jackmvvm.mvvm.core.CrashHandler;
 import zkrtdrone.zkrt.com.jackmvvm.mvvm.util.DensityUtils;
 import zkrtdrone.zkrt.com.jackmvvm.mvvm.util.show.T;
 import zkrtdrone.zkrt.com.jackmvvm.rxbean.IOTask;
@@ -92,7 +93,7 @@ public abstract class BaseApplication extends Application {
         super.onCreate();
         handler = new Handler(Looper.getMainLooper());
         AbsFrame.init(this);
-        //CrashHandler.getInstance(this);
+        CrashHandler.getInstance(this);
         //如果你需要打开异常捕获模块，去掉下面语句的注释，将两个参数改为你的接口和key，便可以将崩溃信息上传到后台服务器
         //AbsFrame.init(this).openCrashHandler("http://192.168.2.183/server.php", "params");
         if (LeakCanary.isInAnalyzerProcess(this)) {
@@ -100,16 +101,17 @@ public abstract class BaseApplication extends Application {
         }
         refWatcher = LeakCanary.install(this);
 
-        RxjavaUtil.doInIOThread(new IOTask<Object>() {
+        /*RxjavaUtil.doInIOThread(new IOTask<Object>() {
             @Override
             public void doInIOThread() throws Exception {
                 Thread.sleep(3500);
-                int number = ContextCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.READ_PHONE_STATE);
-                if (number == 0 || Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-                    DJISDKManager.getInstance().registerApp(getApplicationContext(), mDJISDKManagerCallback);
-                }
+
             }
-        });
+        });*/
+        int number = ContextCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.READ_PHONE_STATE);
+        if (number == 0 || Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            DJISDKManager.getInstance().registerApp(getApplicationContext(), mDJISDKManagerCallback);
+        }
 
         initView();
         instance = this;

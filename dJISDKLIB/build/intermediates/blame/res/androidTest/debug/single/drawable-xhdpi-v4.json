@@ -436,12 +436,12 @@
         "source": "/root/.android/build-cache/38ce267a48580d0cf94e785393ccb022c66f14f8/output/res/drawable-xhdpi-v4/abc_ic_star_half_black_48dp.png"
     },
     {
-        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4/ic_advanced_more_wb_neon.png",
-        "source": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/bundles/debug/res/drawable-xhdpi-v4/ic_advanced_more_wb_neon.png"
-    },
-    {
         "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4/leftmenu_popup_alert.png",
         "source": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/bundles/debug/res/drawable-xhdpi-v4/leftmenu_popup_alert.png"
+    },
+    {
+        "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4/ic_advanced_more_wb_neon.png",
+        "source": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/bundles/debug/res/drawable-xhdpi-v4/ic_advanced_more_wb_neon.png"
     },
     {
         "merged": "/home/jack/视频/JackDemo/dJISDKLIB/build/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4/ic_checklist_radio_channel_quality.png",

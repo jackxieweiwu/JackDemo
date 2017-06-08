@@ -133,16 +133,20 @@ public class MainActivity extends AbsActivity<ActivityMainBinding> {
                                            @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
-        DJISDKManager.getInstance().registerApp(this, new DJISDKManager.SDKManagerCallback() {
+        /*DJISDKManager.getInstance().registerApp(this, new DJISDKManager.SDKManagerCallback() {
             @Override
             public void onRegister(DJIError djiError) {
-                //DJILog.e("App registration", djiError == null ? "null" : djiError.getDescription());
             }
             @Override
             public void onProductChange(BaseProduct baseProduct, BaseProduct baseProduct1) {
                 // DO nothing.
             }
-        });
+        });*/
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 
     @Override
